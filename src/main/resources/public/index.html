@@ -3,19 +3,29 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Pi Cloud - Dateiverwaltung</title>
+	<title>Pi Cloud</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<div class="container">
 		<h1>Pi Cloud</h1>
 		<form id="uploadForm">
-			<label for="fileInput" class="upload-label">Datei auswählen</label>
-			<input type="file" id="fileInput" name="file" required>
-			<button type="submit" class="upload-btn">Hochladen</button>
+			<label for="fileInput" class="upload-label">Pick Files</label>
+			<input type="file" id="fileInput" name="files" multiple required>
+			
+			<!-- File Preview Section -->
+			<div id="filePreview" class="file-preview hidden">
+				<div class="preview-header">
+					<h3>Ausgewählte Dateien:</h3>
+					<button type="button" class="btn-clear" onclick="clearSelectedFiles()">Alle entfernen</button>
+				</div>
+				<div id="previewList" class="preview-list"></div>
+			</div>
+			
+			<button type="submit" class="upload-btn">Upload</button>
 		</form>
 		<div id="message"></div>
-		<h2>Deine Dateien</h2>
+		<h2>Your Files</h2>
 		<div id="fileList" class="file-list"></div>
 	</div>
 	<script src="script.js"></script>

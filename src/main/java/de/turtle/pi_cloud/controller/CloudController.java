@@ -1,26 +1,44 @@
 package de.turtle.pi_cloud.controller;
 
+import java.io.IOException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
-import de.turtle.pi_cloud.services.CloudService;
 import de.turtle.pi_cloud.models.FileEntity;
-import java.io.IOException;
+import de.turtle.pi_cloud.services.CloudService;
 
 @RestController
 @RequestMapping("/api/files")
+@CrossOrigin(origins = "*") //ONLY FOR TESTING, RESTRICT IN PRODUCTION
 public class CloudController {
     @Autowired
     private CloudService cloudService;
 
     @PostMapping("/upload")
-    public ResponseEntity<FileEntity> uploadFile(@RequestParam("file") MultipartFile file) throws IOException {
-        FileEntity saved = cloudService.storeFile(file);
-        return ResponseEntity.ok(saved);
+    public ResponseEntity<List<FileEntity>> uploadFile(@RequestParam("files") MultipartFile[] files) throws IOException {
+        if(files.length == 1) {
+            return ResponseEntity.ok(List.of(cloudService.storeFile(files[0])));
+        }
+        List<FileEntity> savedFiles = cloudService.storeFiles(files);
+        return ResponseEntity.ok(savedFiles);
+    }
+
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<Void> deleteFile(@PathVariable Long id) throws IOException {
+        cloudService.deleteFile(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/download/{id}")
@@ -31,5 +49,11 @@ public class CloudController {
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + entity.getName())
             .contentType(MediaType.APPLICATION_OCTET_STREAM)
             .body(data);
+    }
+
+    @GetMapping("/list")
+    public ResponseEntity<FileEntity[]> listFiles() {
+        FileEntity[] files = cloudService.listFiles();
+        return ResponseEntity.ok(files);
     }
 }
