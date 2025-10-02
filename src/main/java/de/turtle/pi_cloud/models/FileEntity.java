@@ -3,10 +3,10 @@ package de.turtle.pi_cloud.models;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "files")
@@ -20,6 +20,7 @@ public class FileEntity {
 	private Long size;
 	private String type;
 	private LocalDateTime uploadedAt;
+	private boolean encrypted = false;
 
 	public FileEntity() {}
 
@@ -42,4 +43,6 @@ public class FileEntity {
 	public void setType(String type) { this.type = type; }
 	public LocalDateTime getUploadedAt() { return uploadedAt; }
 	public void setUploadedAt(LocalDateTime uploadedAt) { this.uploadedAt = uploadedAt; }
+	public boolean isEncrypted() { return encrypted; }
+	public void setEncrypted(boolean encrypted) { this.encrypted = encrypted; }
 }

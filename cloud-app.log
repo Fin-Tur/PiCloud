@@ -1,0 +1,348 @@
+2025-10-02T12:20:54.445+02:00  INFO 20536 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 20536 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:20:54.447+02:00 DEBUG 20536 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:20:54.448+02:00  INFO 20536 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:20:55.150+02:00  INFO 20536 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:20:55.214+02:00  INFO 20536 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2025-10-02T12:20:55.641+02:00  INFO 20536 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:20:55.655+02:00  INFO 20536 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:20:55.655+02:00  INFO 20536 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:20:55.716+02:00  INFO 20536 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:20:55.716+02:00  INFO 20536 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1218 ms
+2025-10-02T12:20:55.898+02:00  INFO 20536 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:20:55.951+02:00  INFO 20536 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:20:55.986+02:00  INFO 20536 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:20:56.238+02:00  INFO 20536 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:20:56.267+02:00  INFO 20536 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:21:00.512+02:00  INFO 20536 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:21:00.515+02:00  INFO 20536 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:21:00.533+02:00  WARN 20536 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:21:00.547+02:00  INFO 20536 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:21:01.083+02:00  INFO 20536 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:21:01.115+02:00  INFO 20536 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:21:01.317+02:00  WARN 20536 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:21:01.342+02:00  INFO 20536 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:21:01.587+02:00  INFO 20536 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:21:01.672+02:00  INFO 20536 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:21:01.681+02:00  INFO 20536 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 7.648 seconds (process running for 7.923)
+2025-10-02T12:21:06.190+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-02T12:21:06.190+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-02T12:21:06.191+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-02T12:22:30.539+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] d.turtle.pi_cloud.services.CloudService  : Downloaded file: helper.png from C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:22:35.218+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] d.turtle.pi_cloud.services.CloudService  : Deleted file: helper.png from C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:22:39.960+02:00  INFO 20536 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] d.turtle.pi_cloud.services.CloudService  : Saved file: helper.png at C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:23:50.971+02:00  INFO 428 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 428 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:23:50.974+02:00 DEBUG 428 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:23:50.975+02:00  INFO 428 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:23:51.803+02:00  INFO 428 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:23:51.864+02:00  INFO 428 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2025-10-02T12:23:52.380+02:00  INFO 428 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:23:52.397+02:00  INFO 428 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:23:52.397+02:00  INFO 428 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:23:52.461+02:00  INFO 428 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:23:52.461+02:00  INFO 428 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1427 ms
+2025-10-02T12:23:52.671+02:00  INFO 428 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:23:52.724+02:00  INFO 428 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:23:52.763+02:00  INFO 428 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:23:53.073+02:00  INFO 428 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:23:53.132+02:00  INFO 428 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:23:58.702+02:00  INFO 428 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:23:58.704+02:00  INFO 428 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:23:58.722+02:00  WARN 428 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:23:58.737+02:00  INFO 428 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:23:59.278+02:00  INFO 428 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:23:59.311+02:00  INFO 428 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:23:59.513+02:00  WARN 428 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:23:59.537+02:00  INFO 428 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:23:59.822+02:00  INFO 428 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:23:59.903+02:00  INFO 428 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:23:59.912+02:00  INFO 428 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 9.421 seconds (process running for 9.743)
+2025-10-02T12:24:03.510+02:00  INFO 428 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-02T12:24:03.510+02:00  INFO 428 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-02T12:24:03.511+02:00  INFO 428 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-02T12:25:17.041+02:00  INFO 20896 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 20896 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:25:17.042+02:00 DEBUG 20896 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:25:17.043+02:00  INFO 20896 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:25:18.246+02:00  INFO 20896 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:25:18.330+02:00  INFO 20896 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 73 ms. Found 1 JPA repository interface.
+2025-10-02T12:25:19.310+02:00  INFO 20896 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:25:19.325+02:00  INFO 20896 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:25:19.325+02:00  INFO 20896 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:25:19.550+02:00  INFO 20896 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:25:19.550+02:00  INFO 20896 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2388 ms
+2025-10-02T12:25:20.190+02:00  INFO 20896 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:25:20.320+02:00  INFO 20896 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:25:20.430+02:00  INFO 20896 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:25:21.146+02:00  INFO 20896 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:25:21.267+02:00  INFO 20896 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:25:26.033+02:00  INFO 20896 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:25:26.035+02:00  INFO 20896 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:25:26.133+02:00  WARN 20896 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:25:26.181+02:00  INFO 20896 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:25:27.741+02:00  INFO 20896 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:25:27.835+02:00  INFO 20896 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:25:28.855+02:00  WARN 20896 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:25:28.955+02:00  INFO 20896 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:25:29.973+02:00  INFO 20896 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:25:30.183+02:00  INFO 20896 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:25:30.197+02:00  INFO 20896 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 13.906 seconds (process running for 14.412)
+2025-10-02T12:25:48.056+02:00  INFO 16268 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 16268 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:25:48.058+02:00 DEBUG 16268 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:25:48.059+02:00  INFO 16268 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:25:49.971+02:00  INFO 16268 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:25:50.110+02:00  INFO 16268 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 128 ms. Found 1 JPA repository interface.
+2025-10-02T12:25:51.485+02:00  INFO 16268 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:25:51.508+02:00  INFO 16268 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:25:51.509+02:00  INFO 16268 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:25:51.632+02:00  INFO 16268 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:25:51.632+02:00  INFO 16268 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3373 ms
+2025-10-02T12:25:52.110+02:00  INFO 16268 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:25:52.179+02:00  INFO 16268 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:25:52.267+02:00  INFO 16268 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:25:53.054+02:00  INFO 16268 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:25:53.191+02:00  INFO 16268 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:25:58.557+02:00  INFO 16268 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:25:58.564+02:00  INFO 16268 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:25:58.633+02:00  WARN 16268 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:25:58.667+02:00  INFO 16268 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:25:59.863+02:00  INFO 16268 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:25:59.956+02:00  INFO 16268 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:26:50.280+02:00  WARN 16268 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:26:50.315+02:00  INFO 16268 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:26:50.771+02:00  INFO 16268 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:26:50.872+02:00  INFO 16268 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:26:50.880+02:00  INFO 16268 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 63.858 seconds (process running for 64.496)
+2025-10-02T12:27:33.571+02:00  INFO 20300 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 20300 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:27:33.573+02:00 DEBUG 20300 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:27:33.574+02:00  INFO 20300 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:27:34.322+02:00  INFO 20300 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:27:34.384+02:00  INFO 20300 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 1 JPA repository interface.
+2025-10-02T12:27:34.836+02:00  INFO 20300 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:27:34.850+02:00  INFO 20300 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:27:34.851+02:00  INFO 20300 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:27:34.910+02:00  INFO 20300 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:27:34.911+02:00  INFO 20300 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1289 ms
+2025-10-02T12:27:35.084+02:00  INFO 20300 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:27:35.136+02:00  INFO 20300 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:27:35.170+02:00  INFO 20300 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:27:35.471+02:00  INFO 20300 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:27:35.503+02:00  INFO 20300 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:27:35.603+02:00  INFO 20300 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:27:35.605+02:00  INFO 20300 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:27:35.626+02:00  WARN 20300 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:27:35.644+02:00  INFO 20300 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:27:36.245+02:00  INFO 20300 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:27:36.275+02:00  INFO 20300 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:27:36.465+02:00  WARN 20300 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:27:36.488+02:00  INFO 20300 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:27:36.747+02:00  INFO 20300 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:27:36.825+02:00  WARN 20300 --- [pi-cloud] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-10-02T12:27:36.826+02:00  INFO 20300 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:27:36.830+02:00  INFO 20300 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-02T12:27:36.837+02:00  INFO 20300 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-02T12:27:36.852+02:00  INFO 20300 --- [pi-cloud] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-02T12:27:36.872+02:00 ERROR 20300 --- [pi-cloud] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-10-02T12:28:09.372+02:00  INFO 19156 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 19156 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:28:09.380+02:00 DEBUG 19156 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:28:09.380+02:00  INFO 19156 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:28:10.015+02:00  INFO 19156 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:28:10.069+02:00  INFO 19156 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
+2025-10-02T12:28:10.498+02:00  INFO 19156 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:28:10.512+02:00  INFO 19156 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:28:10.512+02:00  INFO 19156 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:28:10.566+02:00  INFO 19156 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:28:10.567+02:00  INFO 19156 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1145 ms
+2025-10-02T12:28:10.734+02:00  INFO 19156 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:28:10.787+02:00  INFO 19156 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:28:10.823+02:00  INFO 19156 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:28:11.089+02:00  INFO 19156 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:28:11.119+02:00  INFO 19156 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:28:11.211+02:00  INFO 19156 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:28:11.213+02:00  INFO 19156 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:28:11.234+02:00  WARN 19156 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:28:11.252+02:00  INFO 19156 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:28:11.861+02:00  INFO 19156 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:28:11.890+02:00  INFO 19156 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:28:12.066+02:00  WARN 19156 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:28:12.086+02:00  INFO 19156 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:28:12.286+02:00  INFO 19156 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:28:12.344+02:00  WARN 19156 --- [pi-cloud] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-10-02T12:28:12.346+02:00  INFO 19156 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:28:12.348+02:00  INFO 19156 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-10-02T12:28:12.357+02:00  INFO 19156 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-10-02T12:28:12.367+02:00  INFO 19156 --- [pi-cloud] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-10-02T12:28:12.382+02:00 ERROR 19156 --- [pi-cloud] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-10-02T12:31:58.486+02:00  INFO 10248 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 10248 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:31:58.488+02:00 DEBUG 10248 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:31:58.489+02:00  INFO 10248 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:31:59.216+02:00  INFO 10248 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:31:59.284+02:00  INFO 10248 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 58 ms. Found 1 JPA repository interface.
+2025-10-02T12:31:59.799+02:00  INFO 10248 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:31:59.817+02:00  INFO 10248 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:31:59.817+02:00  INFO 10248 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:31:59.873+02:00  INFO 10248 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:31:59.874+02:00  INFO 10248 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1335 ms
+2025-10-02T12:32:00.073+02:00  INFO 10248 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:32:00.157+02:00  INFO 10248 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:32:00.199+02:00  INFO 10248 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:32:00.536+02:00  INFO 10248 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:32:00.569+02:00  INFO 10248 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:32:04.879+02:00  INFO 10248 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:32:04.880+02:00  INFO 10248 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:32:04.909+02:00  WARN 10248 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:32:04.926+02:00  INFO 10248 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:32:05.621+02:00  INFO 10248 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:32:05.657+02:00  INFO 10248 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:32:05.876+02:00  WARN 10248 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:32:05.902+02:00  INFO 10248 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:32:06.184+02:00  INFO 10248 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:32:06.270+02:00  INFO 10248 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:32:06.278+02:00  INFO 10248 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 8.28 seconds (process running for 8.591)
+2025-10-02T12:32:14.218+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-02T12:32:14.218+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-02T12:32:14.219+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-02T12:32:21.852+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] d.turtle.pi_cloud.services.CloudService  : Encrypted file: helper.png at C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:32:22.044+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: helper.png
+2025-10-02T12:32:50.636+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] d.turtle.pi_cloud.services.CloudService  : Encrypted file: helper.png at C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:32:50.709+02:00  INFO 10248 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: helper.png
+2025-10-02T12:34:12.703+02:00  INFO 9928 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Starting PiCloudApplication using Java 24.0.2 with PID 9928 (C:\Users\Admin\Projects\pi_cloud\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud\pi_cloud)
+2025-10-02T12:34:12.705+02:00 DEBUG 9928 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Running with Spring Boot v3.5.5, Spring v6.2.10
+2025-10-02T12:34:12.705+02:00  INFO 9928 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : No active profile set, falling back to 1 default profile: "default"
+2025-10-02T12:34:13.258+02:00  INFO 9928 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-10-02T12:34:13.313+02:00  INFO 9928 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 1 JPA repository interface.
+2025-10-02T12:34:13.736+02:00  INFO 9928 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-10-02T12:34:13.750+02:00  INFO 9928 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-10-02T12:34:13.750+02:00  INFO 9928 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-10-02T12:34:13.799+02:00  INFO 9928 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-10-02T12:34:13.799+02:00  INFO 9928 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1047 ms
+2025-10-02T12:34:14.008+02:00  INFO 9928 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-10-02T12:34:14.059+02:00  INFO 9928 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-10-02T12:34:14.095+02:00  INFO 9928 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-10-02T12:34:14.376+02:00  INFO 9928 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-10-02T12:34:14.406+02:00  INFO 9928 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-10-02T12:34:18.659+02:00  INFO 9928 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-10-02T12:34:18.661+02:00  INFO 9928 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-10-02T12:34:18.678+02:00  WARN 9928 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-10-02T12:34:18.693+02:00  INFO 9928 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-10-02T12:34:19.236+02:00  INFO 9928 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-10-02T12:34:19.272+02:00  INFO 9928 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-10-02T12:34:19.489+02:00  WARN 9928 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-10-02T12:34:19.516+02:00  INFO 9928 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-10-02T12:34:19.809+02:00  INFO 9928 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-10-02T12:34:19.888+02:00  INFO 9928 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-10-02T12:34:19.895+02:00  INFO 9928 --- [pi-cloud] [main] de.turtle.pi_cloud.PiCloudApplication    : Started PiCloudApplication in 7.599 seconds (process running for 7.88)
+2025-10-02T12:34:22.417+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-02T12:34:22.417+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-10-02T12:34:22.419+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-10-02T12:34:26.268+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] d.turtle.pi_cloud.services.CloudService  : Saved file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:34:31.285+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] d.turtle.pi_cloud.services.CloudService  : Encrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:34:31.382+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:34:47.150+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] d.turtle.pi_cloud.services.CloudService  : Decrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:34:47.248+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:34:50.911+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] d.turtle.pi_cloud.services.CloudService  : Deleted file: info.png from C:\temp\pi_cloud\files\info.png
+2025-10-02T12:34:52.602+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] d.turtle.pi_cloud.services.CloudService  : Deleted file: helper.png from C:\temp\pi_cloud\files\helper.png
+2025-10-02T12:35:13.846+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.pi_cloud.services.CloudService  : Saved file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:35:18.552+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] d.turtle.pi_cloud.services.CloudService  : Encrypted file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:35:18.766+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: Abitur_Finn_Willems.pdf
+2025-10-02T12:40:00.048+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] d.turtle.pi_cloud.services.CloudService  : Decrypted file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:40:01.233+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: Abitur_Finn_Willems.pdf
+2025-10-02T12:40:10.420+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.pi_cloud.services.CloudService  : Encrypted file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:40:10.688+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: Abitur_Finn_Willems.pdf
+2025-10-02T12:46:39.208+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] d.turtle.pi_cloud.services.CloudService  : Saved file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:46:54.790+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] d.turtle.pi_cloud.services.CloudService  : Encrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:46:54.867+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:47:11.640+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] d.turtle.pi_cloud.services.CloudService  : Decrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:47:11.735+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:47:34.849+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] d.turtle.pi_cloud.services.CloudService  : Encrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:47:34.928+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:47:45.174+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.pi_cloud.services.CloudService  : Decrypted file: info.png at C:\temp\pi_cloud\files\info.png
+2025-10-02T12:47:45.269+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: info.png
+2025-10-02T12:47:58.777+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] d.turtle.pi_cloud.services.CloudService  : Decrypted file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:47:59.942+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: Abitur_Finn_Willems.pdf
+2025-10-02T12:48:14.095+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] d.turtle.pi_cloud.services.CloudService  : Encrypted file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-10-02T12:48:14.294+02:00  INFO 9928 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] d.turtle.pi_cloud.services.CloudService  : Successfully en/decrypted file: Abitur_Finn_Willems.pdf

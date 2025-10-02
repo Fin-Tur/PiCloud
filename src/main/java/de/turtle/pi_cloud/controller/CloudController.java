@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,16 @@ public class CloudController {
         List<FileEntity> savedFiles = cloudService.storeFiles(files);
         return ResponseEntity.ok(savedFiles);
     }
+
+    @PostMapping("/encryption/{id}")
+    public ResponseEntity<String> enDeCryptFile(@PathVariable Long id, @RequestBody String password) throws IOException {
+        System.out.println("Password received: " + password + " File ID: " + id);
+        if(cloudService.enDeCryptFile(id, password)) {
+            return ResponseEntity.ok("Success");
+        }
+        return ResponseEntity.noContent().build();
+    }
+    
 
     @GetMapping("/delete/{id}")
     public ResponseEntity<Void> deleteFile(@PathVariable Long id) throws IOException {

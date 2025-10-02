@@ -684,8 +684,8 @@ h2::after {
 }
 
 .btn-download {
-  background: var(--accent-color);
-  color: var(--white);
+  background: var(--white);
+  color: var(--accent-color);
   border-color: var(--accent-color);
 }
 
@@ -709,13 +709,13 @@ h2::after {
   box-shadow: var(--shadow-sm);
 }
 
-.btn-info {
+.btn-crypt {
   background: var(--white);
   color: var(--info-color);
   border-color: var(--info-color);
 }
 
-.btn-info:hover {
+.btn-crypt:hover {
   background: var(--info-color);
   color: var(--white);
   transform: translateY(-1px);

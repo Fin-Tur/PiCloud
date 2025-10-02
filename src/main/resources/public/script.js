@@ -69,18 +69,22 @@ function displayFiles() {
         downloadBtn.textContent = '📥 Download';
         downloadBtn.addEventListener('click', () => downloadFile(file.id));
         
-        const infoBtn = document.createElement('button');
-        infoBtn.className = 'btn-small btn-info';
-        infoBtn.textContent = 'ℹ️ Info';
-        infoBtn.addEventListener('click', () => showFileInfo(file.id));
-        
+        const cryptBtn = document.createElement('button');
+        cryptBtn.className = 'btn-small btn-crypt';
+        if (file.encrypted) {
+            cryptBtn.textContent = '🔒 Decrypt';
+        }else{
+            cryptBtn.textContent = '🔒 Encrypt';
+        }
+        cryptBtn.addEventListener('click', () => fileEnDecryption(file.id));
+
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
         deleteBtn.textContent = '🗑️ Delete';
         deleteBtn.addEventListener('click', () => deleteFile(file.id));
         
         actionsDiv.appendChild(downloadBtn);
-        actionsDiv.appendChild(infoBtn);
+        actionsDiv.appendChild(cryptBtn);
         actionsDiv.appendChild(deleteBtn);
         
         fileItem.appendChild(iconDiv);
@@ -155,9 +159,23 @@ async function downloadFile(fileId) {
     }
 }
 
-function showFileInfo(fileId) {
-    console.log('Show info for file:', fileId);
-    // TODO: Implement file info modal
+async function fileEnDecryption(fileId) {
+    try{
+        const password = prompt("Enter the password for encryption/decryption:");
+        if (!password) {
+            alert('Password is required for encryption/decryption.');
+            return;
+        }
+        const response = await fetch(`/api/files/encryption/${fileId}`, { method: 'POST', body: JSON.stringify({ password }), headers: { 'Content-Type': 'application/json' } });
+        if (response.ok) {
+            alert('File encrypted successfully!');
+        } else {
+            alert('Error encrypting file: ' + response.statusText);
+        }
+    }catch(error) {
+        console.error('Error encrypting file:', error);
+        alert('Error encrypting file: ' + error.message);
+    }
 }
 
 async function deleteFile(fileId) {

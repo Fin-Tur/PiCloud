@@ -14,7 +14,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 import de.turtle.pi_cloud.models.FileEntity;
 import de.turtle.pi_cloud.models.FileEntityRepository;
+import lombok.extern.slf4j.Slf4j;
 
+
+
+@Slf4j
 @Service
 public class CloudService {
 
@@ -38,6 +42,7 @@ public class CloudService {
             file.getContentType(),
             LocalDateTime.now()
         );
+        log.info("Saved file: " + file.getOriginalFilename() + " at " + filePath.toString());
         return fileEntityRepository.save(entity);
     }
 
@@ -53,6 +58,7 @@ public class CloudService {
     public byte[] downloadFile(Long id) throws IOException {
         FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(entity.getPath());
+        log.info("Downloaded file: " + entity.getName() + " from " + filePath.toString());
         return Files.readAllBytes(filePath);
     }
 
@@ -65,7 +71,36 @@ public class CloudService {
         Path filePath = Paths.get(entity.getPath());
         Files.deleteIfExists(filePath);
         fileEntityRepository.deleteById(id);
+        log.info("Deleted file: " + entity.getName() + " from " + filePath.toString());
         return entity;
+    }
+
+    public boolean enDeCryptFile(Long id, String password) throws IOException {
+        FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
+        Path filePath = Paths.get(entity.getPath());
+        ProcessBuilder pb = new ProcessBuilder();
+        if(entity.isEncrypted()) {
+            pb.command("cmd.exe", "/c", "fis -decrypt " + filePath.toString() + " " + password);
+            entity.setEncrypted(false);
+            log.info("Decrypted file: " + entity.getName() + " at " + filePath.toString());
+        } else {
+            entity.setEncrypted(true);
+            pb.command("cmd.exe", "/c", "fis -encrypt " + filePath.toString() + " " + password);
+            log.info("Encrypted file: " + entity.getName() + " at " + filePath.toString());
+        }
+        try {
+            Process process = pb.start();
+            int exitCode = process.waitFor();
+            if (exitCode == 0) {
+                fileEntityRepository.save(entity);
+                log.info("Successfully en/decrypted file: " + entity.getName());
+                return true;
+            }
+        } catch (Exception e) {
+            log.error("Error during encryption/decryption: " + e.getMessage());
+            return false;
+        }
+        return false;
     }
 
     public String getCloudInfo() {
