@@ -38,17 +38,26 @@ public class CloudController {
 
     @PostMapping("/encryption/{id}")
     public ResponseEntity<String> enDeCryptFile(@PathVariable Long id, @RequestBody String password) throws IOException {
-        System.out.println("Password received: " + password + " File ID: " + id);
         if(cloudService.enDeCryptFile(id, password)) {
+            return ResponseEntity.ok("Sucess");
+        }
+        return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/compression/{id}")
+    public ResponseEntity<String> deCompressFile(@PathVariable Long id) throws IOException {
+        if(cloudService.deCompressFile(id)){
             return ResponseEntity.ok("Success");
         }
         return ResponseEntity.noContent().build();
     }
     
 
-    @GetMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteFile(@PathVariable Long id) throws IOException {
-        cloudService.deleteFile(id);
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<String> deleteFile(@PathVariable Long id) throws IOException {
+        if (cloudService.deleteFile(id) != null){
+            return ResponseEntity.ok("Success");
+        }
         return ResponseEntity.noContent().build();
     }
 

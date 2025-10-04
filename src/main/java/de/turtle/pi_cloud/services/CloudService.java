@@ -75,33 +75,94 @@ public class CloudService {
         return entity;
     }
 
-    public boolean enDeCryptFile(Long id, String password) throws IOException {
+    public boolean enDeCryptFile(Long id, String password) {
         FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(entity.getPath());
-        ProcessBuilder pb = new ProcessBuilder();
-        if(entity.isEncrypted()) {
-            pb.command("cmd.exe", "/c", "fis -decrypt " + filePath.toString() + " " + password);
-            entity.setEncrypted(false);
-            log.info("Decrypted file: " + entity.getName() + " at " + filePath.toString());
-        } else {
-            entity.setEncrypted(true);
-            pb.command("cmd.exe", "/c", "fis -encrypt " + filePath.toString() + " " + password);
-            log.info("Encrypted file: " + entity.getName() + " at " + filePath.toString());
+
+        if (!HelperFunctions.fileAtPathIsSafeToModify(storagePath, filePath)) {
+            log.warn("File @ {} is not safe to modify!", entity.getName());
+            return false;
         }
+
+        List<String> cmd = new ArrayList<>();
+        cmd.add("fis");
+        if (entity.isEncrypted()) {
+            cmd.add("-decrypt");
+        } else {
+            cmd.add("-encrypt");
+        }
+        cmd.add(filePath.toString());
+        cmd.add(password); 
+
+        ProcessBuilder pb = new ProcessBuilder(cmd);
+        pb.redirectErrorStream(true); 
+
         try {
-            Process process = pb.start();
-            int exitCode = process.waitFor();
-            if (exitCode == 0) {
+            Process p = pb.start();
+            boolean finished = p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS);
+            if (!finished) {
+                p.destroyForcibly();
+                log.error("fis timed out");
+                return false;
+            }
+            int exit = p.exitValue();
+            if (exit == 0) {
+                entity.setEncrypted(!entity.isEncrypted());
                 fileEntityRepository.save(entity);
-                log.info("Successfully en/decrypted file: " + entity.getName());
+                log.info("De/En-cryption successful for {}", entity.getName());
                 return true;
+            } else {
+                log.error("fis exit code {}", exit);
+                return false;
             }
         } catch (Exception e) {
-            log.error("Error during encryption/decryption: " + e.getMessage());
+            log.error("Error during encryption/decryption", e);
             return false;
+    }
+}
+
+
+    public boolean deCompressFile(Long id) throws IOException {
+        FileEntity fileEntity = fileEntityRepository.findById(id).orElseThrow();
+        Path filePath = Paths.get(fileEntity.getPath());
+
+         if(!HelperFunctions.fileAtPathIsSafeToModify(storagePath, filePath)){
+            log.warn("File @ " + fileEntity.getName() + " is not safe to modify!");
+            return false;
+        }
+
+        ProcessBuilder pb = new ProcessBuilder();
+        List<String> cmd = new ArrayList<>();
+        cmd.add("fis");
+        if(fileEntity.isCompressed()){
+            cmd.add("-decompress");
+        }else{
+            cmd.add("-compress");
+        }
+        cmd.add(filePath.toString());
+
+        try {
+                Process p = pb.start();
+                boolean finished = p.waitFor(60, java.util.concurrent.TimeUnit.SECONDS);
+                if (!finished) {
+                    p.destroyForcibly();
+                    log.error("fis timed out");
+                    return false;
+                }
+                int exitValue = p.exitValue();
+                if(exitValue == 0){
+                    fileEntity.setCompressed(!fileEntity.isCompressed());
+                    fileEntityRepository.save(fileEntity);
+                    log.info("De/En-cryption successful for {}", fileEntity.getName()); 
+                }else{
+                    log.info("An error occured de/compressing file @ " + fileEntity.getPath().toString());
+                }
+        } catch (Exception e) {
+                log.error("Error occured during de/compression " + e.getMessage());
         }
         return false;
     }
+
 
     public String getCloudInfo() {
         return "Cloud information";

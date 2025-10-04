@@ -21,6 +21,7 @@ public class FileEntity {
 	private String type;
 	private LocalDateTime uploadedAt;
 	private boolean encrypted = false;
+	private boolean compressed = false;
 
 	public FileEntity() {}
 
@@ -32,6 +33,7 @@ public class FileEntity {
 		this.uploadedAt = uploadedAt;
 	}
 
+	
 	public Long getId() { return id; }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
@@ -45,4 +47,6 @@ public class FileEntity {
 	public void setUploadedAt(LocalDateTime uploadedAt) { this.uploadedAt = uploadedAt; }
 	public boolean isEncrypted() { return encrypted; }
 	public void setEncrypted(boolean encrypted) { this.encrypted = encrypted; }
+	public boolean isCompressed() { return compressed; }
+	public void setCompressed(boolean compressed) { this.compressed = compressed; }
 }
