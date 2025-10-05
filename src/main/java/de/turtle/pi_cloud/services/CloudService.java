@@ -8,12 +8,17 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.multipart.MultipartFile;
 
+import de.turtle.pi_cloud.controller.CloudController;
 import de.turtle.pi_cloud.models.FileEntity;
 import de.turtle.pi_cloud.models.FileEntityRepository;
+import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 
 
@@ -22,11 +27,19 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class CloudService {
 
+     private static final Logger log = LoggerFactory.getLogger(CloudService.class);
+
     private final String storagePath = "C:/temp/pi_cloud/files"; // Example Path
 
     @Autowired
     public FileEntityRepository fileEntityRepository;
 
+    public FileEntity getFileById(Long id) {
+        return fileEntityRepository.findById(id).orElseThrow(() -> 
+            new RuntimeException("File not found with id: " + id));
+    }
+
+    @Transactional
     public FileEntity storeFile(MultipartFile file) throws IOException {
         Path dirPath = Paths.get(storagePath);
         if (!Files.exists(dirPath)) {
@@ -45,6 +58,7 @@ public class CloudService {
         log.info("Saved file: " + file.getOriginalFilename() + " at " + filePath.toString());
         return fileEntityRepository.save(entity);
     }
+    @Transactional
 
     public List<FileEntity> storeFiles(MultipartFile[] files) throws IOException {
         List<FileEntity> savedFiles = new ArrayList<>();
@@ -55,6 +69,7 @@ public class CloudService {
         return savedFiles;
     }
 
+    @Transactional
     public byte[] downloadFile(Long id) throws IOException {
         FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(entity.getPath());
@@ -62,10 +77,12 @@ public class CloudService {
         return Files.readAllBytes(filePath);
     }
 
+    @Transactional
     public FileEntity[] listFiles() {
         return fileEntityRepository.findAll().toArray(new FileEntity[0]);
     }
 
+    @Transactional
     public FileEntity deleteFile(Long id) throws IOException {
         FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(entity.getPath());
@@ -75,6 +92,7 @@ public class CloudService {
         return entity;
     }
 
+    @Transactional
     public boolean enDeCryptFile(Long id, String password) {
         FileEntity entity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(entity.getPath());
@@ -121,7 +139,7 @@ public class CloudService {
     }
 }
 
-
+    @Transactional
     public boolean deCompressFile(Long id) throws IOException {
         FileEntity fileEntity = fileEntityRepository.findById(id).orElseThrow();
         Path filePath = Paths.get(fileEntity.getPath());
@@ -163,7 +181,7 @@ public class CloudService {
         return false;
     }
 
-
+    @Transactional
     public String getCloudInfo() {
         return "Cloud information";
     }
