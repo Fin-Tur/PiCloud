@@ -12,18 +12,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.multipart.MultipartFile;
 
-import de.turtle.pi_cloud.controller.CloudController;
 import de.turtle.pi_cloud.models.FileEntity;
 import de.turtle.pi_cloud.models.FileEntityRepository;
 import jakarta.transaction.Transactional;
-import lombok.extern.slf4j.Slf4j;
 
 
-
-@Slf4j
 @Service
 public class CloudService {
 
@@ -58,8 +53,8 @@ public class CloudService {
         log.info("Saved file: " + file.getOriginalFilename() + " at " + filePath.toString());
         return fileEntityRepository.save(entity);
     }
-    @Transactional
 
+    @Transactional
     public List<FileEntity> storeFiles(MultipartFile[] files) throws IOException {
         List<FileEntity> savedFiles = new ArrayList<>();
         for (MultipartFile file : files) {
@@ -149,7 +144,6 @@ public class CloudService {
             return false;
         }
 
-        ProcessBuilder pb = new ProcessBuilder();
         List<String> cmd = new ArrayList<>();
         cmd.add("fis");
         if(fileEntity.isCompressed()){
@@ -158,6 +152,8 @@ public class CloudService {
             cmd.add("-compress");
         }
         cmd.add(filePath.toString());
+
+        ProcessBuilder pb = new ProcessBuilder(cmd);
 
         try {
                 Process p = pb.start();
@@ -171,7 +167,8 @@ public class CloudService {
                 if(exitValue == 0){
                     fileEntity.setCompressed(!fileEntity.isCompressed());
                     fileEntityRepository.save(fileEntity);
-                    log.info("De/En-cryption successful for {}", fileEntity.getName()); 
+                    log.info("De/Compression successful for {}", fileEntity.getName()); 
+                    return true;
                 }else{
                     log.info("An error occured de/compressing file @ " + fileEntity.getPath().toString());
                 }

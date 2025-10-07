@@ -1,19 +1,8 @@
 
 
-CloudController - Verbesserungsbedarf:
-❌ Fehlende Validierung: Keine Input-Validierung für Parameter 
-❌ Exception-Handling: IOException wird an Controller-Ebene geworfen statt behandelt 
-❌ Direkte Repository-Zugriffe: Controller greift direkt auf Repository zu (cloudService.fileEntityRepository)
-
-
 CloudService - Verbesserungsbedarf:
 ❌ Hardcoded Pfad: Storage-Pfad ist fest kodiert (files) 
-❌ Fehlende Transaktionen: Database-Operationen ohne Transaktionsmanagement 
 ❌ Unvollständige Error-Handling: Methoden geben teilweise false zurück ohne detaillierte Fehlerinformationen 
-❌ Process-Execution-Risiken: Externe fis-Commands ohne Input-Sanitization 
-❌ Bug in deCompressFile: Methode gibt immer false zurück (return-Statement am Ende) 
-❌ Inconsistent Logging: Falscher Log-Text in deCompressFile ("De/En-cryption" statt "De/Compression") 
-❌ Command-Builder-Bug: ProcessBuilder wird erstellt aber cmd nicht zugewiesen 
 ❌ File-Naming-Konflikte: Keine Behandlung von doppelten Dateinamen
 
 

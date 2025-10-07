@@ -12,6 +12,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -25,8 +26,8 @@ import de.turtle.pi_cloud.models.FileEntity;
 import de.turtle.pi_cloud.services.CloudService;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/files")
-@CrossOrigin(origins = "*") //ONLY FOR TESTING, RESTRICT IN PRODUCTION
 public class CloudController {
 
     private static final Logger logger = LoggerFactory.getLogger(CloudController.class);
@@ -79,30 +80,66 @@ public class CloudController {
     }
 
     @PostMapping("/compression/{id}")
-    public ResponseEntity<String> deCompressFile(@PathVariable Long id) throws IOException {
-        if(cloudService.deCompressFile(id)){
-            return ResponseEntity.ok("Success");
+    public ResponseEntity<?> deCompressFile(@PathVariable Long id){
+        try {
+            if(cloudService.deCompressFile(id)){
+            return ResponseEntity.ok("De/Compression Successful!");
+            }
+            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body("File encryption/decryption not modified");
+        } catch (NoSuchElementException e) {
+            logger.warn("File not found: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found: " + e.getMessage());
+        }catch (IllegalArgumentException e) {
+            logger.warn("Invalid De/Compression request: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            logger.error("De/Compression error: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("De/Compression failed: " + e.getMessage());
         }
-        return ResponseEntity.noContent().build();
     }
     
 
-    @PostMapping("/delete/{id}")
-    public ResponseEntity<String> deleteFile(@PathVariable Long id) throws IOException {
-        if (cloudService.deleteFile(id) != null){
-            return ResponseEntity.ok("Success");
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> deleteFile(@PathVariable Long id){
+        try {
+            if (cloudService.deleteFile(id) != null){
+                return ResponseEntity.ok("Deletion successful!");
+            }
+            return ResponseEntity.status(HttpStatus.NOT_MODIFIED).body("File not deleted!");
+        } catch (NoSuchElementException e) {
+            logger.warn("File not found: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found: " + e.getMessage());
+        }catch (IllegalArgumentException e) {
+            logger.warn("Invalid delete request: {}", e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            logger.error("Deleting error: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Deleting failed: " + e.getMessage());
         }
-        return ResponseEntity.noContent().build();
+        
     }
 
     @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable Long id) throws IOException {
-        FileEntity entity = cloudService.fileEntityRepository.findById(id).orElseThrow();
+    public ResponseEntity<byte[]> downloadFile(@PathVariable Long id) {
+        try {
+             FileEntity entity = cloudService.getFileById(id);
         byte[] data = cloudService.downloadFile(id);
         return ResponseEntity.ok()
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + entity.getName())
             .contentType(MediaType.APPLICATION_OCTET_STREAM)
             .body(data);
+        } catch (NoSuchElementException e) {
+            logger.warn("File not found: {}", e.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+        } catch (IOException e) {
+            logger.error("File download error: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        } catch (Exception e) {
+            logger.error("Unexpected download error: {}", e.getMessage(), e);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
     }
 
     @GetMapping("/list")
