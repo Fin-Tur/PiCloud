@@ -1,4 +1,4 @@
-package de.turtle.pi_cloud.controller;
+package de.turtle.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import de.turtle.pi_cloud.models.FileEntity;
-import de.turtle.pi_cloud.services.CloudService;
+import de.turtle.models.FileEntity;
+import de.turtle.services.CloudService;
 
 @RestController
 @CrossOrigin("*")
@@ -40,9 +40,11 @@ public class CloudController {
         try {
             if(files.length == 1) {
                 FileEntity savedFile = cloudService.storeFile(files[0]);
+                if(savedFile == null) throw new IllegalArgumentException(); 
                 return ResponseEntity.ok(List.of(savedFile));
             }
             List<FileEntity> savedFiles = cloudService.storeFiles(files);
+            if(savedFiles.isEmpty()) throw new IllegalArgumentException();
             return ResponseEntity.ok(savedFiles);
             
         } catch (IllegalArgumentException e) {
@@ -121,11 +123,11 @@ public class CloudController {
         
     }
 
-    @GetMapping("/download/{id}")
-    public ResponseEntity<byte[]> downloadFile(@PathVariable Long id) {
+    @PostMapping("/download/{id}")
+    public ResponseEntity<byte[]> downloadFile(@PathVariable Long id, @RequestBody String password) {
         try {
              FileEntity entity = cloudService.getFileById(id);
-        byte[] data = cloudService.downloadFile(id);
+        byte[] data = cloudService.downloadFile(id, password);
         return ResponseEntity.ok()
             .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + entity.getName())
             .contentType(MediaType.APPLICATION_OCTET_STREAM)

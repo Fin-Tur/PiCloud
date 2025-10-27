@@ -1,10 +1,11 @@
-package de.turtle.pi_cloud.services;
+package de.turtle.services;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class HelperFunctions {
+
     public static boolean fileAtPathIsSafeToModify(String storagePathStr, Path filePath) {
         try {
             Path storage = Paths.get(storagePathStr).toRealPath();      

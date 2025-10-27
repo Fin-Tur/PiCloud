@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pi Cloud - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-form">
+            <div class="login-header">
+                <h1>🌥️ Pi Cloud</h1>
+                <p>Secure Cloud Storage</p>
+            </div>
+            
+            <div class="form-container">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form active">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <input type="text" id="loginUsername" class="modal-input" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="loginPassword" class="modal-input" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn-confirm">Login</button>
+                    <p class="form-switch">
+                        Don't have an account? 
+                        <a href="#" onclick="switchToRegister()">Register here</a>
+                    </p>
+                </form>
+                
+                <!-- Register Form -->
+                <form id="registerForm" class="auth-form">
+                    <h2>Register</h2>
+                    <div class="form-group">
+                        <input type="text" id="registerUsername" class="modal-input" placeholder="Username" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="registerPassword" class="modal-input" placeholder="Password (min 6 chars)" required minlength="6">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" id="confirmPassword" class="modal-input" placeholder="Confirm Password" required>
+                    </div>
+                    <button type="submit" class="btn-confirm">Register</button>
+                    <p class="form-switch">
+                        Already have an account? 
+                        <a href="#" onclick="switchToLogin()">Login here</a>
+                    </p>
+                </form>
+            </div>
+            
+            <!-- Message Display -->
+            <div id="message" class="message hidden"></div>
+        </div>
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

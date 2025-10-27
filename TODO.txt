@@ -12,6 +12,4 @@ Configuration: Storage-Pfad über application.properties konfigurierbar machen
 Exception-Handling: Zentrale Exception-Handler implementieren
 Validation: Bean Validation für Input-Parameter
 Security: CORS-Policy einschränken, Input-Sanitization
-Bug-Fixes: deCompressFile-Methode reparieren
 Testing: Unit-Tests für kritische Funktionen
-Die Grundarchitektur ist solide, aber es gibt mehrere kritische Bugs und Sicherheitsprobleme, die behoben werden sollten.

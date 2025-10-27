@@ -1,4 +1,4 @@
-package de.turtle.pi_cloud.models;
+package de.turtle.models;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -16,8 +16,8 @@
 			<!-- File Preview Section -->
 			<div id="filePreview" class="file-preview hidden">
 				<div class="preview-header">
-					<h3>Ausgewählte Dateien:</h3>
-					<button type="button" class="btn-clear" onclick="clearSelectedFiles()">Alle entfernen</button>
+					<h3>Picked Files:</h3>
+					<button type="button" class="btn-clear" onclick="clearSelectedFiles()">Clear all</button>
 				</div>
 				<div id="previewList" class="preview-list"></div>
 			</div>
@@ -27,6 +27,41 @@
 		<div id="message"></div>
 		<h2>Your Files</h2>
 		<div id="fileList" class="file-list"></div>
+	</div>
+
+	<!-- Custom Modal for Password Input -->
+	<div id="passwordModal" class="modal hidden" style="display: none;">
+		<div class="modal-backdrop"></div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>🔒 Password Required</h3>
+			</div>
+			<div class="modal-body">
+				<p id="modalMessage">Enter the password for this file:</p>
+				<input type="password" id="passwordInput" class="modal-input" placeholder="Enter password...">
+			</div>
+			<div class="modal-footer">
+				<button class="btn-cancel" type="button">Cancel</button>
+				<button class="btn-confirm" type="button">Confirm</button>
+			</div>
+		</div>
+	</div>
+
+	<!-- Custom Modal for Confirmation -->
+	<div id="confirmModal" class="modal hidden" style="display: none;">
+		<div class="modal-backdrop"></div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>⚠️ Confirm Action</h3>
+			</div>
+			<div class="modal-body">
+				<p id="confirmMessage">Are you sure?</p>
+			</div>
+			<div class="modal-footer">
+				<button class="btn-cancel" type="button">Cancel</button>
+				<button class="btn-confirm" type="button">Confirm</button>
+			</div>
+		</div>
 	</div>
 	<script src="script.js"></script>
 </body>
