@@ -1,0 +1,148 @@
+# 🧠 Pi Cloud
+
+Ein leichtgewichtiges, modernes **Cloud-Storage-System** mit serverseitiger **Verschlüsselung** und **Kompression** – optimiert für den Einsatz auf Geräten wie dem **Raspberry Pi**.  
+Die Dateiverarbeitung nutzt native **C++-Algorithmen aus dem FileInSight-Projekt**, welche als DLL eingebunden sind, um höchste Effizienz und Datensicherheit zu gewährleisten.
+
+---
+
+## 🚀 Features
+
+- 📤 **Dateiuploads & -Downloads** über ein modernes Web-Frontend  
+- 🔐 **Serverseitige Encryption & Compression** mittels FileInSight-Algorithmen (C++ → DLL via JNA)  
+- 🧩 **Frontend/Backend-Trennung**: Kein Server-Neustart bei UI-Änderungen  
+- 🗑️ **Dateiverwaltung**: Upload, Download, Delete, Metadatenanzeige  
+- 🧠 **Smart File Handling** mit MIME-Type-Erkennung und symbolischen Icons  
+- 🎨 **Responsives, modernes UI** (reines HTML/CSS/JS, kein Framework nötig)  
+- 💾 **Spring Boot + JPA Backend** mit persistenter Dateiverwaltung  
+
+---
+
+## 🏗️ Projektstruktur
+
+```
+PiCloud/
+├── src/main/java/com/picloud/
+│   ├── PiCloudApplication.java        # Spring Boot Entry Point
+│   ├── controller/
+│   │   └── CloudController.java       # REST API für Dateioperationen
+│   ├── service/
+│   │   └── CloudService.java          # Business Logic
+│   ├── model/
+│   │   └── FileEntity.java            # JPA Entity für Dateien
+│   └── repository/
+│       └── FileEntityRepository.java  # JPA Repository Interface
+│
+├── src/main/resources/static/
+│   ├── index.html                     # Frontend
+│   ├── script.js                      # Fetch API Logik
+│   └── style.css                      # Modernes Design
+│
+└── README.md
+```
+
+---
+
+## ⚙️ Technologie-Stack
+
+| Komponente | Technologie |
+|-------------|-------------|
+| Backend | Spring Boot (REST, JPA) |
+| Frontend | HTML5, CSS3, Vanilla JS |
+| Datenbank | H2 / SQLite / PostgreSQL (je nach Konfiguration) |
+| Native Module | FileInSight C++ DLL (Encryption & Compression) |
+| Bridge | Java Native Access (JNA) |
+| Zielsystem | Raspberry Pi / Linux / Windows |
+
+---
+
+## 🔒 Serverseitige Encryption & Compression
+
+Pi Cloud integriert C++-basierte **FileInSight-Algorithmen** über eine native **DLL**, die per **JNA** geladen wird.  
+Diese Module übernehmen:
+
+- **AES-basierte Dateiverschlüsselung**
+- **FileInSight Compression (LZ77/TLSH-inspiriert)**
+- **On-the-fly Verarbeitung** beim Upload / Download
+- **Plattformkompatibilität** (Windows → Debug, Raspberry Pi → Release)
+
+**Vorteile:**
+- Keine Abhängigkeit von Java-Standardbibliotheken
+- Höhere Performance durch native Ausführung
+- Sichere Schlüsselverwaltung außerhalb der JVM
+
+---
+
+## 🧑‍💻 API-Endpunkte
+
+| Methode | Endpoint | Beschreibung |
+|----------|-----------|---------------|
+| `GET` | `/api/files/list` | Listet alle gespeicherten Dateien |
+| `POST` | `/api/files/upload` | Lädt eine oder mehrere Dateien hoch |
+| `GET` | `/api/files/download/{id}` | Lädt eine Datei herunter |
+| `GET` | `/api/files/delete/{id}` | Löscht eine Datei |
+
+---
+
+## 🧰 Installation & Setup
+
+### 🔹 Voraussetzungen
+
+- Java 17+
+- Maven oder Gradle
+- (Optional) Node.js / Vite für Frontend-Entwicklung
+- Kompilierte `FileInSight.dll` (oder `.so` auf Linux)
+- Raspberry Pi OS / Windows / Linux x64
+
+### 🔹 Starten
+
+```bash
+# 1. Projekt bauen
+mvn clean package
+
+# 2. Server starten
+java -jar target/pi-cloud.jar
+
+# 3. Im Browser öffnen
+http://localhost:8080
+```
+
+---
+
+## 🧩 Frontend Features
+
+- Dynamisches File-Listing via `fetch('/api/files/list')`
+- Vorschau der ausgewählten Upload-Dateien
+- File-Icons basierend auf MIME-Type
+- Responsive CSS mit Dark-Mode-Support
+- Upload-/Download-Buttons mit Animationen
+
+---
+
+## 🧪 Entwicklungsmodus (Frontend getrennt)
+
+Für schnellere Frontend-Entwicklung (ohne Spring-Restart):
+
+```bash
+# 1. Starte den Spring Boot Backend-Server
+mvn spring-boot:run
+
+# 2. Starte das Frontend separat (z. B. mit Vite oder Live Server)
+npm install
+npm run dev
+```
+
+> Das Frontend kommuniziert dann über Proxy (`/api/*`) mit dem Backend.
+
+---
+
+## 📦 Deployment (Raspberry Pi)
+
+1. `FileInSight.so` nach `/usr/local/lib/` kopieren  
+2. `pi-cloud.jar` starten  
+3. Autostart über `systemd` oder `crontab` konfigurieren  
+
+---
+
+## 📜 Lizenz
+
+MIT License – 2025 © Dein Name
