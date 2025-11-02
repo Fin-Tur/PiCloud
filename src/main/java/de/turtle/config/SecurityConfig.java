@@ -1,5 +1,6 @@
 package de.turtle.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -7,10 +8,14 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    @Autowired
+    private SessionAuthenticationFilter sessionAuthenticationFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -20,33 +25,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
-            .csrf(csrf -> csrf.disable()) // Disable CSRF for API calls
+            .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session
+                .sessionCreationPolicy(org.springframework.security.config.http.SessionCreationPolicy.IF_REQUIRED)
                 .maximumSessions(1)
                 .maxSessionsPreventsLogin(false)
             )
             .authorizeHttpRequests(auth -> auth
-                //Public endpoints
-                .requestMatchers("/api/auth/**").permitAll()
-                .requestMatchers("/login.html").permitAll()
-                .requestMatchers("/login.js").permitAll()
-                .requestMatchers("/style.css").permitAll()
-                .requestMatchers("/h2-console/**").permitAll() // For development
-                
-                //Protected endpoints
-                .requestMatchers("/api/**").authenticated()
-                .requestMatchers("/index.html").authenticated()
-                .requestMatchers("/script.js").authenticated()
-                .requestMatchers("/").authenticated()
-                
-                //Default fallback
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()  //Filter handles authentication
             )
-            .formLogin(form -> form.disable()) //Disable default form login
-            .httpBasic(basic -> basic.disable()) //Disable HTTP Basic auth
+            .formLogin(form -> form.disable())
+            .httpBasic(basic -> basic.disable())
             .headers(headers -> headers
-                .frameOptions(frameOptions -> frameOptions.disable())); //Allow H2 console
-            
+                .frameOptions(frameOptions -> frameOptions.disable()))
+            .addFilterBefore(sessionAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+            //adds filter
         return http.build();
     }
 }

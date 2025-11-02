@@ -19,6 +19,7 @@ import org.springframework.web.multipart.MultipartFile;
 import de.turtle.extern.FisLib;
 import de.turtle.models.FileEntity;
 import de.turtle.models.FileEntityRepository;
+import de.turtle.models.User;
 import jakarta.transaction.Transactional;
 
 
@@ -62,7 +63,7 @@ public class CloudService {
 
     
     @Transactional
-    public FileEntity storeFile(MultipartFile file) throws Exception {
+    public FileEntity storeFile(MultipartFile file, User owner) throws Exception {
         Path dirPath = Paths.get(storagePath);
         if (!Files.exists(dirPath)) {
             Files.createDirectories(dirPath);
@@ -74,7 +75,8 @@ public class CloudService {
         }
 
         for(FileEntity fe : fileEntityRepository.findAll()){
-            if(fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
+            if(!fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
+            } else {
                 log.error("File with name {} already exists in DB!", file.getName());
                 return null;
             }
@@ -84,6 +86,7 @@ public class CloudService {
         Files.copy(file.getInputStream(), filePath);
 
         FileEntity entity = new FileEntity(
+            owner,
             file.getOriginalFilename(),
             filePath.toString(),
             file.getSize(),
@@ -111,10 +114,10 @@ public class CloudService {
     }
 
     @Transactional
-    public List<FileEntity> storeFiles(MultipartFile[] files) throws Exception {
+    public List<FileEntity> storeFiles(MultipartFile[] files, User owner) throws Exception {
         List<FileEntity> savedFiles = new ArrayList<>();
         for (MultipartFile file : files) {
-            FileEntity savedFile = storeFile(file);
+            FileEntity savedFile = storeFile(file, owner);
             if(savedFile == null) continue;
             savedFiles.add(savedFile);
         }
@@ -270,5 +273,9 @@ public class CloudService {
     @Transactional
     public String getCloudInfo() {
         return "Cloud information";
+    }
+
+    public boolean canUserModifyFile(Long fileId, String username) throws IOException{
+        return getFileById(fileId).getOwnerUsername().equals(username);
     }
 }

@@ -52,7 +52,7 @@ public final class NativeLoader {
     }
 
     public static void loadWithJna(String libBaseName) {
-        String dllPath = "C:\\Users\\Admin\\Projects\\pi_cloud\\src\\main\\resources\\native\\win32-amd64\\FISext.dll";
+        String dllPath = "C:\\Users\\Admin\\Projects\\PiCloud\\src\\main\\resources\\native\\win32-amd64\\FISext.dll";
         Native.load(dllPath, FisLib.class);
         //Path libPath = extractNative(libBaseName);
         //NativeLibrary.addSearchPath(libBaseName, libPath.getParent().toString());

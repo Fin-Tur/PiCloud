@@ -1,21 +1,21 @@
-2025-10-26T14:04:23.185+01:00  INFO 13996 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 13996 (C:\Users\Admin\Projects\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud)
-2025-10-26T14:04:23.193+01:00  INFO 13996 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-10-26T14:04:23.856+01:00  INFO 13996 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-26T14:04:23.921+01:00  INFO 13996 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
-2025-10-26T14:04:24.365+01:00  INFO 13996 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-10-26T14:04:24.385+01:00  INFO 13996 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-26T14:04:24.385+01:00  INFO 13996 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-10-26T14:04:24.445+01:00  INFO 13996 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-26T14:04:24.446+01:00  INFO 13996 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1210 ms
-2025-10-26T14:04:24.636+01:00  INFO 13996 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-26T14:04:24.697+01:00  INFO 13996 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-10-26T14:04:24.729+01:00  INFO 13996 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-26T14:04:25.031+01:00  INFO 13996 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-26T14:04:25.062+01:00  INFO 13996 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-26T14:04:29.354+01:00  INFO 13996 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-10-26T14:04:29.355+01:00  INFO 13996 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-26T14:04:29.375+01:00  WARN 13996 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-26T14:04:29.389+01:00  INFO 13996 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-02T15:59:08.107+01:00  INFO 16944 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 16944 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T15:59:08.115+01:00  INFO 16944 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T15:59:08.766+01:00  INFO 16944 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T15:59:08.828+01:00  INFO 16944 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 51 ms. Found 2 JPA repository interfaces.
+2025-11-02T15:59:09.344+01:00  INFO 16944 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T15:59:09.359+01:00  INFO 16944 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T15:59:09.359+01:00  INFO 16944 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T15:59:09.411+01:00  INFO 16944 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T15:59:09.411+01:00  INFO 16944 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1242 ms
+2025-11-02T15:59:09.591+01:00  INFO 16944 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T15:59:09.646+01:00  INFO 16944 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T15:59:09.685+01:00  INFO 16944 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T15:59:09.948+01:00  INFO 16944 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T15:59:09.976+01:00  INFO 16944 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T15:59:14.218+01:00  INFO 16944 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T15:59:14.219+01:00  INFO 16944 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T15:59:14.235+01:00  WARN 16944 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T15:59:14.251+01:00  INFO 16944 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -23,57 +23,273 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-26T14:04:29.980+01:00  INFO 13996 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-26T14:04:30.012+01:00  INFO 13996 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-26T14:04:30.313+01:00  WARN 13996 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-26T14:04:30.341+01:00  INFO 13996 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-10-26T14:04:30.583+01:00  INFO 13996 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-10-26T14:04:30.673+01:00  INFO 13996 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-10-26T14:04:30.682+01:00  INFO 13996 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 7.905 seconds (process running for 8.176)
-2025-10-26T14:04:30.736+01:00  INFO 13996 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-10-26T14:04:34.612+01:00  INFO 13996 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-26T14:04:34.613+01:00  INFO 13996 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-10-26T14:04:34.613+01:00  INFO 13996 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-10-26T14:04:48.334+01:00 ERROR 13996 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.CloudController     : File storage error: C:\temp\pi_cloud\files\GammaDecaySpectraAnalysis.tex
+2025-11-02T15:59:14.813+01:00  INFO 16944 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T15:59:14.846+01:00  INFO 16944 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T15:59:15.203+01:00  WARN 16944 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T15:59:15.233+01:00  INFO 16944 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T15:59:15.380+01:00  WARN 16944 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-java.nio.file.FileAlreadyExistsException: C:\temp\pi_cloud\files\GammaDecaySpectraAnalysis.tex
-	at java.base/sun.nio.fs.WindowsException.translateToIOException(WindowsException.java:87) ~[na:na]
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:103) ~[na:na]
-	at java.base/sun.nio.fs.WindowsException.rethrowAsIOException(WindowsException.java:108) ~[na:na]
-	at java.base/sun.nio.fs.WindowsFileSystemProvider.newByteChannel(WindowsFileSystemProvider.java:231) ~[na:na]
-	at java.base/java.nio.file.spi.FileSystemProvider.newOutputStream(FileSystemProvider.java:426) ~[na:na]
-	at java.base/java.nio.file.Files.newOutputStream(Files.java:215) ~[na:na]
-	at java.base/java.nio.file.Files.copy(Files.java:2852) ~[na:na]
-	at de.turtle.services.CloudService.storeFile(CloudService.java:84) ~[classes/:na]
+Using generated security password: 11e06531-4a1e-4be3-b8c8-93d84933e14a
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T15:59:15.387+01:00  INFO 16944 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T15:59:15.613+01:00  INFO 16944 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T15:59:15.687+01:00  INFO 16944 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T15:59:15.695+01:00  INFO 16944 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 7.992 seconds (process running for 8.264)
+2025-11-02T15:59:15.724+01:00 ERROR 16944 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : Failed to load FIS native library
+
+java.lang.UnsatisfiedLinkError: Unable to load library 'C:\Users\Admin\Projects\pi_cloud\src\main\resources\native\win32-amd64\FISext.dll':
+Das System kann den angegebenen Pfad nicht finden.
+
+Das System kann den angegebenen Pfad nicht finden.
+
+Native library (win32-x86-64/C:\Users\Admin\Projects\pi_cloud\src\main\resources\native\win32-amd64\FISext.dll) not found in resource path (C:\Users\Admin\Projects\PiCloud\target\classes;C:\Users\Admin\.m2\repository\net\java\dev\jna\jna\5.14.0\jna-5.14.0.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.5\spring-boot-starter-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot\3.5.5\spring-boot-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-context\6.2.10\spring-context-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.5\spring-boot-autoconfigure-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.5\spring-boot-starter-logging-3.5.5.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\Admin\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\Admin\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\Admin\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Admin\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-core\6.2.10\spring-core-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-jcl\6.2.10\spring-jcl-6.2.10.jar;C:\Users\Admin\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.5\spring-boot-starter-web-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.5\spring-boot-starter-json-3.5.5.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.2\jackson-datatype-jdk8-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.2\jackson-datatype-jsr310-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.2\jackson-module-parameter-names-2.19.2.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.5\spring-boot-starter-tomcat-3.5.5.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.44\tomcat-embed-core-10.1.44.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.44\tomcat-embed-el-10.1.44.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.44\tomcat-embed-websocket-10.1.44.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-web\6.2.10\spring-web-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-beans\6.2.10\spring-beans-6.2.10.jar;C:\Users\Admin\.m2\repository\io\micrometer\micrometer-observation\1.15.3\micrometer-observation-1.15.3.jar;C:\Users\Admin\.m2\repository\io\micrometer\micrometer-commons\1.15.3\micrometer-commons-1.15.3.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-webmvc\6.2.10\spring-webmvc-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-expression\6.2.10\spring-expression-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.5.5\spring-boot-starter-data-jpa-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.5.5\spring-boot-starter-jdbc-3.5.5.jar;C:\Users\Admin\.m2\repository\com\zaxxer\HikariCP\6.3.2\HikariCP-6.3.2.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-jdbc\6.2.10\spring-jdbc-6.2.10.jar;C:\Users\Admin\.m2\repository\org\hibernate\orm\hibernate-core\6.6.26.Final\hibernate-core-6.6.26.Final.jar;C:\Users\Admin\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Admin\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Admin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\Admin\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\Admin\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\Admin\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\Admin\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\Admin\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Admin\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\Admin\.m2\repository\org\springframework\data\spring-data-jpa\3.5.3\spring-data-jpa-3.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\data\spring-data-commons\3.5.3\spring-data-commons-3.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-orm\6.2.10\spring-orm-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-tx\6.2.10\spring-tx-6.2.10.jar;C:\Users\Admin\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-aspects\6.2.10\spring-aspects-6.2.10.jar;C:\Users\Admin\.m2\repository\org\aspectj\aspectjweaver\1.9.24\aspectjweaver-1.9.24.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.5.5\spring-boot-starter-security-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-aop\6.2.10\spring-aop-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-config\6.5.3\spring-security-config-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-core\6.5.3\spring-security-core-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-web\6.5.3\spring-security-web-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-crypto\6.5.3\spring-security-crypto-6.5.3.jar;C:\Users\Admin\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\Admin\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\Admin\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar)
+	at com.sun.jna.NativeLibrary.loadLibrary(NativeLibrary.java:325) ~[jna-5.14.0.jar:5.14.0 (b0)]
+	at com.sun.jna.NativeLibrary.getInstance(NativeLibrary.java:481) ~[jna-5.14.0.jar:5.14.0 (b0)]
+	at com.sun.jna.Library$Handler.<init>(Library.java:197) ~[jna-5.14.0.jar:5.14.0 (b0)]
+	at com.sun.jna.Native.load(Native.java:618) ~[jna-5.14.0.jar:5.14.0 (b0)]
+	at com.sun.jna.Native.load(Native.java:592) ~[jna-5.14.0.jar:5.14.0 (b0)]
+	at de.turtle.extern.NativeLoader.loadWithJna(NativeLoader.java:56) ~[classes/:na]
+	at de.turtle.extern.FisLib.load(FisLib.java:16) ~[classes/:na]
+	at de.turtle.extern.FisHealth.checkNativeAtStartup(FisHealth.java:16) ~[classes/:na]
 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
 	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
-	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:360) ~[spring-aop-6.2.10.jar:6.2.10]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.2.10.jar:6.2.10]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.2.10.jar:6.2.10]
-	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:380) ~[spring-tx-6.2.10.jar:6.2.10]
-	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.2.10.jar:6.2.10]
-	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.2.10.jar:6.2.10]
-	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:728) ~[spring-aop-6.2.10.jar:6.2.10]
-	at de.turtle.services.CloudService$$SpringCGLIB$$0.storeFile(<generated>) ~[classes/:na]
-	at de.turtle.controller.CloudController.uploadFile(CloudController.java:42) ~[classes/:na]
-	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
-	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
-	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-6.2.10.jar:6.2.10]
-	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:191) ~[spring-web-6.2.10.jar:6.2.10]
-	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.doInvoke(ApplicationListenerMethodAdapter.java:383) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.processEvent(ApplicationListenerMethodAdapter.java:255) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.ApplicationListenerMethodAdapter.onApplicationEvent(ApplicationListenerMethodAdapter.java:174) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.doInvokeListener(SimpleApplicationEventMulticaster.java:185) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.invokeListener(SimpleApplicationEventMulticaster.java:178) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.event.SimpleApplicationEventMulticaster.multicastEvent(SimpleApplicationEventMulticaster.java:156) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:454) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.context.support.AbstractApplicationContext.publishEvent(AbstractApplicationContext.java:387) ~[spring-context-6.2.10.jar:6.2.10]
+	at org.springframework.boot.context.event.EventPublishingRunListener.ready(EventPublishingRunListener.java:109) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplicationRunListeners.lambda$ready$6(SpringApplicationRunListeners.java:80) ~[spring-boot-3.5.5.jar:3.5.5]
+	at java.base/java.lang.Iterable.forEach(Iterable.java:75) ~[na:na]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:118) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplicationRunListeners.doWithListeners(SpringApplicationRunListeners.java:112) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplicationRunListeners.ready(SpringApplicationRunListeners.java:80) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:332) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.5.5.jar:3.5.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.5.5.jar:3.5.5]
+	at de.turtle.PiCloudApplication.main(PiCloudApplication.java:10) ~[classes/:na]
+	Suppressed: java.lang.UnsatisfiedLinkError: Das System kann den angegebenen Pfad nicht finden.
+
+		at com.sun.jna.Native.open(Native Method) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		at com.sun.jna.NativeLibrary.loadLibrary(NativeLibrary.java:213) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		... 27 common frames omitted
+	Suppressed: java.lang.UnsatisfiedLinkError: Das System kann den angegebenen Pfad nicht finden.
+
+		at com.sun.jna.Native.open(Native Method) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		at com.sun.jna.NativeLibrary.loadLibrary(NativeLibrary.java:226) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		... 27 common frames omitted
+	Suppressed: java.io.IOException: Native library (win32-x86-64/C:\Users\Admin\Projects\pi_cloud\src\main\resources\native\win32-amd64\FISext.dll) not found in resource path (C:\Users\Admin\Projects\PiCloud\target\classes;C:\Users\Admin\.m2\repository\net\java\dev\jna\jna\5.14.0\jna-5.14.0.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter\3.5.5\spring-boot-starter-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot\3.5.5\spring-boot-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-context\6.2.10\spring-context-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.5.5\spring-boot-autoconfigure-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.5.5\spring-boot-starter-logging-3.5.5.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-classic\1.5.18\logback-classic-1.5.18.jar;C:\Users\Admin\.m2\repository\ch\qos\logback\logback-core\1.5.18\logback-core-1.5.18.jar;C:\Users\Admin\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\Admin\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\Admin\.m2\repository\org\slf4j\jul-to-slf4j\2.0.17\jul-to-slf4j-2.0.17.jar;C:\Users\Admin\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-core\6.2.10\spring-core-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-jcl\6.2.10\spring-jcl-6.2.10.jar;C:\Users\Admin\.m2\repository\org\yaml\snakeyaml\2.4\snakeyaml-2.4.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-web\3.5.5\spring-boot-starter-web-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-json\3.5.5\spring-boot-starter-json-3.5.5.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.19.2\jackson-databind-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.19.2\jackson-annotations-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.19.2\jackson-core-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.19.2\jackson-datatype-jdk8-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.19.2\jackson-datatype-jsr310-2.19.2.jar;C:\Users\Admin\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.19.2\jackson-module-parameter-names-2.19.2.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\3.5.5\spring-boot-starter-tomcat-3.5.5.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\10.1.44\tomcat-embed-core-10.1.44.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.44\tomcat-embed-el-10.1.44.jar;C:\Users\Admin\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\10.1.44\tomcat-embed-websocket-10.1.44.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-web\6.2.10\spring-web-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-beans\6.2.10\spring-beans-6.2.10.jar;C:\Users\Admin\.m2\repository\io\micrometer\micrometer-observation\1.15.3\micrometer-observation-1.15.3.jar;C:\Users\Admin\.m2\repository\io\micrometer\micrometer-commons\1.15.3\micrometer-commons-1.15.3.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-webmvc\6.2.10\spring-webmvc-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-expression\6.2.10\spring-expression-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\3.5.5\spring-boot-starter-data-jpa-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\3.5.5\spring-boot-starter-jdbc-3.5.5.jar;C:\Users\Admin\.m2\repository\com\zaxxer\HikariCP\6.3.2\HikariCP-6.3.2.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-jdbc\6.2.10\spring-jdbc-6.2.10.jar;C:\Users\Admin\.m2\repository\org\hibernate\orm\hibernate-core\6.6.26.Final\hibernate-core-6.6.26.Final.jar;C:\Users\Admin\.m2\repository\jakarta\persistence\jakarta.persistence-api\3.1.0\jakarta.persistence-api-3.1.0.jar;C:\Users\Admin\.m2\repository\jakarta\transaction\jakarta.transaction-api\2.0.1\jakarta.transaction-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\Admin\.m2\repository\org\hibernate\common\hibernate-commons-annotations\7.0.3.Final\hibernate-commons-annotations-7.0.3.Final.jar;C:\Users\Admin\.m2\repository\io\smallrye\jandex\3.2.0\jandex-3.2.0.jar;C:\Users\Admin\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\Admin\.m2\repository\net\bytebuddy\byte-buddy\1.17.7\byte-buddy-1.17.7.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-runtime\4.0.5\jaxb-runtime-4.0.5.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\jaxb-core\4.0.5\jaxb-core-4.0.5.jar;C:\Users\Admin\.m2\repository\org\eclipse\angus\angus-activation\2.0.2\angus-activation-2.0.2.jar;C:\Users\Admin\.m2\repository\org\glassfish\jaxb\txw2\4.0.5\txw2-4.0.5.jar;C:\Users\Admin\.m2\repository\com\sun\istack\istack-commons-runtime\4.1.2\istack-commons-runtime-4.1.2.jar;C:\Users\Admin\.m2\repository\jakarta\inject\jakarta.inject-api\2.0.1\jakarta.inject-api-2.0.1.jar;C:\Users\Admin\.m2\repository\org\antlr\antlr4-runtime\4.13.0\antlr4-runtime-4.13.0.jar;C:\Users\Admin\.m2\repository\org\springframework\data\spring-data-jpa\3.5.3\spring-data-jpa-3.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\data\spring-data-commons\3.5.3\spring-data-commons-3.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-orm\6.2.10\spring-orm-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-tx\6.2.10\spring-tx-6.2.10.jar;C:\Users\Admin\.m2\repository\org\slf4j\slf4j-api\2.0.17\slf4j-api-2.0.17.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-aspects\6.2.10\spring-aspects-6.2.10.jar;C:\Users\Admin\.m2\repository\org\aspectj\aspectjweaver\1.9.24\aspectjweaver-1.9.24.jar;C:\Users\Admin\.m2\repository\org\springframework\boot\spring-boot-starter-security\3.5.5\spring-boot-starter-security-3.5.5.jar;C:\Users\Admin\.m2\repository\org\springframework\spring-aop\6.2.10\spring-aop-6.2.10.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-config\6.5.3\spring-security-config-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-core\6.5.3\spring-security-core-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-web\6.5.3\spring-security-web-6.5.3.jar;C:\Users\Admin\.m2\repository\org\springframework\security\spring-security-crypto\6.5.3\spring-security-crypto-6.5.3.jar;C:\Users\Admin\.m2\repository\com\h2database\h2\2.3.232\h2-2.3.232.jar;C:\Users\Admin\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\4.0.2\jakarta.xml.bind-api-4.0.2.jar;C:\Users\Admin\.m2\repository\jakarta\activation\jakarta.activation-api\2.1.3\jakarta.activation-api-2.1.3.jar)
+		at com.sun.jna.Native.extractFromResourcePath(Native.java:1141) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		at com.sun.jna.NativeLibrary.loadLibrary(NativeLibrary.java:297) ~[jna-5.14.0.jar:5.14.0 (b0)]
+		... 27 common frames omitted
+
+2025-11-02T16:00:26.353+01:00  INFO 7696 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 7696 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:00:26.356+01:00  INFO 7696 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:00:26.992+01:00  INFO 7696 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:00:27.050+01:00  INFO 7696 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:00:27.564+01:00  INFO 7696 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:00:27.578+01:00  INFO 7696 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:00:27.578+01:00  INFO 7696 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:00:27.632+01:00  INFO 7696 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:00:27.632+01:00  INFO 7696 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1236 ms
+2025-11-02T16:00:27.814+01:00  INFO 7696 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:00:27.868+01:00  INFO 7696 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:00:27.904+01:00  INFO 7696 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:00:28.166+01:00  INFO 7696 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:00:28.194+01:00  INFO 7696 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:00:32.431+01:00  INFO 7696 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:00:32.432+01:00  INFO 7696 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:00:32.448+01:00  WARN 7696 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:00:32.462+01:00  INFO 7696 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-02T16:00:33.025+01:00  INFO 7696 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:00:33.061+01:00  INFO 7696 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:00:33.454+01:00  WARN 7696 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:00:33.488+01:00  INFO 7696 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:00:33.669+01:00  WARN 7696 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8352b30e-003b-486f-b4ba-1b0a14531ecd
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:00:33.677+01:00  INFO 7696 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:00:33.907+01:00  INFO 7696 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:00:33.983+01:00  INFO 7696 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T16:00:33.990+01:00  INFO 7696 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 8.032 seconds (process running for 8.303)
+2025-11-02T16:00:34.041+01:00  INFO 7696 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-02T16:00:52.489+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-02T16:00:52.490+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-02T16:00:52.492+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-02T16:00:56.684+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-02T16:00:56.693+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-02T16:01:03.011+01:00  WARN 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-11-02T16:01:10.541+01:00  WARN 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-11-02T16:04:07.533+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Downloaded file: info.png from C:\temp\pi_cloud\files\info.png
+2025-11-02T16:04:19.045+01:00  WARN 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-11-02T16:04:50.988+01:00  WARN 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' is not supported]
+2025-11-02T16:06:14.914+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : Downloaded file: GammaDecaySpectraAnalysis.tex from C:\temp\pi_cloud\files\GammaDecaySpectraAnalysis.tex
+2025-11-02T16:06:23.390+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Downloaded file: info.png from C:\temp\pi_cloud\files\info.png
+2025-11-02T16:06:29.581+01:00  WARN 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
+2025-11-02T16:08:19.668+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : Deleted file: GammaDecaySpectraAnalysis.tex from C:\temp\pi_cloud\files\GammaDecaySpectraAnalysis.tex
+2025-11-02T16:08:25.366+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.CloudService          : Deleted file: info.png from C:\temp\pi_cloud\files\info.png
+2025-11-02T16:08:28.430+01:00  INFO 7696 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : Deleted file: helper.png from C:\temp\pi_cloud\files\helper.png
+2025-11-02T16:26:03.802+01:00  INFO 7036 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 7036 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:26:03.810+01:00  INFO 7036 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:26:04.442+01:00  INFO 7036 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:26:04.503+01:00  INFO 7036 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:26:05.020+01:00  INFO 7036 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:26:05.037+01:00  INFO 7036 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:26:05.038+01:00  INFO 7036 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:26:05.098+01:00  INFO 7036 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:26:05.098+01:00  INFO 7036 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1248 ms
+2025-11-02T16:26:05.283+01:00  INFO 7036 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:26:05.342+01:00  INFO 7036 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:26:05.376+01:00  INFO 7036 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:26:05.637+01:00  INFO 7036 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:26:05.663+01:00  INFO 7036 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:26:09.909+01:00  INFO 7036 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:26:09.910+01:00  INFO 7036 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:26:09.926+01:00  WARN 7036 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:26:09.941+01:00  INFO 7036 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-02T16:26:10.539+01:00  INFO 7036 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:26:10.584+01:00  INFO 7036 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:26:11.001+01:00  WARN 7036 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:26:11.036+01:00  INFO 7036 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:26:11.222+01:00  WARN 7036 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 66957d5f-a958-4941-9e4e-44a65b7358a8
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:26:11.232+01:00  INFO 7036 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:26:11.536+01:00  INFO 7036 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:26:11.624+01:00  INFO 7036 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T16:26:11.631+01:00  INFO 7036 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 8.221 seconds (process running for 8.494)
+2025-11-02T16:26:11.668+01:00  INFO 7036 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-02T16:27:05.187+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-02T16:27:05.187+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-02T16:27:05.188+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-02T16:27:05.442+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-02T16:27:05.452+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-02T16:27:11.475+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-02T16:27:11.478+01:00  INFO 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : Saved file: helper.png at C:\temp\pi_cloud\files\helper.png
+2025-11-02T16:27:12.883+01:00 ERROR 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor]] with root cause
+
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: de.turtle.models.FileEntity[0]->de.turtle.models.FileEntity["owner"]->de.turtle.models.User$HibernateProxy["hibernateLazyInitializer"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1359) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:415) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:52) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:760) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:760) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serializeContents(ObjectArraySerializer.java:252) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serialize(ObjectArraySerializer.java:213) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serialize(ObjectArraySerializer.java:22) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:503) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:423) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1583) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1061) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:485) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:126) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:345) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:263) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseEntityReturnValueHandler.handleReturnValue(ResponseEntityReturnValueHandler.java:79) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
-	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914) ~[spring-webmvc-6.2.10.jar:6.2.10]
-	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.44.jar:6.0]
 	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
 	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
 	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at de.turtle.config.SessionAuthenticationFilter.doFilter(SessionAuthenticationFilter.java:53) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:151) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:129) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at de.turtle.config.SessionAuthenticationFilter.doFilter(SessionAuthenticationFilter.java:53) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.10.jar:6.2.10]
 	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
 	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
 	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
@@ -105,24 +321,154 @@ java.nio.file.FileAlreadyExistsException: C:\temp\pi_cloud\files\GammaDecaySpect
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
 	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
 
-2025-10-26T14:05:41.059+01:00  INFO 11008 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 11008 (C:\Users\Admin\Projects\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud)
-2025-10-26T14:05:41.062+01:00  INFO 11008 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-10-26T14:05:41.701+01:00  INFO 11008 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-26T14:05:41.773+01:00  INFO 11008 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60 ms. Found 1 JPA repository interface.
-2025-10-26T14:05:42.230+01:00  INFO 11008 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-10-26T14:05:42.245+01:00  INFO 11008 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-26T14:05:42.245+01:00  INFO 11008 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-10-26T14:05:42.304+01:00  INFO 11008 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-26T14:05:42.305+01:00  INFO 11008 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1195 ms
-2025-10-26T14:05:42.483+01:00  INFO 11008 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-26T14:05:42.537+01:00  INFO 11008 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-10-26T14:05:42.574+01:00  INFO 11008 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-26T14:05:42.843+01:00  INFO 11008 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-26T14:05:42.873+01:00  INFO 11008 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-26T14:05:47.126+01:00  INFO 11008 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-10-26T14:05:47.128+01:00  INFO 11008 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-26T14:05:47.146+01:00  WARN 11008 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-26T14:05:47.160+01:00  INFO 11008 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-02T16:27:15.233+01:00 ERROR 7036 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed: org.springframework.http.converter.HttpMessageConversionException: Type definition error: [simple type, class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor]] with root cause
+
+com.fasterxml.jackson.databind.exc.InvalidDefinitionException: No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: de.turtle.models.FileEntity[0]->de.turtle.models.FileEntity["owner"]->de.turtle.models.User$HibernateProxy["hibernateLazyInitializer"])
+	at com.fasterxml.jackson.databind.exc.InvalidDefinitionException.from(InvalidDefinitionException.java:77) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.SerializerProvider.reportBadDefinition(SerializerProvider.java:1359) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.DatabindContext.reportBadDefinition(DatabindContext.java:415) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.failForEmpty(UnknownSerializer.java:52) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.impl.UnknownSerializer.serialize(UnknownSerializer.java:29) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:760) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanPropertyWriter.serializeAsField(BeanPropertyWriter.java:732) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.BeanSerializerBase.serializeFields(BeanSerializerBase.java:760) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.BeanSerializer.serialize(BeanSerializer.java:183) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serializeContents(ObjectArraySerializer.java:252) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serialize(ObjectArraySerializer.java:213) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.std.ObjectArraySerializer.serialize(ObjectArraySerializer.java:22) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider._serialize(DefaultSerializerProvider.java:503) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ser.DefaultSerializerProvider.serializeValue(DefaultSerializerProvider.java:423) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ObjectWriter$Prefetch.serialize(ObjectWriter.java:1583) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at com.fasterxml.jackson.databind.ObjectWriter.writeValue(ObjectWriter.java:1061) ~[jackson-databind-2.19.2.jar:2.19.2]
+	at org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter.writeInternal(AbstractJackson2HttpMessageConverter.java:485) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.http.converter.AbstractGenericHttpMessageConverter.write(AbstractGenericHttpMessageConverter.java:126) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.AbstractMessageConverterMethodProcessor.writeWithMessageConverters(AbstractMessageConverterMethodProcessor.java:345) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor.handleReturnValue(HttpEntityMethodProcessor.java:263) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ResponseEntityReturnValueHandler.handleReturnValue(ResponseEntityReturnValueHandler.java:79) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.method.support.HandlerMethodReturnValueHandlerComposite.handleReturnValue(HandlerMethodReturnValueHandlerComposite.java:78) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:136) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:991) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:896) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658) ~[tomcat-embed-core-10.1.44.jar:6.0]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) ~[tomcat-embed-websocket-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at de.turtle.config.SessionAuthenticationFilter.doFilter(SessionAuthenticationFilter.java:53) ~[classes/:na]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:125) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:119) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:151) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.ConcurrentSessionFilter.doFilter(ConcurrentSessionFilter.java:129) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at de.turtle.config.SessionAuthenticationFilter.doFilter(SessionAuthenticationFilter.java:53) ~[classes/:na]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191) ~[spring-security-web-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:319) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.servlet.handler.HandlerMappingIntrospector.lambda$createCacheFilter$4(HandlerMappingIntrospector.java:267) ~[spring-webmvc-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.security.config.annotation.web.configuration.WebMvcSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebMvcSecurityConfiguration.java:240) ~[spring-security-config-6.5.3.jar:6.5.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:362) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:278) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-6.2.10.jar:6.2.10]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:116) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:398) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1769) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1189) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:658) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63) ~[tomcat-embed-core-10.1.44.jar:10.1.44]
+	at java.base/java.lang.Thread.run(Thread.java:1447) ~[na:na]
+
+2025-11-02T16:38:58.569+01:00  INFO 18360 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 18360 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:38:58.576+01:00  INFO 18360 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:38:59.191+01:00  INFO 18360 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:38:59.252+01:00  INFO 18360 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:38:59.757+01:00  INFO 18360 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:38:59.773+01:00  INFO 18360 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:38:59.773+01:00  INFO 18360 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:38:59.833+01:00  INFO 18360 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:38:59.833+01:00  INFO 18360 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1215 ms
+2025-11-02T16:39:00.032+01:00  INFO 18360 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:39:00.087+01:00  INFO 18360 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:39:00.132+01:00  INFO 18360 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:39:00.396+01:00  INFO 18360 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:39:00.425+01:00  INFO 18360 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:39:04.673+01:00  INFO 18360 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:39:04.674+01:00  INFO 18360 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:39:04.692+01:00  WARN 18360 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:39:04.710+01:00  INFO 18360 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -130,36 +476,50 @@ java.nio.file.FileAlreadyExistsException: C:\temp\pi_cloud\files\GammaDecaySpect
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-26T14:05:47.706+01:00  INFO 11008 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-26T14:05:47.738+01:00  INFO 11008 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-26T14:05:48.034+01:00  WARN 11008 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-26T14:05:48.061+01:00  INFO 11008 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-10-26T14:05:48.315+01:00  INFO 11008 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-10-26T14:05:48.384+01:00  INFO 11008 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-10-26T14:05:48.392+01:00  INFO 11008 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 7.728 seconds (process running for 7.993)
-2025-10-26T14:05:48.425+01:00  INFO 11008 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-10-26T14:05:52.035+01:00  INFO 11008 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-26T14:05:52.035+01:00  INFO 11008 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-10-26T14:05:52.036+01:00  INFO 11008 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-10-26T14:06:00.543+01:00 ERROR 11008 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : File with name files already exists in DB!
-2025-10-26T14:14:03.968+01:00  INFO 15124 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 15124 (C:\Users\Admin\Projects\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud)
-2025-10-26T14:14:03.971+01:00  INFO 15124 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-10-26T14:14:04.567+01:00  INFO 15124 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-26T14:14:04.624+01:00  INFO 15124 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 1 JPA repository interface.
-2025-10-26T14:14:05.052+01:00  INFO 15124 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-10-26T14:14:05.068+01:00  INFO 15124 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-26T14:14:05.068+01:00  INFO 15124 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-10-26T14:14:05.120+01:00  INFO 15124 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-26T14:14:05.121+01:00  INFO 15124 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1110 ms
-2025-10-26T14:14:05.291+01:00  INFO 15124 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-26T14:14:05.340+01:00  INFO 15124 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-10-26T14:14:05.377+01:00  INFO 15124 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-26T14:14:05.641+01:00  INFO 15124 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-26T14:14:05.669+01:00  INFO 15124 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-26T14:14:09.962+01:00  INFO 15124 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-10-26T14:14:09.966+01:00  INFO 15124 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-26T14:14:09.989+01:00  WARN 15124 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-26T14:14:10.006+01:00  INFO 15124 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-02T16:39:05.309+01:00  INFO 18360 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:39:05.345+01:00  INFO 18360 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:39:05.776+01:00  WARN 18360 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:39:05.808+01:00  INFO 18360 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:39:05.995+01:00  WARN 18360 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c3033467-5aa8-4fd8-80ab-c98a83eea319
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:39:06.004+01:00  INFO 18360 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:39:06.209+01:00  INFO 18360 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:39:06.273+01:00  INFO 18360 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T16:39:06.280+01:00  INFO 18360 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 8.102 seconds (process running for 8.38)
+2025-11-02T16:39:06.312+01:00  INFO 18360 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-02T16:39:13.241+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-02T16:39:13.242+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-02T16:39:13.243+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-02T16:39:15.636+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-02T16:39:15.644+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-02T16:39:28.758+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-02T16:39:28.760+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Saved file: info.png at C:\temp\pi_cloud\files\info.png
+2025-11-02T16:39:34.111+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : Deleted file: helper.png from C:\temp\pi_cloud\files\helper.png
+2025-11-02T16:39:38.764+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Deleted file: info.png from C:\temp\pi_cloud\files\info.png
+2025-11-02T16:40:18.058+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-02T16:40:18.060+01:00  INFO 18360 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Saved file: info.png at C:\temp\pi_cloud\files\info.png
+2025-11-02T16:55:20.987+01:00  INFO 10480 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 10480 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:55:20.990+01:00  INFO 10480 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:55:23.059+01:00  INFO 10480 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:55:23.192+01:00  INFO 10480 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:55:24.913+01:00  INFO 10480 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:55:25.009+01:00  INFO 10480 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:55:25.009+01:00  INFO 10480 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:55:25.123+01:00  INFO 10480 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:55:25.123+01:00  INFO 10480 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4008 ms
+2025-11-02T16:55:25.701+01:00  INFO 10480 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:55:25.747+01:00  INFO 10480 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:55:25.844+01:00  INFO 10480 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:55:26.422+01:00  INFO 10480 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:55:26.533+01:00  INFO 10480 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:55:31.091+01:00  INFO 10480 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:55:31.092+01:00  INFO 10480 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:55:31.181+01:00  WARN 10480 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:55:31.224+01:00  INFO 10480 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -167,38 +527,39 @@ java.nio.file.FileAlreadyExistsException: C:\temp\pi_cloud\files\GammaDecaySpect
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-26T14:14:10.548+01:00  INFO 15124 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-26T14:14:10.580+01:00  INFO 15124 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-26T14:14:10.982+01:00  WARN 15124 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-26T14:14:11.013+01:00  INFO 15124 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-10-26T14:14:11.284+01:00  INFO 15124 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-10-26T14:14:11.359+01:00  INFO 15124 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-10-26T14:14:11.367+01:00  INFO 15124 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 7.804 seconds (process running for 8.071)
-2025-10-26T14:14:11.398+01:00  INFO 15124 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-10-26T14:16:06.818+01:00  INFO 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-26T14:16:06.818+01:00  INFO 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-10-26T14:16:06.819+01:00  INFO 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
-2025-10-26T14:32:03.409+01:00  WARN 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2025-10-26T14:32:08.564+01:00  WARN 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2025-10-26T14:32:11.779+01:00  WARN 15124 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' is not supported]
-2025-10-26T14:39:25.933+01:00  INFO 14540 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 14540 (C:\Users\Admin\Projects\pi_cloud\target\classes started by Admin in C:\Users\Admin\Projects\pi_cloud)
-2025-10-26T14:39:25.936+01:00  INFO 14540 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-10-26T14:39:26.545+01:00  INFO 14540 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-10-26T14:39:26.603+01:00  INFO 14540 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 1 JPA repository interface.
-2025-10-26T14:39:27.051+01:00  INFO 14540 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-10-26T14:39:27.066+01:00  INFO 14540 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-10-26T14:39:27.066+01:00  INFO 14540 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-10-26T14:39:27.121+01:00  INFO 14540 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-10-26T14:39:27.122+01:00  INFO 14540 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1141 ms
-2025-10-26T14:39:27.299+01:00  INFO 14540 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-10-26T14:39:27.372+01:00  INFO 14540 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-10-26T14:39:27.411+01:00  INFO 14540 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-10-26T14:39:27.676+01:00  INFO 14540 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-10-26T14:39:27.705+01:00  INFO 14540 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-10-26T14:39:31.955+01:00  INFO 14540 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-10-26T14:39:31.956+01:00  INFO 14540 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-10-26T14:39:31.976+01:00  WARN 14540 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-10-26T14:39:31.990+01:00  INFO 14540 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-02T16:55:32.299+01:00  INFO 10480 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:55:32.377+01:00  INFO 10480 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:55:33.321+01:00  WARN 10480 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:55:33.397+01:00  INFO 10480 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:55:34.009+01:00  WARN 10480 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: e8dff33c-d395-4948-afc9-dcda5ad628e1
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:55:34.018+01:00  INFO 10480 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:55:34.456+01:00  INFO 10480 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:55:34.637+01:00  INFO 10480 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T16:55:34.706+01:00  INFO 10480 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 14.967 seconds (process running for 15.779)
+2025-11-02T16:55:34.775+01:00  INFO 10480 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-02T16:57:22.774+01:00  INFO 18388 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 18388 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:57:22.777+01:00  INFO 18388 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:57:23.425+01:00  INFO 18388 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:57:23.486+01:00  INFO 18388 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 50 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:57:24.009+01:00  INFO 18388 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:57:24.024+01:00  INFO 18388 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:57:24.024+01:00  INFO 18388 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:57:24.076+01:00  INFO 18388 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:57:24.076+01:00  INFO 18388 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1250 ms
+2025-11-02T16:57:24.272+01:00  INFO 18388 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:57:24.340+01:00  INFO 18388 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:57:24.384+01:00  INFO 18388 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:57:24.664+01:00  INFO 18388 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:57:24.691+01:00  INFO 18388 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:57:24.785+01:00  INFO 18388 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:57:24.788+01:00  INFO 18388 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:57:24.818+01:00  WARN 18388 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:57:24.844+01:00  INFO 18388 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -206,19 +567,149 @@ java.nio.file.FileAlreadyExistsException: C:\temp\pi_cloud\files\GammaDecaySpect
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-10-26T14:39:32.539+01:00  INFO 14540 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-10-26T14:39:32.572+01:00  INFO 14540 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-10-26T14:39:32.869+01:00  WARN 14540 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-10-26T14:39:32.897+01:00  INFO 14540 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-10-26T14:39:33.150+01:00  INFO 14540 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-10-26T14:39:33.227+01:00  INFO 14540 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-10-26T14:39:33.234+01:00  INFO 14540 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 7.706 seconds (process running for 7.978)
-2025-10-26T14:39:33.267+01:00  INFO 14540 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-10-26T14:39:56.883+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-10-26T14:39:56.883+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-10-26T14:39:56.885+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
-2025-10-26T14:40:13.535+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Decryption successful for file: info.png
-2025-10-26T14:40:23.818+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : Encryption successful for file: info.png
-2025-10-26T14:40:37.695+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Decryption successful for file: info.png
-2025-10-26T15:00:27.542+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : Encryption successful for file: info.png
-2025-10-26T15:02:02.416+01:00  INFO 14540 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : Downloaded file: info.png from C:\temp\pi_cloud\files\info.png
+2025-11-02T16:57:25.454+01:00  INFO 18388 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:57:25.491+01:00  INFO 18388 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:57:25.883+01:00  WARN 18388 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:57:25.913+01:00  INFO 18388 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:57:26.094+01:00  WARN 18388 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: cd6429f4-e647-4957-8ebe-9d2947efa13d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:57:26.104+01:00  INFO 18388 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:57:26.351+01:00  INFO 18388 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:57:26.425+01:00  WARN 18388 --- [pi-cloud] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-11-02T16:57:26.427+01:00  INFO 18388 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:57:26.430+01:00  INFO 18388 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-02T16:57:26.437+01:00  INFO 18388 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-02T16:57:26.453+01:00  INFO 18388 --- [pi-cloud] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-02T16:57:26.472+01:00 ERROR 18388 --- [pi-cloud] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-11-02T16:57:43.811+01:00  INFO 11220 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 11220 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T16:57:43.814+01:00  INFO 11220 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T16:57:44.466+01:00  INFO 11220 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T16:57:44.529+01:00  INFO 11220 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 2 JPA repository interfaces.
+2025-11-02T16:57:45.061+01:00  INFO 11220 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T16:57:45.077+01:00  INFO 11220 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T16:57:45.077+01:00  INFO 11220 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T16:57:45.132+01:00  INFO 11220 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T16:57:45.132+01:00  INFO 11220 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1274 ms
+2025-11-02T16:57:45.305+01:00  INFO 11220 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T16:57:45.352+01:00  INFO 11220 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T16:57:45.387+01:00  INFO 11220 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T16:57:45.638+01:00  INFO 11220 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T16:57:45.666+01:00  INFO 11220 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T16:57:45.754+01:00  INFO 11220 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T16:57:45.756+01:00  INFO 11220 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T16:57:45.780+01:00  WARN 11220 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T16:57:45.801+01:00  INFO 11220 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-02T16:57:46.418+01:00  INFO 11220 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T16:57:46.459+01:00  INFO 11220 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:57:46.814+01:00  WARN 11220 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T16:57:46.843+01:00  INFO 11220 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T16:57:47.026+01:00  WARN 11220 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 84a512ad-c373-4b00-a011-24603d47fa42
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T16:57:47.036+01:00  INFO 11220 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T16:57:47.306+01:00  INFO 11220 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T16:57:47.388+01:00  WARN 11220 --- [pi-cloud] [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2025-11-02T16:57:47.390+01:00  INFO 11220 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T16:57:47.393+01:00  INFO 11220 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-02T16:57:47.400+01:00  INFO 11220 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-02T16:57:47.413+01:00  INFO 11220 --- [pi-cloud] [main] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-11-02T16:57:47.432+01:00 ERROR 11220 --- [pi-cloud] [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2025-11-02T17:04:32.015+01:00  INFO 9260 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 9260 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-02T17:04:32.018+01:00  INFO 9260 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-02T17:04:32.964+01:00  INFO 9260 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-02T17:04:33.042+01:00  INFO 9260 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 64 ms. Found 2 JPA repository interfaces.
+2025-11-02T17:04:33.894+01:00  INFO 9260 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-02T17:04:33.919+01:00  INFO 9260 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-02T17:04:33.919+01:00  INFO 9260 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-02T17:04:33.992+01:00  INFO 9260 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-02T17:04:33.992+01:00  INFO 9260 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1903 ms
+2025-11-02T17:04:34.234+01:00  INFO 9260 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-02T17:04:34.328+01:00  INFO 9260 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-02T17:04:34.389+01:00  INFO 9260 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-02T17:04:34.800+01:00  INFO 9260 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-02T17:04:34.844+01:00  INFO 9260 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-02T17:04:39.288+01:00  INFO 9260 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-02T17:04:39.289+01:00  INFO 9260 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-02T17:04:39.339+01:00  WARN 9260 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-02T17:04:39.362+01:00  INFO 9260 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-02T17:04:40.206+01:00  INFO 9260 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-02T17:04:40.256+01:00  INFO 9260 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-02T17:04:40.864+01:00  WARN 9260 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-02T17:04:40.904+01:00  INFO 9260 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-02T17:04:41.126+01:00  WARN 9260 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 866140cc-ce3d-4605-a538-76ba31884fea
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-02T17:04:41.136+01:00  INFO 9260 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-02T17:04:41.404+01:00  INFO 9260 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-02T17:04:41.495+01:00  INFO 9260 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-02T17:04:41.504+01:00  INFO 9260 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 10.009 seconds (process running for 10.637)
+2025-11-02T17:04:41.576+01:00  INFO 9260 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-02T17:04:50.570+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-02T17:04:50.571+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-02T17:04:50.572+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-02T17:05:03.624+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-02T17:05:03.633+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-02T17:05:43.715+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-02T17:05:43.794+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Saved file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-11-02T17:06:02.338+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : Encryption successful for file: Abitur_Finn_Willems.pdf
+2025-11-02T17:06:26.146+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Downloaded file: Abitur_Finn_Willems.pdf from C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-11-02T17:06:34.846+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : User logged out successfully: Finn
+2025-11-02T17:06:49.919+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.UserService           : User registered successfully: TestUser
+2025-11-02T17:06:49.920+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.AuthController      : User registered successfully: TestUser
+2025-11-02T17:06:58.671+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.UserService           : User authenticated successfully: TestUser
+2025-11-02T17:06:58.672+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.AuthController      : User logged in successfully: TestUser
+2025-11-02T17:07:56.015+01:00  INFO 9260 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : Downloaded file: Abitur_Finn_Willems.pdf from C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf

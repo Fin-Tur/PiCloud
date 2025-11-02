@@ -1,7 +1,7 @@
 
 //======VARIABLES======
 let files = [];
-let currentUser = null;
+let currentUser;
 
 //======AUTHENTICATION FUNCTIONS======
 
@@ -20,7 +20,6 @@ async function checkAuthentication() {
             }
         }
         
-        // Not authenticated, redirect to login
         window.location.href = '/login.html';
         return false;
     } catch (error) {
@@ -52,7 +51,6 @@ async function logout() {
 }
 
 function updateUIForLoggedInUser() {
-    // Add logout button to header
     const header = document.querySelector('h1');
     if (header && !document.querySelector('.user-info')) {
         const userInfo = document.createElement('div');
@@ -175,7 +173,9 @@ function showConfirmDialog(message = "Are you sure?") {
 
 async function listFiles() {
     try{
-        const response = await fetch('/api/files/list');
+        const response = await fetch('/api/files/list', {
+            credentials: 'include'
+        });
         if (response.ok) {
             files = await response.json();
         } else {
@@ -206,6 +206,10 @@ function displayFiles() {
         const nameDiv = document.createElement('div');
         nameDiv.className = 'file-name';
         nameDiv.textContent = file.name; 
+
+        const ownerDiv = document.createElement('div');
+        ownerDiv.className = 'file-owner-name';
+        ownerDiv.textContent = "Owner: " + file.ownerUsername;
         
         const metaDiv = document.createElement('div');
         metaDiv.className = 'file-meta';
@@ -227,6 +231,7 @@ function displayFiles() {
         metaDiv.appendChild(typeSpan);
         
         contentDiv.appendChild(nameDiv);
+        contentDiv.appendChild(ownerDiv);
         contentDiv.appendChild(metaDiv);
         
         //Actions div
@@ -369,7 +374,12 @@ async function downloadFile(file) {
             }
         }
 
-        const response = await fetch(`/api/files/download/${file.id}` , { method: 'POST', body: JSON.stringify({ password }), headers: { 'Content-Type': 'application/json' } });
+        const response = await fetch(`/api/files/download/${file.id}` , { 
+            method: 'POST', 
+            body: JSON.stringify({ password }), 
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        });
         if (response.ok) {
             const blob = await response.blob();
             const contentDisposition = response.headers.get('Content-Disposition');
@@ -408,7 +418,12 @@ async function fileEnDecryption(fileId) {
             return; // User cancelled
         }
         
-        const response = await fetch(`/api/files/encryption/${fileId}`, { method: 'POST', body: JSON.stringify({ password }), headers: { 'Content-Type': 'application/json' } });
+        const response = await fetch(`/api/files/encryption/${fileId}`, { 
+            method: 'POST', 
+            body: JSON.stringify({ password }), 
+            headers: { 'Content-Type': 'application/json' }, 
+            credentials: 'include'
+        });
         if (response.ok) {
             alert('File en/decrypted successfully!');
         } else {
@@ -422,7 +437,10 @@ async function fileEnDecryption(fileId) {
 
 async function fileDeCompression(fileId){
     try{
-        const response = await fetch(`api/files/compression/${fileId}`, {method : 'GET'});
+        const response = await fetch(`api/files/compression/${fileId}`, {
+            method : 'GET',
+            credentials: 'include'
+        });
         if(response.ok){
             alert('File de/compression successful!');
         }else{
@@ -439,7 +457,10 @@ async function deleteFile(fileId) {
         const confirmed = await showConfirmDialog("Are you sure you want to delete this file? This action cannot be undone.");
         if (!confirmed) return;
         
-        const conf = await fetch(`/api/files/delete/${fileId}`, { method: 'GET' });
+        const conf = await fetch(`/api/files/delete/${fileId}`, { 
+            method: 'DELETE', 
+            credentials: 'include'
+        });
         if (conf.ok) {
             alert('File deleted successfully!');
         } else {
@@ -577,9 +598,9 @@ document.addEventListener('click', () => {
 
 //======INITIALIZATION======
 document.addEventListener('DOMContentLoaded', async () => {
-    // Check authentication first
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated) {
         listFiles();
     }
 });
+

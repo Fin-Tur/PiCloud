@@ -23,7 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.turtle.models.FileEntity;
+import de.turtle.models.User;
 import de.turtle.services.CloudService;
+import de.turtle.services.UserService;
+import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
 @CrossOrigin("*")
@@ -35,17 +38,25 @@ public class CloudController {
     @Autowired
     private CloudService cloudService;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping("/upload")
-    public ResponseEntity<?> uploadFile(@RequestParam("files") MultipartFile[] files) {
+    public ResponseEntity<?> uploadFile(@RequestParam("files") MultipartFile[] files, HttpServletRequest request) {
+        String username = AuthController.getCurrentUser(request);
+        User owner = userService.findByUsername(username).orElseThrow();
+
         try {
             if(files.length == 1) {
-                FileEntity savedFile = cloudService.storeFile(files[0]);
+                FileEntity savedFile = cloudService.storeFile(files[0], owner);
                 if(savedFile == null) throw new IllegalArgumentException(); 
                 return ResponseEntity.ok(List.of(savedFile));
+            }else{
+                List<FileEntity> savedFiles = cloudService.storeFiles(files, owner);
+                if(savedFiles.isEmpty()) throw new IllegalArgumentException();
+                return ResponseEntity.ok(savedFiles);
             }
-            List<FileEntity> savedFiles = cloudService.storeFiles(files);
-            if(savedFiles.isEmpty()) throw new IllegalArgumentException();
-            return ResponseEntity.ok(savedFiles);
+
             
         } catch (IllegalArgumentException e) {
             logger.warn("Invalid file upload request: {}", e.getMessage());
@@ -61,8 +72,12 @@ public class CloudController {
     }
 
     @PostMapping("/encryption/{id}")
-    public ResponseEntity<?> enDeCryptFile(@PathVariable Long id, @RequestBody String password){
+    public ResponseEntity<?> enDeCryptFile(@PathVariable Long id, @RequestBody String password, HttpServletRequest request){
         try {
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
+            }
+
             if(cloudService.enDeCryptFile(id, password)) {
                 return ResponseEntity.ok("File encryption/decryption successful");
             }
@@ -82,8 +97,12 @@ public class CloudController {
     }
 
     @PostMapping("/compression/{id}")
-    public ResponseEntity<?> deCompressFile(@PathVariable Long id){
+    public ResponseEntity<?> deCompressFile(@PathVariable Long id, HttpServletRequest request){
         try {
+
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
+            }
             if(cloudService.deCompressFile(id)){
             return ResponseEntity.ok("De/Compression Successful!");
             }
@@ -103,8 +122,14 @@ public class CloudController {
     
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<?> deleteFile(@PathVariable Long id){
+    public ResponseEntity<?> deleteFile(@PathVariable Long id, HttpServletRequest request){
+
         try {
+
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+                return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
+            }
+
             if (cloudService.deleteFile(id) != null){
                 return ResponseEntity.ok("Deletion successful!");
             }

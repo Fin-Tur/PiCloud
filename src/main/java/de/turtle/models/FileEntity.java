@@ -2,10 +2,15 @@ package de.turtle.models;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,6 +19,11 @@ public class FileEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
+	@JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "owner_id", nullable = false)
+    private User owner;
 
 	private String name;
 	private String path;
@@ -25,7 +35,8 @@ public class FileEntity {
 
 	public FileEntity() {}
 
-	public FileEntity(String name, String path, Long size, String type, LocalDateTime uploadedAt) {
+	public FileEntity(User owner, String name, String path, Long size, String type, LocalDateTime uploadedAt) {
+		this.owner = owner;
 		this.name = name;
 		this.path = path;
 		this.size = size;
@@ -49,4 +60,8 @@ public class FileEntity {
 	public void setEncrypted(boolean encrypted) { this.encrypted = encrypted; }
 	public boolean isCompressed() { return compressed; }
 	public void setCompressed(boolean compressed) { this.compressed = compressed; }
+	public String getOwnerUsername() { 
+		return this.owner != null ? owner.getUsername() : null; 
+	}
+	public void setOwner(User owner) {this.owner = owner;}
 }
