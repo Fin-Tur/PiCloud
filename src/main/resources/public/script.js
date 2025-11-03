@@ -1,6 +1,7 @@
 
 //======VARIABLES======
 let files = [];
+let filteredFiles = [];
 let currentUser;
 
 //======AUTHENTICATION FUNCTIONS======
@@ -178,6 +179,7 @@ async function listFiles() {
         });
         if (response.ok) {
             files = await response.json();
+            filteredFiles = files;
         } else {
             console.error('Error fetching files:', response.statusText);
         }
@@ -188,11 +190,31 @@ async function listFiles() {
     
 }
 
+function filterFiles(name){
+    searchLower = name.trim().toLowerCase();
+    if(searchLower === ''){
+        filteredFiles = files;
+        displayFiles();
+        return;
+    }
+    filteredFiles = files.filter(file => file.name.toLowerCase().includes(searchLower));
+    displayFiles();
+}
+
+
 function displayFiles() {
     const fileList = document.getElementById('fileList');
     fileList.innerHTML = '';
     
-    files.forEach(file => {
+    if(filteredFiles.length === 0){
+        const noFilesFoundItem = document.createElement('div');
+        noFilesFoundItem.className = 'file-item';
+        noFilesFoundItem.textContent = "🔍 No files found";
+        fileList.appendChild(noFilesFoundItem);
+        return;
+    }
+
+    filteredFiles.forEach(file => {
         const fileItem = document.createElement('div');
         fileItem.className = 'file-item';
         
@@ -255,11 +277,11 @@ function displayFiles() {
             showActionDropDown(dropdownDiv);
         });
 
-        // Dropdown Container:
+        //Dropdown Container:
         const dropdownDiv = document.createElement('div');
         dropdownDiv.className = 'dropdown-menu hidden'; 
 
-        // Dropdown Items:
+        //Dropdown Items:
         const encryptItem = document.createElement('div');
         encryptItem.className = 'dropdown-item';
         encryptItem.textContent = file.encrypted ? '🔒 Decrypt' : '🔒 Encrypt';
@@ -281,27 +303,8 @@ function displayFiles() {
             listFiles();
         });
 
-        // Items zum Dropdown hinzufügen
         dropdownDiv.appendChild(encryptItem);
         dropdownDiv.appendChild(compressItem);
-
-        /*const compBtn = document.createElement('button');
-        compBtn.className = 'btn-small btn-comp';
-        if (file.compressed) {
-            compBtn.textContent = '📦 Decompress';
-        }else{
-            compBtn.textContent = '📦 Compress'; 
-        }
-        compBtn.addEventListener('click', () => fileDeCompression(file.id));*/
-        
-        /*const cryptBtn = document.createElement('button');
-        cryptBtn.className = 'btn-small btn-crypt';
-        if (file.encrypted) {
-            cryptBtn.textContent = '🔒 Decrypt';
-        }else{
-            cryptBtn.textContent = '🔒 Encrypt';
-        }
-        cryptBtn.addEventListener('click', () => fileEnDecryption(file.id));*/
 
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
@@ -309,9 +312,12 @@ function displayFiles() {
         deleteBtn.addEventListener('click', () => deleteFile(file.id));
         
         actionsDiv.appendChild(downloadBtn);
-        actionsDiv.appendChild(actionsBtn);
-        actionsDiv.appendChild(deleteBtn);
-        
+
+        if(file.ownerUsername == currentUser){
+            actionsDiv.appendChild(actionsBtn);
+            actionsDiv.appendChild(deleteBtn);
+        }
+
         actionsDiv.style.position = 'relative';
         actionsDiv.appendChild(dropdownDiv);
         
@@ -592,6 +598,10 @@ document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
         menu.classList.add('hidden');
     });
+});
+
+document.getElementById('searchInput').addEventListener('input', function(event){
+    filterFiles(event.target.value);
 });
 
 

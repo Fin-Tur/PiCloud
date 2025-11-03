@@ -1,5 +1,7 @@
 package de.turtle.controller;
 
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import de.turtle.models.AuthDTOs;
+import de.turtle.models.User;
 import de.turtle.services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
@@ -64,7 +67,10 @@ public class AuthController {
                 HttpSession session = httpRequest.getSession(true);
                 session.setAttribute("username", request.getUsername());
                 session.setAttribute("authenticated", true);
-                
+                Optional<User> user = userService.findByUsername(request.getUsername());
+                if(user.isPresent()){
+                    session.setAttribute("userId", user.get().getId());
+                }
                 logger.info("User logged in successfully: {}", request.getUsername());
                 return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "Login successful", request.getUsername()));
             } else {
@@ -135,6 +141,14 @@ public class AuthController {
         HttpSession session = request.getSession(false);
         if (session != null && Boolean.TRUE.equals(session.getAttribute("authenticated"))) {
             return (String) session.getAttribute("username");
+        }
+        return null;
+    }
+
+    public static Long getCurrentUserId(HttpServletRequest request){
+         HttpSession session = request.getSession(false);
+        if (session != null && Boolean.TRUE.equals(session.getAttribute("authenticated"))) {
+            return (Long) session.getAttribute("userId");
         }
         return null;
     }

@@ -3,12 +3,12 @@
    =================================== */
 :root {
   /* Colors */
-  --primary-color: #2563eb;
-  --primary-light: #3b82f6;
+  --primary-color: #909db9;
+  --primary-light: #5392f8;
   --primary-dark: #1d4ed8;
   --secondary-color: #64748b;
-  --accent-color: #10b981;
-  --accent-color-light: #29cf98;
+  --accent-color: #3e977c;
+  --accent-color-light: #78ceb1;
 
   /* Neutral Colors */
   --white: #ffffff;
@@ -26,8 +26,8 @@
   /* State Colors */
   --success-color: #10b981;
   --warning-color: #f59e0b;
-  --error-color: #ef4444;
-  --info-color: #3b82f6;
+  --error-color: #ec6b6b;
+  --info-color: #b9cce7;
 
   /* Typography */
   --font-family-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -42,6 +42,8 @@
   --text-2xl: 1.5rem;
   --text-3xl: 1.875rem;
   --text-4xl: 2.25rem;
+  --text-5xl: 2.75rem;
+  --text-6xl: 3.30rem;
   
   /* Spacing */
   --space-1: 0.25rem;
@@ -99,7 +101,7 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--gray-900);
-  background-color: var(--gray-50);
+  background-color: var(--gray-200);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -195,7 +197,7 @@ input[type="file"] {
 
 /* Header */
 h1 {
-  font-size: var(--text-4xl);
+  font-size: var(--text-6xl);
   font-weight: 800;
   line-height: 1.2;
   color: var(--primary-color);
@@ -205,7 +207,15 @@ h1 {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+
+  filter: drop-shadow(0 4px 8px rgba(144, 157, 185, 0.3)) 
+          drop-shadow(0 2px 4px rgba(144, 157, 185, 0.2));
+
+  position: relative;
+  padding: var(--space-4) 0;
+  animation: headerGlow 2s ease-in-out infinite alternate;
 }
+
 
 /* User Info */
 .user-info {
@@ -287,14 +297,47 @@ h2::after {
 @media (min-width: 640px) {
   #uploadForm {
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between; 
+    align-items: center;              
   }
 }
 
-/* Upload Label (Custom File Input) */
+.search-container {
+  flex: 1;
+  max-width: 300px;
+  margin-right: auto;  
+}
+
+.upload-controls {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  padding: var(--space-4) var(--space-6);
+  border: 2px solid var(--gray-300);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--gray-700);
+  background: var(--white);
+  transition: all var(--transition-normal);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(144, 157, 185, 0.1);
+}
+
+.search-input::placeholder {
+  color: var(--gray-400);
+}
+
 .upload-label {
   display: inline-flex;
-  align-items: center;
   gap: var(--space-2);
   padding: var(--space-4) var(--space-6);
   background: var(--gray-100);
@@ -325,8 +368,8 @@ h2::after {
   display: inline-flex;
   align-items: center;
   gap: var(--space-2);
-  padding: var(--space-4) var(--space-8);
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+  padding: var(--space-4) var(--space-6);
+  background: linear-gradient(60deg, var(--primary-color), var(--gray-400));
   color: var(--white);
   border: none;
   border-radius: var(--radius-lg);
@@ -337,11 +380,10 @@ h2::after {
   box-shadow: var(--shadow-md);
   min-width: 120px;
   justify-content: center;
-  margin-top: var(--space-4);
 }
 
 .upload-btn:hover {
-  background: linear-gradient(135deg, var(--primary-dark), var(--primary-color));
+  background: linear-gradient(60deg, var(--gray-400), var(--primary-color));
   transform: translateY(-2px);
   box-shadow: var(--shadow-lg);
 }
@@ -912,6 +954,18 @@ h2::after {
 /* ===================================
    ANIMATIONS & INTERACTIONS
    =================================== */
+
+@keyframes headerGlow {
+  from {
+    filter: drop-shadow(0 4px 8px rgba(144, 157, 185, 0.3)) 
+            drop-shadow(0 2px 4px rgba(144, 157, 185, 0.2));
+  }
+  to {
+    filter: drop-shadow(0 6px 12px rgba(83, 146, 248, 0.4)) 
+            drop-shadow(0 3px 6px rgba(83, 146, 248, 0.3));
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

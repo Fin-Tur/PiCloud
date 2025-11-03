@@ -65,7 +65,7 @@ async function makeRequest(url, method = 'GET', data = null) {
         headers: {
             'Content-Type': 'application/json',
         },
-        credentials: 'include', //Include cookies for session management
+        credentials: 'include',
     };
     
     if (data) {
@@ -146,11 +146,9 @@ async function checkAuthentication() {
         const result = await makeRequest('/api/auth/check');
         
         if (result.success) {
-            // User is already authenticated, redirect to main app
             window.location.href = '/index.html';
         }
     } catch (error) {
-        // User is not authenticated, stay on login page
         console.log('User not authenticated');
     }
 }

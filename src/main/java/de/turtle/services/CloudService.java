@@ -20,6 +20,7 @@ import de.turtle.extern.FisLib;
 import de.turtle.models.FileEntity;
 import de.turtle.models.FileEntityRepository;
 import de.turtle.models.User;
+import de.turtle.models.UserRepository;
 import jakarta.transaction.Transactional;
 
 
@@ -46,6 +47,9 @@ public class CloudService {
     @Autowired
     public FileEntityRepository fileEntityRepository;
 
+    @Autowired
+    private UserRepository userRepository;
+
 
     private FisLib getFisLib() {
         try {
@@ -57,13 +61,16 @@ public class CloudService {
     }
 
     public FileEntity getFileById(Long id) {
-        return fileEntityRepository.findById(id).orElseThrow(() -> 
-            new RuntimeException("File not found with id: " + id));
+        return fileEntityRepository.findById(id).orElseThrow();
+    }
+
+    private User getUserById(Long id){
+        return userRepository.findById(id).orElseThrow();
     }
 
     
     @Transactional
-    public FileEntity storeFile(MultipartFile file, User owner) throws Exception {
+    public FileEntity storeFile(MultipartFile file, Long ownerId) throws Exception {
         Path dirPath = Paths.get(storagePath);
         if (!Files.exists(dirPath)) {
             Files.createDirectories(dirPath);
@@ -85,8 +92,11 @@ public class CloudService {
         Path filePath = dirPath.resolve(file.getOriginalFilename());
         Files.copy(file.getInputStream(), filePath);
 
+        User owner = getUserById(ownerId);
+
         FileEntity entity = new FileEntity(
             owner,
+            null,
             file.getOriginalFilename(),
             filePath.toString(),
             file.getSize(),
@@ -114,10 +124,10 @@ public class CloudService {
     }
 
     @Transactional
-    public List<FileEntity> storeFiles(MultipartFile[] files, User owner) throws Exception {
+    public List<FileEntity> storeFiles(MultipartFile[] files, Long ownerId) throws Exception {
         List<FileEntity> savedFiles = new ArrayList<>();
         for (MultipartFile file : files) {
-            FileEntity savedFile = storeFile(file, owner);
+            FileEntity savedFile = storeFile(file, ownerId);
             if(savedFile == null) continue;
             savedFiles.add(savedFile);
         }

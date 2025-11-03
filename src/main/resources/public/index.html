@@ -10,20 +10,28 @@
 	<div class="container">
 		<h1>Pi Cloud</h1>
 		<form id="uploadForm">
-			<label for="fileInput" class="upload-label">Pick Files</label>
-			<input type="file" id="fileInput" name="files" multiple required>
 			
-			<!-- File Preview Section -->
-			<div id="filePreview" class="file-preview hidden">
-				<div class="preview-header">
-					<h3>Picked Files:</h3>
-					<button type="button" class="btn-clear" onclick="clearSelectedFiles()">Clear all</button>
-				</div>
-				<div id="previewList" class="preview-list"></div>
+			<!--File controls-->
+			<div class="search-container">
+				<input type="text" id="searchInput" placeholder="🔍 Search files..." class="search-input">
 			</div>
-			
-			<button type="submit" class="upload-btn">Upload</button>
+			<!--Upload controls-->
+			<div class="upload-controls">
+				<label for="fileInput" class="upload-label">Pick Files</label>
+				<input type="file" id="fileInput" name="files" multiple required>
+				<button type="submit" class="upload-btn">Upload</button>
+			</div>
 		</form>
+		
+		<!-- File Preview Section -->
+		<div id="filePreview" class="file-preview hidden">
+			<div class="preview-header">
+				<h3>Picked Files:</h3>
+				<button type="button" class="btn-clear" onclick="clearSelectedFiles()">Clear all</button>
+			</div>
+			<div id="previewList" class="preview-list"></div>
+		</div>
+		
 		<div id="message"></div>
 		<h2>Your Files</h2>
 		<div id="fileList" class="file-list"></div>

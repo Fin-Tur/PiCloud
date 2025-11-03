@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.turtle.models.FileEntity;
-import de.turtle.models.User;
 import de.turtle.services.CloudService;
 import de.turtle.services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -43,16 +42,15 @@ public class CloudController {
 
     @PostMapping("/upload")
     public ResponseEntity<?> uploadFile(@RequestParam("files") MultipartFile[] files, HttpServletRequest request) {
-        String username = AuthController.getCurrentUser(request);
-        User owner = userService.findByUsername(username).orElseThrow();
+        Long ownerId = AuthController.getCurrentUserId(request);
 
         try {
             if(files.length == 1) {
-                FileEntity savedFile = cloudService.storeFile(files[0], owner);
+                FileEntity savedFile = cloudService.storeFile(files[0], ownerId);
                 if(savedFile == null) throw new IllegalArgumentException(); 
                 return ResponseEntity.ok(List.of(savedFile));
             }else{
-                List<FileEntity> savedFiles = cloudService.storeFiles(files, owner);
+                List<FileEntity> savedFiles = cloudService.storeFiles(files, ownerId);
                 if(savedFiles.isEmpty()) throw new IllegalArgumentException();
                 return ResponseEntity.ok(savedFiles);
             }

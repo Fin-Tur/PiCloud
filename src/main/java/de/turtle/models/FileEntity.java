@@ -25,6 +25,10 @@ public class FileEntity {
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "dir_ir", nullable = true)
+	private DirEntity dir;
+
 	private String name;
 	private String path;
 	private Long size;
@@ -35,8 +39,9 @@ public class FileEntity {
 
 	public FileEntity() {}
 
-	public FileEntity(User owner, String name, String path, Long size, String type, LocalDateTime uploadedAt) {
+	public FileEntity(User owner, DirEntity dir, String name, String path, Long size, String type, LocalDateTime uploadedAt) {
 		this.owner = owner;
+		this.dir = dir;
 		this.name = name;
 		this.path = path;
 		this.size = size;
@@ -60,8 +65,23 @@ public class FileEntity {
 	public void setEncrypted(boolean encrypted) { this.encrypted = encrypted; }
 	public boolean isCompressed() { return compressed; }
 	public void setCompressed(boolean compressed) { this.compressed = compressed; }
+	public DirEntity getDir(){ return this.dir; }
+	public void setDir(DirEntity dir) { this.dir = dir; }
 	public String getOwnerUsername() { 
 		return this.owner != null ? owner.getUsername() : null; 
 	}
 	public void setOwner(User owner) {this.owner = owner;}
+
+	@Override
+	public boolean equals(Object o){
+		if(this == o) return true;
+		if(!(o instanceof FileEntity)) return false;
+		FileEntity other = (FileEntity) o;
+		return other.id != null && other.id.equals(this.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return getClass().hashCode();
+	}
 }

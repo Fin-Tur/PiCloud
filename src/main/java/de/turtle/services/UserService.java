@@ -99,4 +99,5 @@ public class UserService {
         log.info("User {} {}: {}", enabled ? "enabled" : "disabled", "successfully", username);
         return true;
     }
+
 }
