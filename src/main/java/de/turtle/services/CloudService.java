@@ -285,7 +285,7 @@ public class CloudService {
         return "Cloud information";
     }
 
-    public boolean canUserModifyFile(Long fileId, String username) throws IOException{
-        return getFileById(fileId).getOwnerUsername().equals(username);
+    public boolean canUserModifyFile(Long fileId, Long userID) throws IOException{
+        return getFileById(fileId).getOwnerUsername().equals(getUserById(userID).getUsername());
     }
 }

@@ -1,5 +1,7 @@
 package de.turtle.services;
 
+import java.io.IOException;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,9 @@ import jakarta.transaction.Transactional;
 public class DirService {
 
     private static final Logger log = LoggerFactory.getLogger(DirService.class);
+    
+    @Autowired
+    private CloudService cloudService;
 
     @Autowired
     private DirRepository dirRepository;
@@ -28,7 +33,7 @@ public class DirService {
     @Autowired
     private FileEntityRepository fileEntityRepository;
 
-    private DirEntity getDirById(@Nonnull Long id){
+    public DirEntity getDirById(@Nonnull Long id){
         return dirRepository.findById(id).orElseThrow();
     }
 
@@ -40,7 +45,7 @@ public class DirService {
         return fileEntityRepository.findById(id).orElseThrow();
     } 
 
-    @Transactional
+        @Transactional
     public DirEntity createDir(String name, Long ownerId) throws Exception{
         if(dirRepository.existsByNameIgnoreCase(name)){
             log.error("Dir with name {} already exists!", name);
@@ -70,5 +75,28 @@ public class DirService {
         log.info("Added file {} to Dir {}", file.getName(), dir.getName());
 
         return dir;
+    }
+
+    public FileEntity[] getFilesFromDir(Long id) throws Exception{
+        DirEntity dir = getDirById(id);
+        return dir.getFiles().toArray(FileEntity[]::new);
+    }
+
+    @Transactional
+    public DirEntity deleteDir(Long id)throws Exception{
+        DirEntity dir = getDirById(id);
+        for(FileEntity f : dir.getFiles()){
+            try{
+                cloudService.deleteFile(f.getId());
+            }catch(IOException e){
+                log.error("Error occured trying do delete file {}", f.getId());
+            }
+        }
+        dirRepository.delete(dir);
+        return dir;
+    }
+
+    public boolean canUserModifyDir(Long dirId, Long userId){
+        return getDirById(dirId).getOwnerUsername().equals(getUserById(userId).getUsername());
     }
 }

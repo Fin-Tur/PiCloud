@@ -26,7 +26,7 @@ public class DirEntity {
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
 
-    @OneToMany(mappedBy = "DirEntity", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "dir", cascade = CascadeType.ALL, orphanRemoval = true)
     private ArrayList<FileEntity> files = new ArrayList<>();
 
     private String name;
@@ -46,8 +46,8 @@ public class DirEntity {
         this.id = id;
     }
 
-    public User getOwner() {
-        return owner;
+    public String getOwnerUsername() {
+        return owner.getUsername();
     }
 
     public void setOwner(User owner) {

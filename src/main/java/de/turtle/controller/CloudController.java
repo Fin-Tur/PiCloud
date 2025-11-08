@@ -72,7 +72,7 @@ public class CloudController {
     @PostMapping("/encryption/{id}")
     public ResponseEntity<?> enDeCryptFile(@PathVariable Long id, @RequestBody String password, HttpServletRequest request){
         try {
-            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUserId(request))){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
             }
 
@@ -98,7 +98,7 @@ public class CloudController {
     public ResponseEntity<?> deCompressFile(@PathVariable Long id, HttpServletRequest request){
         try {
 
-            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUserId(request))){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
             }
             if(cloudService.deCompressFile(id)){
@@ -124,7 +124,7 @@ public class CloudController {
 
         try {
 
-            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUser(request))){
+            if(!cloudService.canUserModifyFile(id, AuthController.getCurrentUserId(request))){
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("Invalid DeleteRequest: User doesnt own file.");
             }
 

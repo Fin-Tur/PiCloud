@@ -26,7 +26,7 @@ public class FileEntity {
     private User owner;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dir_ir", nullable = true)
+	@JoinColumn(name = "dir_id", nullable = true)
 	private DirEntity dir;
 
 	private String name;
