@@ -4,6 +4,7 @@ let files = [];
 let filteredFiles = [];
 let dirs = [];
 let currentDir = "/cloud";
+let currentDirEntity = [];
 let currentUser;
 
 
@@ -281,6 +282,7 @@ function filterFiles(name){
 
 async function onDirClick(dir){
     try{
+        currentDirEntity.push(dir);
         const response = await fetch(`/api/dirs/getFiles/${dir.id}`, {
             credentials: 'include'
         });
@@ -524,6 +526,29 @@ async function uploadFile() {
             body: formData
         });
         if (response.ok) {
+            const uploadedFiles = await response.json(); 
+            
+            // Move files to current directory if not in root
+            console.log(currentDirEntity.at(-1));
+            if(currentDirEntity.length != 0){
+                const activeDirId = currentDirEntity[currentDirEntity.length - 1].id;
+                
+                for(const file of uploadedFiles) {
+                    try {
+                        const moveResponse = await fetch(`/api/dirs/move/${file.id}/${activeDirId}`, {
+                            method: 'POST',
+                            credentials: 'include'
+                        });
+                        
+                        if (!moveResponse.ok) {
+                            console.error(`Failed to move file ${file.name} to directory`);
+                        }
+                    } catch (moveError) {
+                        console.error(`Error moving file ${file.name}:`, moveError);
+                    }
+                }
+            }
+            
             alert('Files uploaded successfully!');
             listFiles(); 
             clearSelectedFiles(); 
@@ -833,7 +858,19 @@ async function deleteDir(id){
     }
 }
 
+function getCurrentDir(){
+    let pathParts = currentDir.split('/');
+    let dirName = pathParts.at(-1);
+        
+    if(dirName === 'cloud'){
+        return null;
+    }
+
+    return dirName;
+}
+
 function pathReduceLevel() {
+    currentDirEntity.pop();
     if (currentDir === '/cloud') {
         return;
     }
@@ -865,15 +902,12 @@ function updatePathDisplay() {
 
 async function loadCurrentDirectory() {
     try {
-        let pathParts = currentDir.split('/');
-        let dirName = pathParts.at(-1);
-        
-        if(dirName === 'cloud'){
+        const dir = getCurrentDir();
+        if(dir == null) {
             listFiles();
             return;
         }
-        
-        const response = await fetch(`/api/dirs/${dirName}`, {
+        const response = await fetch(`/api/dirs/getFilesByName/${dirName}`, {
             credentials: 'include'
         });
         

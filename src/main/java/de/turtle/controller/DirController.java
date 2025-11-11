@@ -136,7 +136,7 @@ public class DirController {
     public ResponseEntity<?> moveFileToDir(@PathVariable Long idF, @PathVariable Long idD, HttpServletRequest req){
         try {
             Long userID = AuthController.getCurrentUserId(req);
-            if(!(dirService.canUserModifyDir(idD, userID) && cloudService.canUserModifyFile(idD, userID))){
+            if(!(dirService.canUserModifyDir(idD, userID) && cloudService.canUserModifyFile(idF, userID))){
                 logger.warn("User {} is not allowed to either acces file {} or dir {}", userID, idF, idD);
                 return ResponseEntity.status(HttpStatus.FORBIDDEN).body("User does not have ownership required");
             }

@@ -93,7 +93,7 @@ public class DirService {
         dir.addFile(file);
         log.info("Added file {} to Dir {}", file.getName(), dir.getName());
 
-        return dir;
+        return dirRepository.save(dir);
     }
 
     public FileEntity[] getFilesFromDir(Long id) throws Exception{
