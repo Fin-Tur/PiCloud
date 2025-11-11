@@ -1,6 +1,6 @@
 #FileLock
-#Sat Nov 08 16:58:40 CET 2025
+#Tue Nov 11 14:53:41 CET 2025
 hostName=Workstation.fritz.box
-id=19a6430ef203042d248c5cd5eeb7f974365f1b33a21
+id=19a73318f90fdb93e2c0e9388e9e167d563bb2aa409
 method=file
-server=192.168.178.36\:61672
+server=192.168.178.36\:55040

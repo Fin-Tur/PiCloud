@@ -1,6 +1,7 @@
 package de.turtle.services;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +38,11 @@ public class DirService {
         return dirRepository.findById(id).orElseThrow();
     }
 
+    public DirEntity getDirByName(@Nonnull String name){
+        Optional<DirEntity> dir = dirRepository.findByName(name);
+        return dir.isPresent() ? dir.get() : null;
+    }
+
     private User getUserById(@Nonnull Long id){
         return userRepository.findById(id).orElseThrow();
     }
@@ -45,7 +51,12 @@ public class DirService {
         return fileEntityRepository.findById(id).orElseThrow();
     } 
 
-        @Transactional
+    @Transactional
+    public DirEntity[] listDirs(){
+        return dirRepository.findAll().toArray(DirEntity[]::new);
+    }
+
+    @Transactional
     public DirEntity createDir(String name, Long ownerId) throws Exception{
         if(dirRepository.existsByNameIgnoreCase(name)){
             log.error("Dir with name {} already exists!", name);
@@ -53,10 +64,18 @@ public class DirService {
         }
 
         User owner = getUserById(ownerId);
+        log.info("Owner found: {}", owner);
         DirEntity dir = new DirEntity(owner, name);
-        dirRepository.save(dir);
-        log.info("Added Dir: {}", name);
-        return dir;
+        log.info("DirEntity created: name={}, owner={}", dir.getName(), dir.getOwnerUsername());
+        
+        try {
+            DirEntity saved = dirRepository.save(dir);
+            log.info("DirEntity saved successfully with ID: {}", saved.getId());
+            return saved;
+        } catch (Exception e) {
+            log.error("ERROR saving DirEntity: {}", e.getMessage(), e);
+            throw e;
+        }
     }
 
     @Transactional

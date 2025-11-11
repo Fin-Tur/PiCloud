@@ -2,7 +2,10 @@
 //======VARIABLES======
 let files = [];
 let filteredFiles = [];
+let dirs = [];
+let currentDir = "/cloud";
 let currentUser;
+
 
 //======AUTHENTICATION FUNCTIONS======
 
@@ -65,6 +68,64 @@ function updateUIForLoggedInUser() {
 }
 
 //======MODAL FUNCTIONS======
+
+function showCreateDirPrompt() {
+  return new Promise((resolve, reject) => {
+    const modal = document.getElementById('createDirModal');
+    const nameInput = document.getElementById('dirNameInput');
+    const passwordInput = document.getElementById('dirPasswordInput');
+    const cancelBtn = modal.querySelector('.btn-cancel');
+    const confirmBtn = modal.querySelector('.btn-confirm');
+    
+    //Show modal
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    nameInput.focus();
+    
+    //Event Handlers
+    const handleConfirm = () => {
+      const dirName = nameInput.value.trim();
+      const password = passwordInput.value.trim();
+      
+      if (dirName) {
+        cleanup();
+        resolve({ dirName, password });
+      } else {
+        nameInput.style.borderColor = 'var(--error-color)';
+        nameInput.focus();
+      }
+    };
+    
+    const handleCancel = () => {
+      cleanup();
+      reject(new Error('User cancelled'));
+    };
+    
+    const cleanup = () => {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+      nameInput.value = '';
+      passwordInput.value = '';
+      nameInput.style.borderColor = '';
+      confirmBtn.removeEventListener('click', handleConfirm);
+      cancelBtn.removeEventListener('click', handleCancel);
+      nameInput.removeEventListener('keypress', handleKeypress);
+      backdrop.removeEventListener('click', handleCancel);
+    };
+    
+    const handleKeypress = (e) => {
+      if (e.key === 'Enter') handleConfirm();
+      if (e.key === 'Escape') handleCancel();
+    };
+    
+    const backdrop = modal.querySelector('.modal-backdrop');
+    
+    confirmBtn.addEventListener('click', handleConfirm);
+    cancelBtn.addEventListener('click', handleCancel);
+    nameInput.addEventListener('keypress', handleKeypress);
+    backdrop.addEventListener('click', handleCancel);
+  });
+}
 
 function showPasswordPrompt(message = "Enter password:") {
   return new Promise((resolve, reject) => {
@@ -187,7 +248,24 @@ async function listFiles() {
         console.error('Error fetching files:', error);
     }
     displayFiles();
+    listDirs();
     
+}
+
+async function listDirs(){
+    try{
+        const response = await fetch('api/dirs/list', {
+            credentials: 'include'
+        });
+        if(response.ok){
+            dirs = await response.json();
+        }else{
+            console.error('Error fetching dirs:', response.statusText);
+        }
+    }catch (error) {
+        console.error('Error fetching files:', error);
+    }
+    displayDirs();
 }
 
 function filterFiles(name){
@@ -201,6 +279,97 @@ function filterFiles(name){
     displayFiles();
 }
 
+async function onDirClick(dir){
+    try{
+        const response = await fetch(`/api/dirs/getFiles/${dir.id}`, {
+            credentials: 'include'
+        });
+        if(response.ok){
+            const dirFiles = await response.json();
+            currentDir += "/"+dir.name;
+            filteredFiles = dirFiles;
+            displayFiles();
+            document.getElementById("path").innerHTML=currentDir;
+        }else{
+            console.error('Error fetching dir files:', response.statusText);
+            alert('Error loading directory files');
+        }
+    }catch (error) {
+        console.error('Error fetching dir files:', error);
+        alert('Error loading directory files: ' + error.message);
+    }
+}
+
+function displayDirs(){
+    const fileList = document.getElementById('fileList');
+    
+    if(dirs.length === 0){
+        return;
+    }
+
+    dirs.forEach(dir => {
+        const dirItem = document.createElement('div');
+        dirItem.className = 'file-item dir-item';
+        dirItem.style.cursor = 'pointer';
+        
+        dirItem.addEventListener('click', () => onDirClick(dir));
+        
+        const iconDiv = document.createElement('div');
+        iconDiv.className = 'file-icon';
+        iconDiv.style.background = 'linear-gradient(135deg, var(--accent-color), var(--accent-color-light))';
+        iconDiv.textContent = '📁';
+        
+        const contentDiv = document.createElement('div');
+        contentDiv.className = 'file-content';
+        
+        const nameDiv = document.createElement('div');
+        nameDiv.className = 'file-name';
+        nameDiv.textContent = dir.name;
+
+        const ownerDiv = document.createElement('div');
+        ownerDiv.className = 'file-owner-name';
+        ownerDiv.textContent = "Owner: " + dir.ownerUsername;
+        
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'file-meta';
+        
+        const fileCountSpan = document.createElement('span');
+        fileCountSpan.className = 'file-size';
+        fileCountSpan.textContent = `${dir.files ? dir.files.length : 0} files`;
+        
+        const typeSpan = document.createElement('span');
+        typeSpan.className = 'file-type';
+        typeSpan.textContent = 'Directory';
+        
+        metaDiv.appendChild(fileCountSpan);
+        metaDiv.appendChild(typeSpan);
+        
+        contentDiv.appendChild(nameDiv);
+        contentDiv.appendChild(ownerDiv);
+        contentDiv.appendChild(metaDiv);
+        
+        //Actions div
+        const actionsDiv = document.createElement('div');
+        actionsDiv.className = 'file-actions';
+        
+        if(dir.ownerUsername == currentUser){
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-small btn-delete';
+            deleteBtn.textContent = '🗑️ Delete';
+            deleteBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                deleteDir(dir.id);
+            });
+            actionsDiv.appendChild(deleteBtn);
+        }
+        
+        dirItem.appendChild(iconDiv);
+        dirItem.appendChild(contentDiv);
+        dirItem.appendChild(actionsDiv);
+        
+        fileList.appendChild(dirItem);
+    });
+}
 
 function displayFiles() {
     const fileList = document.getElementById('fileList');
@@ -290,7 +459,6 @@ function displayFiles() {
         compressItem.className = 'dropdown-item';
         compressItem.textContent = file.compressed ? '📦 Decompress' : '📦 Compress';
 
-        //Event Listeners for Dropdown Items
         encryptItem.addEventListener('click', () => {
             fileEnDecryption(file.id);
             dropdownDiv.classList.add('hidden');
@@ -593,7 +761,6 @@ document.getElementById('fileInput').addEventListener('change', function(event) 
     showFilePreview(event.target.files);
 });
 
-// Dropdown schließen bei Klick außerhalb
 document.addEventListener('click', () => {
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
         menu.classList.add('hidden');
@@ -604,12 +771,130 @@ document.getElementById('searchInput').addEventListener('input', function(event)
     filterFiles(event.target.value);
 });
 
+document.getElementById('createDirBtn').addEventListener('click', async function() {
+    try {
+        const { dirName, password } = await showCreateDirPrompt();
+        await createDirectory(dirName, password);
+    } catch (error) {
+        console.log('Directory creation cancelled');
+    }
+});
+
+document.getElementById("path").addEventListener('click', function() {
+    pathReduceLevel();
+})
+
+//======DIR FUNCTIONS======
+
+async function createDirectory(dirName, password) {
+    try {
+        const formData = new FormData();
+        formData.append('dirName', dirName);
+        //if (password) {
+          //  formData.append('password', password);
+        //}
+        
+        const response = await fetch('/api/dirs/create', {
+            method: 'POST',
+            body: formData,
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            alert(`Directory "${dirName}" created successfully!`);
+            listFiles(); 
+        } else {
+            const errorText = await response.text();
+            console.error('Server response:', errorText);
+            alert('Error creating directory: ' + errorText);
+        }
+    } catch (error) {
+        console.error('Error creating directory:', error);
+        alert('Error creating directory: ' + error.message);
+    }
+}
+
+async function deleteDir(id){
+    try{
+        const response = await fetch(`/api/dirs/delete/${id}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+
+        if(response.ok){
+            alert('Directory deleted sucessfully!');
+            listFiles();
+        }else{
+            console.error('Error deleting directory!');
+        }
+    }catch (error){
+        console.error('Error deleting dir: ', error);
+    }
+}
+
+function pathReduceLevel() {
+    if (currentDir === '/cloud') {
+        return;
+    }
+
+    const pathParts = currentDir.split('/').filter(part => part !== '');
+    pathParts.pop();
+    currentDir = '/' + pathParts.join('/');
+    
+    updatePathDisplay();
+    
+    loadCurrentDirectory();
+}
+
+function updatePathDisplay() {
+    const pathElement = document.getElementById('path');
+    
+    if (currentDir === '/cloud') {
+        pathElement.textContent = '/cloud';
+    } else {
+        pathElement.textContent = `${currentDir}`;
+    }
+    
+    if (currentDir === '/cloud') {
+        pathElement.style.cursor = 'default';
+    } else {
+        pathElement.style.cursor = 'pointer';
+    }
+}
+
+async function loadCurrentDirectory() {
+    try {
+        let pathParts = currentDir.split('/');
+        let dirName = pathParts.at(-1);
+        
+        if(dirName === 'cloud'){
+            listFiles();
+            return;
+        }
+        
+        const response = await fetch(`/api/dirs/${dirName}`, {
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            files = data.files || [];
+            filteredFiles = files;
+            displayFiles();
+        }
+    } catch (error) {
+        console.error('Error loading directory:', error);
+    }
+}
+
 
 
 //======INITIALIZATION======
 document.addEventListener('DOMContentLoaded', async () => {
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated) {
+        updatePathDisplay();
         listFiles();
     }
 });

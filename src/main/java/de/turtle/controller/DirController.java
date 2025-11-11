@@ -36,6 +36,12 @@ public class DirController {
     @Autowired
     private CloudService cloudService;
 
+    @GetMapping("/list")
+    public ResponseEntity<DirEntity[]> listDirs(){
+        DirEntity[] dirs = dirService.listDirs();
+        return ResponseEntity.ok(dirs);
+    }
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deleteDir(@PathVariable Long id, HttpServletRequest request){
 
@@ -66,11 +72,14 @@ public class DirController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createDir(@RequestParam("dirName") String name, HttpServletRequest req){
+    public ResponseEntity<?> createDir(@RequestParam("dirName")
+     String name, HttpServletRequest req){
         try {
 
             Long userid = AuthController.getCurrentUserId(req);
+            logger.info("Got userID");
             DirEntity dir = dirService.createDir(name, userid);
+            logger.info("Created");
             return ResponseEntity.ok(dir);
 
         } catch (IllegalArgumentException e) {
@@ -101,6 +110,26 @@ public class DirController {
             return ResponseEntity.internalServerError().build();
         }
  
+    }
+
+    @GetMapping("/getFilesByName/{name}")
+    public ResponseEntity<FileEntity[]> getFilesFromDirByName(@PathVariable String name, HttpServletRequest req){
+        try {
+            Long userID = AuthController.getCurrentUserId(req);
+            DirEntity dir = dirService.getDirByName(name);
+            if(dir == null){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+            }
+            if(!dirService.canUserModifyDir(dir.getId(), userID)){
+                logger.warn("User {} is not allowed to pull Files from Dir {}", userID, dir.getId());
+                ResponseEntity.status(HttpStatus.FORBIDDEN);
+            }
+
+            FileEntity[] files = dirService.getFilesFromDir(dir.getId());
+            return ResponseEntity.ok(files);
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError().build();
+        }
     }
 
     @PostMapping("/move/{idF}/{idD}")

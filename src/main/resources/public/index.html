@@ -15,6 +15,10 @@
 			<div class="search-container">
 				<input type="text" id="searchInput" placeholder="🔍 Search files..." class="search-input">
 			</div>
+			<!--Dir controls-->
+			<div class = "dir-container">
+				<button type="button" class="dir-btn" id="createDirBtn">📁 Create Dir</button> 
+			</div>
 			<!--Upload controls-->
 			<div class="upload-controls">
 				<label for="fileInput" class="upload-label">Pick Files</label>
@@ -33,7 +37,7 @@
 		</div>
 		
 		<div id="message"></div>
-		<h2>Your Files</h2>
+		<h2 id="path">/cloud</h2>
 		<div id="fileList" class="file-list"></div>
 	</div>
 
@@ -71,6 +75,26 @@
 			</div>
 		</div>
 	</div>
+	<!-- Custom Modal for Dir creation-->
+	<div id="createDirModal" class="modal hidden" style="display: none;">
+		<div class="modal-backdrop"></div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>📁 Create New Directory</h3>
+			</div>
+			<div class="modal-body">
+				<p>Enter a name for your new directory:</p>
+				<input type="text" id="dirNameInput" class="modal-input" placeholder="Directory name...">
+				<p style="margin-top: 16px;">Password (optional):</p>
+				<input type="password" id="dirPasswordInput" class="modal-input" placeholder="Leave empty for no password...">
+			</div>
+			<div class="modal-footer">
+				<button class="btn-cancel" type="button">Cancel</button>
+				<button class="btn-confirm" type="button">Create</button>
+			</div>
+		</div>
+	</div>
+	 
 	<script src="script.js"></script>
 </body>
 </html>

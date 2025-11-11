@@ -1,6 +1,7 @@
 package de.turtle.models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -13,8 +14,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "directories")
 public class DirEntity {
     
     @Id
@@ -26,8 +29,8 @@ public class DirEntity {
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
 
-    @OneToMany(mappedBy = "dir", cascade = CascadeType.ALL, orphanRemoval = true)
-    private ArrayList<FileEntity> files = new ArrayList<>();
+    @OneToMany(mappedBy = "dir", cascade = CascadeType.ALL, orphanRemoval = false)
+    private List<FileEntity> files = new ArrayList<>();
 
     private String name;
 
@@ -54,7 +57,7 @@ public class DirEntity {
         this.owner = owner;
     }
 
-    public ArrayList<FileEntity> getFiles() {
+    public List<FileEntity> getFiles() {
         return files;
     }
 
@@ -73,7 +76,7 @@ public class DirEntity {
         }
     }
 
-    public void setFiles(ArrayList<FileEntity> files) {
+    public void setFiles(List<FileEntity> files) {
         this.files = files;
     }
 

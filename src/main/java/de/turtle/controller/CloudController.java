@@ -1,6 +1,7 @@
 package de.turtle.controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -170,6 +171,12 @@ public class CloudController {
     @GetMapping("/list")
     public ResponseEntity<FileEntity[]> listFiles() {
         FileEntity[] files = cloudService.listFiles();
-        return ResponseEntity.ok(files);
+        ArrayList<FileEntity> freeFiles = new ArrayList<>();
+        for(FileEntity f : files){
+            if(f.getDir() == null){
+                freeFiles.add(f);
+            }
+        }
+        return ResponseEntity.ok(freeFiles.toArray(FileEntity[]::new));
     }
 }

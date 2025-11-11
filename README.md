@@ -8,37 +8,13 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 ## 🚀 Features
 
 - 📤 **File uploads & downloads** via a clean, modern web interface  
-- 🔐 **Server-side encryption & compression** using FileInSight algorithms (C++ → DLL via JNA)  
-- 🧩 **Frontend/Backend separation** – no server restart required for UI changes  
+- 🔐 **Server-side encryption & compression** using FileInSight algorithms (C++ -> DLL via JNA)  
 - 🗑️ **File management** – upload, download, delete, view metadata  
 - 🧠 **Smart file handling** with MIME type detection and custom icons  
 - 🎨 **Responsive UI** – pure HTML/CSS/JavaScript (no framework needed)  
 - 💾 **Spring Boot + JPA backend** for persistent file management  
 
 ---
-
-## 🏗️ Project Structure
-
-```
-PiCloud/
-├── src/main/java/com/picloud/
-│   ├── PiCloudApplication.java        # Spring Boot entry point
-│   ├── controller/
-│   │   └── CloudController.java       # REST API for file operations
-│   ├── service/
-│   │   └── CloudService.java          # Core business logic
-│   ├── model/
-│   │   └── FileEntity.java            # JPA entity for files
-│   └── repository/
-│       └── FileEntityRepository.java  # JPA repository interface
-│
-├── src/main/resources/static/
-│   ├── index.html                     # Frontend
-│   ├── script.js                      # Fetch API logic
-│   └── style.css                      # Styling
-│
-└── README.md
-```
 
 ---
 
@@ -57,13 +33,11 @@ PiCloud/
 
 ## 🔒 Server-Side Encryption & Compression
 
-Pi Cloud integrates **FileInSight's native C++ algorithms** through a **DLL**, loaded via **JNA**.  
-These modules handle:
-
 - **AES-based file encryption**
 - **FileInSight compression (LZ77/TLSH-inspired)**
-- **On-the-fly processing** during uploads/downloads
-- **Cross-platform compatibility** (Windows → Debug, Raspberry Pi → Release)
+- **On-the-fly processing** Encrypted and Compressed files will be downloaded via temporary link, so serverside files will stay encrypted the whole time
+- **Shannon Entropy** Files with lower entropy then a treshhold will be compressed while uploading
+- **Cross-platform compatibility** (Requires FileInSight Lib-Build)
 
 **Benefits:**  
 - No dependency on Java's crypto libraries  
@@ -71,15 +45,6 @@ These modules handle:
 - Secure key management outside the JVM  
 
 ---
-
-## 🧑‍💻 API Endpoints
-
-| Method | Endpoint | Description |
-|---------|-----------|-------------|
-| `GET` | `/api/files/list` | Returns all stored files |
-| `POST` | `/api/files/upload` | Upload one or more files |
-| `GET` | `/api/files/download/{id}` | Download a specific file |
-| `GET` | `/api/files/delete/{id}` | Delete a file |
 
 ---
 
@@ -110,7 +75,7 @@ http://localhost:8080
 
 ## 🧩 Frontend Features
 
-- Dynamic file listing using `fetch('/api/files/list')`  
+- Dynamic file listing using 
 - File preview before upload  
 - MIME-type-based file icons  
 - Responsive design with dark mode support  
@@ -145,4 +110,8 @@ npm run dev
 
 ## 📜 License
 
-MIT License – 2025 © Your Name
+MIT License – 2025 © Fin-Tur
+
+## Screenshots 
+
+
