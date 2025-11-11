@@ -7,6 +7,7 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 
 ## 🚀 Features
 
+- 💻 ** User System** User completely own files, and can restrict acces via other Users
 - 📤 **File uploads & downloads** via a clean, modern web interface  
 - 🔐 **Server-side encryption & compression** using FileInSight algorithms (C++ -> DLL via JNA)  
 - 🗑️ **File management** – upload, download, delete, view metadata  
@@ -113,5 +114,22 @@ npm run dev
 MIT License – 2025 © Fin-Tur
 
 ## Screenshots 
+
+**Login**
+<img width="1563" height="1090" alt="Login" src="https://github.com/user-attachments/assets/b67a8b60-dbd7-47a8-8606-6919523d2b06" />
+
+**Uploading Files**
+<img width="1685" height="1086" alt="uploading" src="https://github.com/user-attachments/assets/976bb43b-1eb6-44c2-aa02-00b446a9afe3" />
+
+**Actions**
+<img width="1777" height="937" alt="actions" src="https://github.com/user-attachments/assets/2df8a91a-ed54-4dbf-b048-865f871beb50" />
+
+**Encryption**
+
+<img width="458" height="356" alt="encryption" src="https://github.com/user-attachments/assets/3792ded1-4674-4010-b1c9-8cbe4cccfa7f" />
+
+**Directory**
+<img width="1632" height="743" alt="dirs" src="https://github.com/user-attachments/assets/4f3ff787-ef0e-4fb3-b52c-8cf24e349e9c" />
+
 
 
