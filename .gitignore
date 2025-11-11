@@ -37,3 +37,4 @@ build/
 
 ### Logs ###
 .gz
+.log
