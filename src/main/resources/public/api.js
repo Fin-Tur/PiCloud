@@ -8,6 +8,7 @@ export const state = {
     files: [],
     filteredFiles: [],
     dirs: [],
+    filteredDirs: [],
     currentDir: "/cloud",
     currentDirEntity: []
 };
@@ -28,6 +29,23 @@ export async function listFiles() {
         console.error('Error fetching files:', error);
     }
     await listDirs();
+}
+
+export async function moveFileToDir(fileId, dirId){
+                
+            try {
+                const moveResponse = await fetch(`/api/dirs/move/${fileId}/${dirId}`, {
+                    method: 'POST',
+                    credentials: 'include'
+                });
+                        
+                if (!moveResponse.ok) {
+                    console.error(`Failed to move file ${fileId} to directory`);
+                }
+            } catch (moveError) {
+                console.error(`Error moving file ${fileId}:`, moveError);
+            }
+            
 }
 
 export async function uploadFile() {
@@ -57,18 +75,7 @@ export async function uploadFile() {
                 const activeDirId = state.currentDirEntity[state.currentDirEntity.length - 1].id;
                 
                 for(const file of uploadedFiles) {
-                    try {
-                        const moveResponse = await fetch(`/api/dirs/move/${file.id}/${activeDirId}`, {
-                            method: 'POST',
-                            credentials: 'include'
-                        });
-                        
-                        if (!moveResponse.ok) {
-                            console.error(`Failed to move file ${file.name} to directory`);
-                        }
-                    } catch (moveError) {
-                        console.error(`Error moving file ${file.name}:`, moveError);
-                    }
+                    await moveFileToDir(file.id, activeDirId);
                 }
             }
             
@@ -227,6 +234,7 @@ export async function listDirs(){
         });
         if(response.ok){
             state.dirs = await response.json();
+            state.filteredDirs = state.dirs;
         }else{
             console.error('Error fetching dirs:', response.statusText);
         }

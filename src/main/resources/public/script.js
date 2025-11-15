@@ -41,11 +41,15 @@ import {
 function displayDirs(){
     const fileList = document.getElementById('fileList');
     
-    if(state.dirs.length === 0){
+    if(state.filteredDirs.length === 0){
+        const noDirsFoundItem = document.createElement('div');
+        noDirsFoundItem.className = 'file-item';
+        noDirsFoundItem.textContent = "🔍 No directorys found";
+        fileList.appendChild(noDirsFoundItem);
         return;
     }
 
-    state.dirs.forEach(dir => {
+    state.filteredDirs.forEach(dir => {
         const dirItem = document.createElement('div');
         dirItem.className = 'file-item dir-item';
         dirItem.style.cursor = 'pointer';
@@ -203,6 +207,10 @@ function displayFiles() {
         compressItem.className = 'dropdown-item';
         compressItem.textContent = file.compressed ? '📦 Decompress' : '📦 Compress';
 
+        const moveItem = document.createElement('div');
+        moveItem.className = 'dropdown-item';
+        moveItem.textContent = '↪ Move File';
+
         encryptItem.addEventListener('click', () => {
             fileEnDecryption(file.id);
             dropdownDiv.classList.add('hidden');
@@ -219,8 +227,13 @@ function displayFiles() {
             displayDirs();
         });
 
+        moveItem.addEventListener('click', () => {
+            
+        });
+
         dropdownDiv.appendChild(encryptItem);
         dropdownDiv.appendChild(compressItem);
+        dropdownDiv.appendChild(moveItem);
 
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
@@ -269,22 +282,45 @@ function showFilePreview(files) {
     Array.from(files).forEach((file, index) => {
         const previewItem = document.createElement('div');
         previewItem.className = 'preview-item';
-        previewItem.innerHTML = `
-            <div class="preview-icon ${getFileType(file.type)}">
-                ${getFileIcon(file.type)}
-            </div>
-            <div class="preview-info">
-                <div class="preview-name">${file.name}</div>
-                <div class="preview-meta">
-                    <span class="preview-size">${formatFileSize(file.size)}</span>
-                    <span class="preview-type">${file.type || 'Unknown'}</span>
-                </div>
-            </div>
-            <button class="preview-remove" onclick="removeFileFromPreview(${index})">
-                ✕ Entfernen
-            </button>
-        `;
+
+        const previewIcon = document.createElement('div');
+        previewIcon.className = 'preview-icon ' + getFileType(file.type);
+        previewIcon.textContent = getFileIcon(file.type);
+
+        const previewInfo = document.createElement('div');
+        previewInfo.className = 'preview-info';
+
+        const previewName = document.createElement('div');
+        previewName.className = 'preview-name';
+        previewName.textContent = file.name;
+
+        const previewMeta = document.createElement('div');
+        previewMeta.className = 'preview-meta';
+        
+        const sizeElement = document.createElement('span');
+        sizeElement.className = 'preview-size';
+        sizeElement.textContent = formatFileSize(file.size);
+        const typeElement = document.createElement('span');
+        typeElement.className = 'preview-type';
+        typeElement.textContent = file.type || 'Unknown';
+
+        const previewRemove = document.createElement('button');
+        previewRemove.className = 'preview-remove';
+        previewRemove.onclick = () => removeFileFromPreview(index);
+        previewRemove.textContent = '✕ Delete';
+
+
+        previewMeta.appendChild(sizeElement);
+        previewMeta.appendChild(typeElement);
+
+        previewInfo.appendChild(previewName);
+        previewInfo.appendChild(previewMeta);
+
+        previewItem.appendChild(previewIcon);
+        previewItem.appendChild(previewInfo);
+        previewItem.appendChild(previewRemove);
         previewList.appendChild(previewItem);
+
     });
 }
 
@@ -318,11 +354,15 @@ function filterFiles(name){
     const searchLower = name.trim().toLowerCase();
     if(searchLower === ''){
         state.filteredFiles = state.files;
+        state.filteredDirs = state.dirs;
         displayFiles();
+        displayDirs();
         return;
     }
     state.filteredFiles = state.files.filter(file => file.name.toLowerCase().includes(searchLower));
+    state.filteredDirs = state.dirs.filter(dir => dir.name.toLowerCase().includes(searchLower));
     displayFiles();
+    displayDirs();
 }
 
 async function pathReduceLevel() {

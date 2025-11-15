@@ -64,3 +64,4 @@ export function updateUIForLoggedInUser() {
         header.parentNode.insertBefore(userInfo, header.nextSibling);
     }
 }
+

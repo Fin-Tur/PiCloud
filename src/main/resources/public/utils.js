@@ -1,3 +1,4 @@
+
 export function showConfirmDialog(message = "Are you sure?") {
   return new Promise((resolve, reject) => {
     const modal = document.getElementById('confirmModal');
