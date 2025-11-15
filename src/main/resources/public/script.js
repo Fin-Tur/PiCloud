@@ -1,235 +1,24 @@
 
+import {
+    currentUser,
+    checkAuthentication,
+    logout,
+    updateUIForLoggedInUser
+} from './auth.js';
+
+import {
+    showPasswordPrompt,
+    showCreateDirPrompt,
+    showActionDropDown
+} from './utils.js';
+
 //======VARIABLES======
 let files = [];
 let filteredFiles = [];
 let dirs = [];
 let currentDir = "/cloud";
 let currentDirEntity = [];
-let currentUser;
 
-
-//======AUTHENTICATION FUNCTIONS======
-
-async function checkAuthentication() {
-    try {
-        const response = await fetch('/api/auth/check', {
-            credentials: 'include'
-        });
-        
-        if (response.ok) {
-            const result = await response.json();
-            if (result.success) {
-                currentUser = result.username;
-                updateUIForLoggedInUser();
-                return true;
-            }
-        }
-        
-        window.location.href = '/login.html';
-        return false;
-    } catch (error) {
-        console.error('Authentication check failed:', error);
-        window.location.href = '/login.html';
-        return false;
-    }
-}
-
-async function logout() {
-    try {
-        const confirmed = await showConfirmDialog("Are you sure you want to logout?");
-        if (!confirmed) return;
-        
-        const response = await fetch('/api/auth/logout', {
-            method: 'POST',
-            credentials: 'include'
-        });
-        
-        if (response.ok) {
-            window.location.href = '/login.html';
-        } else {
-            alert('Logout failed');
-        }
-    } catch (error) {
-        console.error('Logout error:', error);
-        alert('Logout failed');
-    }
-}
-
-function updateUIForLoggedInUser() {
-    const header = document.querySelector('h1');
-    if (header && !document.querySelector('.user-info')) {
-        const userInfo = document.createElement('div');
-        userInfo.className = 'user-info';
-        userInfo.innerHTML = `
-            <span class="username">👤 ${currentUser}</span>
-            <button class="btn-logout" onclick="logout()">🚪 Logout</button>
-        `;
-        header.parentNode.insertBefore(userInfo, header.nextSibling);
-    }
-}
-
-//======MODAL FUNCTIONS======
-
-function showCreateDirPrompt() {
-  return new Promise((resolve, reject) => {
-    const modal = document.getElementById('createDirModal');
-    const nameInput = document.getElementById('dirNameInput');
-    const passwordInput = document.getElementById('dirPasswordInput');
-    const cancelBtn = modal.querySelector('.btn-cancel');
-    const confirmBtn = modal.querySelector('.btn-confirm');
-    
-    //Show modal
-    modal.style.display = 'flex';
-    modal.classList.remove('hidden');
-    nameInput.focus();
-    
-    //Event Handlers
-    const handleConfirm = () => {
-      const dirName = nameInput.value.trim();
-      const password = passwordInput.value.trim();
-      
-      if (dirName) {
-        cleanup();
-        resolve({ dirName, password });
-      } else {
-        nameInput.style.borderColor = 'var(--error-color)';
-        nameInput.focus();
-      }
-    };
-    
-    const handleCancel = () => {
-      cleanup();
-      reject(new Error('User cancelled'));
-    };
-    
-    const cleanup = () => {
-      modal.style.display = 'none';
-      modal.classList.add('hidden');
-      nameInput.value = '';
-      passwordInput.value = '';
-      nameInput.style.borderColor = '';
-      confirmBtn.removeEventListener('click', handleConfirm);
-      cancelBtn.removeEventListener('click', handleCancel);
-      nameInput.removeEventListener('keypress', handleKeypress);
-      backdrop.removeEventListener('click', handleCancel);
-    };
-    
-    const handleKeypress = (e) => {
-      if (e.key === 'Enter') handleConfirm();
-      if (e.key === 'Escape') handleCancel();
-    };
-    
-    const backdrop = modal.querySelector('.modal-backdrop');
-    
-    confirmBtn.addEventListener('click', handleConfirm);
-    cancelBtn.addEventListener('click', handleCancel);
-    nameInput.addEventListener('keypress', handleKeypress);
-    backdrop.addEventListener('click', handleCancel);
-  });
-}
-
-function showPasswordPrompt(message = "Enter password:") {
-  return new Promise((resolve, reject) => {
-    const modal = document.getElementById('passwordModal');
-    const input = document.getElementById('passwordInput');
-    const messageEl = document.getElementById('modalMessage');
-    const cancelBtn = modal.querySelector('.btn-cancel');
-    const confirmBtn = modal.querySelector('.btn-confirm');
-    
-    //Set message and show modal
-    messageEl.textContent = message;
-    modal.style.display = 'flex';
-    modal.classList.remove('hidden');
-    input.focus();
-    
-    //Event Handlers
-    const handleConfirm = () => {
-      const password = input.value.trim();
-      if (password) {
-        cleanup();
-        resolve(password);
-      } else {
-        input.style.borderColor = 'var(--error-color)';
-        input.focus();
-      }
-    };
-    
-    const handleCancel = () => {
-      cleanup();
-      reject(new Error('User cancelled'));
-    };
-    
-    const cleanup = () => {
-      modal.style.display = 'none';
-      modal.classList.add('hidden');
-      input.value = '';
-      input.style.borderColor = '';
-      confirmBtn.removeEventListener('click', handleConfirm);
-      cancelBtn.removeEventListener('click', handleCancel);
-      input.removeEventListener('keypress', handleKeypress);
-      backdrop.removeEventListener('click', handleCancel);
-    };
-    
-    const handleKeypress = (e) => {
-      if (e.key === 'Enter') handleConfirm();
-      if (e.key === 'Escape') handleCancel();
-    };
-    
-    const backdrop = modal.querySelector('.modal-backdrop');
-    
-    confirmBtn.addEventListener('click', handleConfirm);
-    cancelBtn.addEventListener('click', handleCancel);
-    input.addEventListener('keypress', handleKeypress);
-    backdrop.addEventListener('click', handleCancel);
-  });
-}
-
-function showConfirmDialog(message = "Are you sure?") {
-  return new Promise((resolve, reject) => {
-    const modal = document.getElementById('confirmModal');
-    const messageEl = document.getElementById('confirmMessage');
-    const cancelBtn = modal.querySelector('.btn-cancel');
-    const confirmBtn = modal.querySelector('.btn-confirm');
-    
-    //Set message and show modal
-    messageEl.textContent = message;
-    modal.style.display = 'flex';
-    modal.classList.remove('hidden');
-    confirmBtn.focus();
-    
-    //Event Handlers
-    const handleConfirm = () => {
-      cleanup();
-      resolve(true);
-    };
-    
-    const handleCancel = () => {
-      cleanup();
-      resolve(false);
-    };
-    
-    const cleanup = () => {
-      modal.style.display = 'none';
-      modal.classList.add('hidden');
-      confirmBtn.removeEventListener('click', handleConfirm);
-      cancelBtn.removeEventListener('click', handleCancel);
-      document.removeEventListener('keypress', handleKeypress);
-      backdrop.removeEventListener('click', handleCancel);
-    };
-    
-    const handleKeypress = (e) => {
-      if (e.key === 'Enter') handleConfirm();
-      if (e.key === 'Escape') handleCancel();
-    };
-    
-    const backdrop = modal.querySelector('.modal-backdrop');
-    
-    confirmBtn.addEventListener('click', handleConfirm);
-    cancelBtn.addEventListener('click', handleCancel);
-    document.addEventListener('keypress', handleKeypress);
-    backdrop.addEventListener('click', handleCancel);
-  });
-}
 
 
 //======FUNCTIONS======
@@ -498,7 +287,7 @@ function displayFiles() {
         fileList.appendChild(fileItem);
     });
 }
-
+/*
 function showActionDropDown(dropdownDiv){
     document.querySelectorAll('.dropdown-menu').forEach(menu => {
         menu.classList.add('hidden');
@@ -506,7 +295,7 @@ function showActionDropDown(dropdownDiv){
     
     dropdownDiv.classList.toggle('hidden');
 }
-
+*/
 async function uploadFile() {
     const fileInput = document.getElementById('fileInput');
    
@@ -928,8 +717,14 @@ async function loadCurrentDirectory() {
 document.addEventListener('DOMContentLoaded', async () => {
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated) {
+        updateUIForLoggedInUser(currentUser);
+        
+        const logoutBtn = document.getElementById('logout-btn');
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', logout);
+        }
+        
         updatePathDisplay();
         listFiles();
     }
 });
-
