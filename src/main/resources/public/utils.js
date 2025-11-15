@@ -1,3 +1,8 @@
+//=============================Imports==================================
+
+import { state } from './api.js';
+
+//=============================Funcs==================================
 
 export function showConfirmDialog(message = "Are you sure?") {
   return new Promise((resolve, reject) => {
@@ -156,6 +161,69 @@ export function showCreateDirPrompt() {
     confirmBtn.addEventListener('click', handleConfirm);
     cancelBtn.addEventListener('click', handleCancel);
     nameInput.addEventListener('keypress', handleKeypress);
+    backdrop.addEventListener('click', handleCancel);
+  });
+}
+
+export function showMoveToDirPrompt(fileName) {
+  return new Promise((resolve, reject) => {
+    const modal = document.getElementById('moveToDirModal');
+    const dirSelect = document.getElementById('dirSelect');
+    const messageEl = document.getElementById('moveFileMessage');
+    const cancelBtn = modal.querySelector('.btn-cancel');
+    const confirmBtn = modal.querySelector('.btn-confirm');
+    
+    messageEl.textContent = `Move "${fileName}" to directory:`;
+    
+    dirSelect.innerHTML = '';
+    state.dirs.forEach(dir => {
+      const option = document.createElement('option');
+      option.value = dir.id;
+      option.textContent = `📁 ${dir.name}`;
+      dirSelect.appendChild(option);
+    });
+    
+    if (state.dirs.length === 0) {
+      const option = document.createElement('option');
+      option.textContent = 'No directories available';
+      option.disabled = true;
+      dirSelect.appendChild(option);
+    }
+    
+    modal.style.display = 'flex';
+    modal.classList.remove('hidden');
+    dirSelect.focus();
+    
+
+    const handleConfirm = () => {
+      if (state.dirs.length === 0 || !dirSelect.value) {
+        return;
+      }
+      const selectedDirId = parseInt(dirSelect.value);
+      cleanup();
+      resolve(selectedDirId);
+    };
+    
+    const handleCancel = () => {
+      cleanup();
+      reject(new Error('User cancelled'));
+    };
+    
+    const cleanup = () => {
+      modal.style.display = 'none';
+      modal.classList.add('hidden');
+      dirSelect.innerHTML = '';
+      confirmBtn.removeEventListener('click', handleConfirm);
+      cancelBtn.removeEventListener('click', handleCancel);
+      dirSelect.removeEventListener('dblclick', handleConfirm);
+      backdrop.removeEventListener('click', handleCancel);
+    };
+    
+    const backdrop = modal.querySelector('.modal-backdrop');
+    
+    confirmBtn.addEventListener('click', handleConfirm);
+    cancelBtn.addEventListener('click', handleCancel);
+    dirSelect.addEventListener('dblclick', handleConfirm); // Double-click to select
     backdrop.addEventListener('click', handleCancel);
   });
 }

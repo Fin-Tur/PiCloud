@@ -36,6 +36,7 @@ public class DirController {
     @Autowired
     private CloudService cloudService;
 
+
     @GetMapping("/list")
     public ResponseEntity<DirEntity[]> listDirs(){
         DirEntity[] dirs = dirService.listDirs();
@@ -135,6 +136,17 @@ public class DirController {
     @PostMapping("/move/{idF}/{idD}")
     public ResponseEntity<?> moveFileToDir(@PathVariable Long idF, @PathVariable Long idD, HttpServletRequest req){
         try {
+
+            if(idD == 0){
+                FileEntity file = cloudService.getFileById(idF);
+                DirEntity dir = dirService.getDirById(file.getDir().getId());
+                if(dir == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+                dir.removeFile(file);
+                cloudService.saveFile(file);
+                dirService.saveDir(dir);
+                return ResponseEntity.ok("File moved to home succesfully!");
+            }
+
             Long userID = AuthController.getCurrentUserId(req);
             if(!(dirService.canUserModifyDir(idD, userID) && cloudService.canUserModifyFile(idF, userID))){
                 logger.warn("User {} is not allowed to either acces file {} or dir {}", userID, idF, idD);

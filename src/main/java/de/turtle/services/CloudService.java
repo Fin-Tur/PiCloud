@@ -21,6 +21,7 @@ import de.turtle.models.FileEntity;
 import de.turtle.models.FileEntityRepository;
 import de.turtle.models.User;
 import de.turtle.models.UserRepository;
+import jakarta.annotation.Nonnull;
 import jakarta.transaction.Transactional;
 
 
@@ -67,6 +68,10 @@ public class CloudService {
     private User getUserById(Long id){
         return userRepository.findById(id).orElseThrow();
     }
+
+    public void saveFile(@Nonnull FileEntity file){
+        fileEntityRepository.save(file);
+        }
 
     
     @Transactional

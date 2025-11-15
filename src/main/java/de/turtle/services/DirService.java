@@ -34,6 +34,10 @@ public class DirService {
     @Autowired
     private FileEntityRepository fileEntityRepository;
 
+    public void saveDir(@Nonnull DirEntity dir){
+        dirRepository.save(dir);
+    }
+
     public DirEntity getDirById(@Nonnull Long id){
         return dirRepository.findById(id).orElseThrow();
     }

@@ -94,6 +94,26 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Custom Modal for Move File to Dir -->
+	<div id="moveToDirModal" class="modal hidden" style="display: none;">
+		<div class="modal-backdrop"></div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<h3>📂 Move File to Directory</h3>
+			</div>
+			<div class="modal-body">
+				<p id="moveFileMessage">Select a directory:</p>
+				<select id="dirSelect" class="modal-input" size="5" style="width: 100%; cursor: pointer;">
+					
+				</select>
+			</div>
+			<div class="modal-footer">
+				<button class="btn-cancel" type="button">Cancel</button>
+				<button class="btn-confirm" type="button">Move</button>
+			</div>
+		</div>
+	</div>
 	 
 	<script type="module" src="script.js"></script>
 </body>

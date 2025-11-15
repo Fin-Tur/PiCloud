@@ -10,6 +10,8 @@ import {
 
 import {
     showCreateDirPrompt,
+    showMoveToDirPrompt,
+    showConfirmDialog,
     showActionDropDown
 } from './utils.js';
 
@@ -33,6 +35,7 @@ import {
     deleteFile,
     createDirectory,
     deleteDir,
+    moveFileToDir,
     loadCurrentDirectory
 } from './api.js';
 
@@ -209,7 +212,11 @@ function displayFiles() {
 
         const moveItem = document.createElement('div');
         moveItem.className = 'dropdown-item';
-        moveItem.textContent = '↪ Move File';
+        moveItem.textContent = '↪ Move to Dir';
+
+        const moveToHomeItem = document.createElement('div');
+        moveToHomeItem.className = 'dropdown-item';
+        moveToHomeItem.textContent = '🏠 Move to Home';
 
         encryptItem.addEventListener('click', () => {
             fileEnDecryption(file.id);
@@ -227,13 +234,47 @@ function displayFiles() {
             displayDirs();
         });
 
-        moveItem.addEventListener('click', () => {
-            
+        moveItem.addEventListener('click', async () => {
+            try {
+                const selectedDirId = await showMoveToDirPrompt(file.name);
+                await moveFileToDir(file.id, selectedDirId);
+                alert(`File "${file.name}" moved successfully!`);
+                dropdownDiv.classList.add('hidden');
+                await listFiles();
+                displayFiles();
+                displayDirs();
+            } catch (error) {
+                if (error.message !== 'User cancelled') {
+                    console.error('Error moving file:', error);
+                    alert('Failed to move file: ' + error.message);
+                }
+            }
+        });
+
+        moveToHomeItem.addEventListener('click', async () => {
+            try {
+                const confirmed = await showConfirmDialog(`Move "${file.name}" back to home screen?`);
+                if (!confirmed) return;
+                
+                await moveFileToDir(file.id, 0);
+                alert(`File "${file.name}" moved to home successfully!`);
+                dropdownDiv.classList.add('hidden');
+                await listFiles();
+                displayFiles();
+                displayDirs();
+            } catch (error) {
+                console.error('Error moving file to home:', error);
+                alert('Failed to move file to home: ' + error.message);
+            }
         });
 
         dropdownDiv.appendChild(encryptItem);
         dropdownDiv.appendChild(compressItem);
         dropdownDiv.appendChild(moveItem);
+        if(state.currentDir !== '/cloud'){
+                    dropdownDiv.appendChild(moveToHomeItem);
+        }
+
 
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
