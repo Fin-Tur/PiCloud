@@ -39,7 +39,7 @@ public class AuthController {
             }
             
             userService.registerUser(request.getUsername(), request.getPassword());
-            logger.info("User registered successfully: {}", request.getUsername());
+            logger.info("New user registered successfully");
             
             return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "User registered successfully"));
             
@@ -71,7 +71,7 @@ public class AuthController {
                 if(user.isPresent()){
                     session.setAttribute("userId", user.get().getId());
                 }
-                logger.info("User logged in successfully: {}", request.getUsername());
+                logger.info("A user logged in successfully");
                 return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "Login successful", request.getUsername()));
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)

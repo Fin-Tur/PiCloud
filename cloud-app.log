@@ -560,3 +560,37 @@ This generated password is for development use only. Your security configuration
 2025-11-15T12:51:07.278+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.controller.AuthController      : User logged out successfully: Finn
 2025-11-15T12:51:09.579+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.UserService           : User authenticated successfully: Finn
 2025-11-15T12:51:09.581+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-15T13:01:51.937+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-15T13:01:51.942+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Saved file: dirs.png at C:\temp\pi_cloud\files\dirs.png
+2025-11-15T13:02:13.804+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-15T13:02:13.887+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : Saved file: Abitur_Finn_Willems.pdf at C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-11-15T13:02:27.126+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.DirController       : Got userID
+2025-11-15T13:02:27.128+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.DirService            : Owner found: User{id=1, username='Finn', createdAt=2025-11-11T16:00:00.426102, enabled=true}
+2025-11-15T13:02:27.129+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.DirService            : DirEntity created: name=tetsdir123, owner=Finn
+2025-11-15T13:02:27.132+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.DirService            : DirEntity saved successfully with ID: 35
+2025-11-15T13:02:27.135+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.DirController       : Created
+2025-11-15T13:02:36.453+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.controller.DirController       : Succesfully deleted Dir 35
+2025-11-15T13:02:42.803+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : Deleted file: Abitur_Finn_Willems.pdf from C:\temp\pi_cloud\files\Abitur_Finn_Willems.pdf
+2025-11-15T13:02:45.840+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.CloudService          : Deleted file: dirs.png from C:\temp\pi_cloud\files\dirs.png
+2025-11-15T13:03:45.904+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.controller.DirController       : Got userID
+2025-11-15T13:03:45.906+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : Owner found: User{id=1, username='Finn', createdAt=2025-11-11T16:00:00.426102, enabled=true}
+2025-11-15T13:03:45.906+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : DirEntity created: name=testdir, owner=Finn
+2025-11-15T13:03:45.907+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : DirEntity saved successfully with ID: 36
+2025-11-15T13:03:45.908+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.controller.DirController       : Created
+2025-11-15T13:03:53.330+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-15T13:03:53.358+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Saved file: Noten_FInn_Willems.pdf at C:\temp\pi_cloud\files\Noten_FInn_Willems.pdf
+2025-11-15T13:03:53.369+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.DirService            : Added file Noten_FInn_Willems.pdf to Dir testdir
+2025-11-15T13:03:53.381+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.controller.DirController       : Moved file 35 to dir 36
+2025-11-15T13:04:24.121+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.CloudService          : Deleted file: Noten_FInn_Willems.pdf from C:\temp\pi_cloud\files\Noten_FInn_Willems.pdf
+2025-11-15T13:04:24.127+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.controller.DirController       : Succesfully deleted Dir 36
+2025-11-15T13:06:40.000+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.controller.DirController       : Got userID
+2025-11-15T13:06:40.003+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : Owner found: User{id=1, username='Finn', createdAt=2025-11-11T16:00:00.426102, enabled=true}
+2025-11-15T13:06:40.003+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : DirEntity created: name=testdir, owner=Finn
+2025-11-15T13:06:40.004+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : DirEntity saved successfully with ID: 37
+2025-11-15T13:06:40.005+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.controller.DirController       : Created
+2025-11-15T13:06:48.214+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-15T13:06:48.238+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Saved file: NotenSpiegelAlles_Finn_Willems.pdf at C:\temp\pi_cloud\files\NotenSpiegelAlles_Finn_Willems.pdf
+2025-11-15T13:06:48.249+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : Added file NotenSpiegelAlles_Finn_Willems.pdf to Dir testdir
+2025-11-15T13:06:48.251+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Moved file 36 to dir 37
+2025-11-15T13:07:00.557+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-15T13:07:00.568+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : Saved file: Lebenslauf_Finn_Willems.pdf at C:\temp\pi_cloud\files\Lebenslauf_Finn_Willems.pdf

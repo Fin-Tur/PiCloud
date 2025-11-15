@@ -84,12 +84,15 @@ public class CloudService {
         for(FileEntity fe : fileEntityRepository.findAll()){
             if(!fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
             } else {
-                log.error("File with name {} already exists in DB!", file.getName());
+                log.error("File with same name already exists in DB!");
                 return null;
             }
         }
 
-        Path filePath = dirPath.resolve(file.getOriginalFilename());
+        Path filePath = dirPath.resolve(file.getOriginalFilename()).normalize();
+        if(!filePath.startsWith(storagePath)){
+            throw new IOException("Entry is out of the target Directory!");
+        }
         Files.copy(file.getInputStream(), filePath);
 
         User owner = getUserById(ownerId);
@@ -119,7 +122,7 @@ public class CloudService {
             deCompressFile(entity.getId());
         }
 
-        log.info("Saved file: " + file.getOriginalFilename() + " at " + filePath.toString());
+        log.info("Saved new file succesfully");
         return entity;
     }
 
