@@ -1,4 +1,4 @@
-
+//======================================Imports==================================
 import {
     currentUser,
 
@@ -9,7 +9,6 @@ import {
 
 
 import {
-    //showPasswordPrompt,
     showCreateDirPrompt,
     showActionDropDown
 } from './utils.js';
@@ -24,15 +23,9 @@ import {
 
 
 import {
-    files,
-    filteredFiles,
-    dirs,
-    currentDir,
-    currentDirEntity,
-
+    state,
     onDirClick,
     listFiles,
-    //listDirs,
     uploadFile,
     downloadFile,
     fileEnDecryption,
@@ -41,35 +34,24 @@ import {
     createDirectory,
     deleteDir,
     loadCurrentDirectory
-
 } from './api.js';
 
-
-function filterFiles(name){
-    searchLower = name.trim().toLowerCase();
-    if(searchLower === ''){
-        filteredFiles = files;
-        displayFiles();
-        return;
-    }
-    filteredFiles = files.filter(file => file.name.toLowerCase().includes(searchLower));
-    displayFiles();
-}
+//======================================Display Funcs==================================
 
 function displayDirs(){
     const fileList = document.getElementById('fileList');
     
-    if(dirs.length === 0){
+    if(state.dirs.length === 0){
         return;
     }
 
-    dirs.forEach(dir => {
+    state.dirs.forEach(dir => {
         const dirItem = document.createElement('div');
         dirItem.className = 'file-item dir-item';
         dirItem.style.cursor = 'pointer';
         
-        dirItem.addEventListener('click', function(){
-            onDirClick(dir);
+        dirItem.addEventListener('click', async function(){
+            await onDirClick(dir);
             displayFiles();
         } );
         
@@ -137,7 +119,7 @@ function displayFiles() {
     const fileList = document.getElementById('fileList');
     fileList.innerHTML = '';
     
-    if(filteredFiles.length === 0){
+    if(state.filteredFiles.length === 0){
         const noFilesFoundItem = document.createElement('div');
         noFilesFoundItem.className = 'file-item';
         noFilesFoundItem.textContent = "🔍 No files found";
@@ -145,7 +127,7 @@ function displayFiles() {
         return;
     }
 
-    filteredFiles.forEach(file => {
+    state.filteredFiles.forEach(file => {
         const fileItem = document.createElement('div');
         fileItem.className = 'file-item';
         
@@ -268,7 +250,7 @@ function displayFiles() {
     });
 }
 
-//======FILE PREVIEW FUNCTIONS======
+//=====================FILE PREVIEW FUNCTIONS=========================
 
 //TODO : DOM Manipulation
 function showFilePreview(files) {
@@ -327,15 +309,64 @@ function clearSelectedFiles() {
     previewContainer.classList.add('hidden');
 }
 
+window.removeFileFromPreview = removeFileFromPreview;
+window.clearSelectedFiles = clearSelectedFiles;
 
-//======EVENT LISTENERS======
-document.getElementById('uploadForm').addEventListener('submit', function(event) {
-    event.preventDefault();
-    uploadFile();
-    listFiles(); 
+//======================================Filter-Funcs==================================
+
+function filterFiles(name){
+    const searchLower = name.trim().toLowerCase();
+    if(searchLower === ''){
+        state.filteredFiles = state.files;
+        displayFiles();
+        return;
+    }
+    state.filteredFiles = state.files.filter(file => file.name.toLowerCase().includes(searchLower));
+    displayFiles();
+}
+
+async function pathReduceLevel() {
+    state.currentDirEntity.pop();
+    if (state.currentDir === '/cloud') {
+        return;
+    }
+
+    const pathParts = state.currentDir.split('/').filter(part => part !== '');
+    pathParts.pop();
+    state.currentDir = '/' + pathParts.join('/');
+    
+    updatePathDisplay();
+    await loadCurrentDirectory();
     displayFiles();
     displayDirs();
-    clearSelectedFiles(); 
+}
+
+function updatePathDisplay() {
+    const pathElement = document.getElementById('path');
+    
+    if (state.currentDir === '/cloud') {
+        pathElement.textContent = '/cloud';
+    } else {
+        pathElement.textContent = `${state.currentDir}`;
+    }
+    
+    if (state.currentDir === '/cloud') {
+        pathElement.style.cursor = 'default';
+    } else {
+        pathElement.style.cursor = 'pointer';
+    }
+}
+
+//===================================EVENT-LISTENERS====================================
+document.getElementById('uploadForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const success = await uploadFile();
+    if(success) {
+        await listFiles();
+        displayFiles();
+        displayDirs();
+        clearSelectedFiles();
+    }
 });
 
 document.getElementById('fileInput').addEventListener('change', function(event) {
@@ -355,11 +386,11 @@ document.getElementById('searchInput').addEventListener('input', function(event)
 document.getElementById('createDirBtn').addEventListener('click', async function() {
     try {
         const { dirName, password } = await showCreateDirPrompt();
-        await createDirectory(dirName, password);
-        await listFiles();
-        displayFiles();
-        displayDirs();
-        clearSelectedFiles(); 
+        const success = await createDirectory(dirName, password);
+        if(success) {
+            displayFiles();
+            displayDirs();
+        }
     } catch (error) {
         console.log('Directory creation cancelled');
     }
@@ -370,45 +401,12 @@ document.getElementById("path").addEventListener('click', function() {
 })
 
 
-function pathReduceLevel() {
-    currentDirEntity.pop();
-    if (currentDir === '/cloud') {
-        return;
-    }
+//==============================INITIALIZATION==============================
 
-    const pathParts = currentDir.split('/').filter(part => part !== '');
-    pathParts.pop();
-    currentDir = '/' + pathParts.join('/');
-    
-    updatePathDisplay();
-    loadCurrentDirectory();
-    displayFiles();
-    displayDirs();
-}
-
-function updatePathDisplay() {
-    const pathElement = document.getElementById('path');
-    
-    if (currentDir === '/cloud') {
-        pathElement.textContent = '/cloud';
-    } else {
-        pathElement.textContent = `${currentDir}`;
-    }
-    
-    if (currentDir === '/cloud') {
-        pathElement.style.cursor = 'default';
-    } else {
-        pathElement.style.cursor = 'pointer';
-    }
-}
-
-
-//======INITIALIZATION======
 document.addEventListener('DOMContentLoaded', async () => {
     const isAuthenticated = await checkAuthentication();
     if (isAuthenticated) {
         updateUIForLoggedInUser(currentUser);
-        
         const logoutBtn = document.getElementById('logout-btn');
         if (logoutBtn) {
             logoutBtn.addEventListener('click', logout);

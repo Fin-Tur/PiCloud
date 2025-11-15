@@ -2,7 +2,10 @@ import {
     showConfirmDialog
 } from './utils.js';
 
+//======================Vars==========================
 export let currentUser;
+
+//======================Funcs==========================
 
 export async function checkAuthentication() {
     try {

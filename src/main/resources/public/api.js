@@ -3,32 +3,15 @@ import {
     showConfirmDialog
 } from './utils.js';
 
-export let files = [];
-export let filteredFiles = [];
-export let dirs = [];
-export let currentDir = "/cloud";
-export let currentDirEntity = [];
-
-export async function onDirClick(dir){
-    try{
-        currentDirEntity.push(dir);
-        const response = await fetch(`/api/dirs/getFiles/${dir.id}`, {
-            credentials: 'include'
-        });
-        if(response.ok){
-            const dirFiles = await response.json();
-            currentDir += "/"+dir.name;
-            filteredFiles = dirFiles;
-            document.getElementById("path").innerHTML=currentDir;
-        }else{
-            console.error('Error fetching dir files:', response.statusText);
-            alert('Error loading directory files');
-        }
-    }catch (error) {
-        console.error('Error fetching dir files:', error);
-        alert('Error loading directory files: ' + error.message);
-    }
-}
+//======================================Vars======================================
+export const state = {
+    files: [],
+    filteredFiles: [],
+    dirs: [],
+    currentDir: "/cloud",
+    currentDirEntity: []
+};
+//======================================File-funcs======================================
 
 export async function listFiles() {
     try{
@@ -36,31 +19,15 @@ export async function listFiles() {
             credentials: 'include'
         });
         if (response.ok) {
-            files = await response.json();
-            filteredFiles = files;
+            state.files = await response.json();
+            state.filteredFiles = state.files;
         } else {
             console.error('Error fetching files:', response.statusText);
         }
     } catch (error) {
         console.error('Error fetching files:', error);
     }
-    listDirs();
-    
-}
-
-export async function listDirs(){
-    try{
-        const response = await fetch('api/dirs/list', {
-            credentials: 'include'
-        });
-        if(response.ok){
-            dirs = await response.json();
-        }else{
-            console.error('Error fetching dirs:', response.statusText);
-        }
-    }catch (error) {
-        console.error('Error fetching files:', error);
-    }
+    await listDirs();
 }
 
 export async function uploadFile() {
@@ -85,9 +52,9 @@ export async function uploadFile() {
             const uploadedFiles = await response.json(); 
             
             // Move files to current directory if not in root
-            console.log(currentDirEntity.at(-1));
-            if(currentDirEntity.length != 0){
-                const activeDirId = currentDirEntity[currentDirEntity.length - 1].id;
+            console.log(state.currentDirEntity.at(-1));
+            if(state.currentDirEntity.length != 0){
+                const activeDirId = state.currentDirEntity[state.currentDirEntity.length - 1].id;
                 
                 for(const file of uploadedFiles) {
                     try {
@@ -106,16 +73,17 @@ export async function uploadFile() {
             }
             
             alert('Files uploaded successfully!');
-            listFiles(); 
-            //clearSelectedFiles(); 
+            await listFiles();
+            return true;
         }else{
             alert('Error uploading files:'  + response.statusText);
+            return false;
         }
     } catch (error) {
         console.error('Error uploading files:', error);
         alert('Error uploading files: ' + error.message);
+        return false;
     }
-
 }
 
 export async function downloadFile(file) {
@@ -154,7 +122,7 @@ export async function downloadFile(file) {
             document.body.appendChild(a);
             a.click();
             a.remove();
-            URL.revokeObjectURL(url);  // Memory cleanup
+            URL.revokeObjectURL(url);
         }else{
             alert('Error downloading file: ' + response.statusText);
         }
@@ -170,7 +138,7 @@ export async function fileEnDecryption(fileId) {
         try {
             password = await showPasswordPrompt("Enter the password for encryption/decryption:");
         } catch (error) {
-            return; // User cancelled
+            return;
         }
         
         const response = await fetch(`/api/files/encryption/${fileId}`, { 
@@ -228,6 +196,46 @@ export async function deleteFile(fileId) {
     listFiles();
 }
 
+//======================================Dir-funcs======================================
+
+export async function onDirClick(dir){
+    try{
+        state.currentDirEntity.push(dir);
+        const response = await fetch(`/api/dirs/getFiles/${dir.id}`, {
+            credentials: 'include'
+        });
+        if(response.ok){
+            const dirFiles = await response.json();
+            state.currentDir += "/"+dir.name;
+            state.files = dirFiles;
+            state.filteredFiles = dirFiles;
+            document.getElementById("path").innerHTML=state.currentDir;
+        }else{
+            console.error('Error fetching dir files:', response.statusText);
+            alert('Error loading directory files');
+        }
+    }catch (error) {
+        console.error('Error fetching dir files:', error);
+        alert('Error loading directory files: ' + error.message);
+    }
+}
+
+export async function listDirs(){
+    try{
+        const response = await fetch('api/dirs/list', {
+            credentials: 'include'
+        });
+        if(response.ok){
+            state.dirs = await response.json();
+        }else{
+            console.error('Error fetching dirs:', response.statusText);
+        }
+    }catch (error) {
+        console.error('Error fetching files:', error);
+    }
+}
+
+
 export async function createDirectory(dirName, password) {
     try {
         const formData = new FormData();
@@ -245,15 +253,18 @@ export async function createDirectory(dirName, password) {
         if (response.ok) {
             const result = await response.json();
             alert(`Directory "${dirName}" created successfully!`);
-            listFiles(); 
+            await listFiles();
+            return true;
         } else {
             const errorText = await response.text();
             console.error('Server response:', errorText);
             alert('Error creating directory: ' + errorText);
+            return false;
         }
     } catch (error) {
         console.error('Error creating directory:', error);
         alert('Error creating directory: ' + error.message);
+        return false;
     }
 }
 
@@ -276,7 +287,7 @@ export async function deleteDir(id){
 }
 
 function getCurrentDir(){
-    let pathParts = currentDir.split('/');
+    let pathParts = state.currentDir.split('/');
     let dirName = pathParts.at(-1);
         
     if(dirName === 'cloud'){
@@ -290,17 +301,17 @@ export async function loadCurrentDirectory() {
     try {
         const dir = getCurrentDir();
         if(dir == null) {
-            listFiles();
+            await listFiles();
             return;
         }
-        const response = await fetch(`/api/dirs/getFilesByName/${dirName}`, {
+        const response = await fetch(`/api/dirs/getFilesByName/${dir}`, {
             credentials: 'include'
         });
         
         if (response.ok) {
             const data = await response.json();
-            files = data.files || [];
-            filteredFiles = files;
+            state.files = data.files || [];
+            state.filteredFiles = state.files;
         }
     } catch (error) {
         console.error('Error loading directory:', error);

@@ -1,4 +1,4 @@
-// Helper functions for file type detection, formatting, and UI manipulation
+
 
 export function getFileType(mimeType) {
     if (!mimeType) return 'document';

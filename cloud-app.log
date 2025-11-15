@@ -545,3 +545,18 @@ This generated password is for development use only. Your security configuration
 2025-11-15T12:49:39.085+01:00  INFO 20908 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
 2025-11-15T12:49:39.091+01:00  INFO 20908 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 3.405 seconds (process running for 3.654)
 2025-11-15T12:49:39.143+01:00  INFO 20908 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-15T12:49:57.736+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-15T12:49:57.737+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-15T12:49:57.738+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-15T12:50:18.435+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-15T12:50:18.445+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.AuthController      : User logged in successfully: Finn
+2025-11-15T12:50:28.840+01:00 ERROR 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : File with name files already exists in DB!
+2025-11-15T12:50:28.840+01:00  WARN 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.CloudController     : Invalid file upload request: null
+2025-11-15T12:50:37.371+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Deleted file: actions.png from C:\temp\pi_cloud\files\actions.png
+2025-11-15T12:50:45.747+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.DirController       : Got userID
+2025-11-15T12:50:45.753+01:00 ERROR 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.DirService            : Dir with name test already exists!
+2025-11-15T12:50:45.753+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.DirController       : Created
+2025-11-15T12:50:52.092+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.DirController       : Succesfully deleted Dir 2
+2025-11-15T12:51:07.278+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.controller.AuthController      : User logged out successfully: Finn
+2025-11-15T12:51:09.579+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-15T12:51:09.581+01:00  INFO 20908 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.AuthController      : User logged in successfully: Finn
