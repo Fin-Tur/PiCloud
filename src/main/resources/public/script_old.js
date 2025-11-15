@@ -1,19 +1,19 @@
 
 import {
     currentUser,
-
     checkAuthentication,
     logout,
     updateUIForLoggedInUser
 } from './auth.js';
 
-
 import {
-    //showPasswordPrompt,
+    showPasswordPrompt,
     showCreateDirPrompt,
-    showActionDropDown
+    showActionDropDown,
+    showFilePreview,
+    removeFileFromPreview,
+    clearSelectedFiles
 } from './utils.js';
-
 
 import {
     getFileType,
@@ -22,17 +22,14 @@ import {
     formatDate
 } from './helper.js';
 
-
 import {
     files,
     filteredFiles,
     dirs,
     currentDir,
     currentDirEntity,
-
-    onDirClick,
     listFiles,
-    //listDirs,
+    listDirs,
     uploadFile,
     downloadFile,
     fileEnDecryption,
@@ -40,21 +37,15 @@ import {
     deleteFile,
     createDirectory,
     deleteDir,
-    loadCurrentDirectory
-
+    onDirClick,
+    getCurrentDir,
+    loadCurrentDirectory,
+    pathReduceLevel,
+    updatePathDisplay,
+    filterFiles
 } from './api.js';
 
-
-function filterFiles(name){
-    searchLower = name.trim().toLowerCase();
-    if(searchLower === ''){
-        filteredFiles = files;
-        displayFiles();
-        return;
-    }
-    filteredFiles = files.filter(file => file.name.toLowerCase().includes(searchLower));
-    displayFiles();
-}
+//======DISPLAY FUNCTIONS======
 
 function displayDirs(){
     const fileList = document.getElementById('fileList');
@@ -68,10 +59,7 @@ function displayDirs(){
         dirItem.className = 'file-item dir-item';
         dirItem.style.cursor = 'pointer';
         
-        dirItem.addEventListener('click', function(){
-            onDirClick(dir);
-            displayFiles();
-        } );
+        dirItem.addEventListener('click', () => onDirClick(dir));
         
         const iconDiv = document.createElement('div');
         iconDiv.className = 'file-icon';
@@ -118,9 +106,6 @@ function displayDirs(){
             deleteBtn.addEventListener('click', (e) => {
                 e.stopPropagation();
                 deleteDir(dir.id);
-                listFiles();
-                displayFiles();
-                displayDirs();
             });
             actionsDiv.appendChild(deleteBtn);
         }
@@ -225,16 +210,12 @@ function displayFiles() {
             fileEnDecryption(file.id);
             dropdownDiv.classList.add('hidden');
             listFiles();
-            displayFiles();
-            displayDirs();
         });
 
         compressItem.addEventListener('click', () => {
             fileDeCompression(file.id);
             dropdownDiv.classList.add('hidden');
             listFiles();
-            displayFiles();
-            displayDirs();
         });
 
         dropdownDiv.appendChild(encryptItem);
@@ -243,12 +224,7 @@ function displayFiles() {
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
         deleteBtn.textContent = '🗑️ Delete';
-        deleteBtn.addEventListener('click', function(){
-            deleteFile(file.id)
-            listFiles();
-            displayFiles();
-            displayDirs();
-        });
+        deleteBtn.addEventListener('click', () => deleteFile(file.id));
         
         actionsDiv.appendChild(downloadBtn);
 
@@ -266,6 +242,179 @@ function displayFiles() {
         
         fileList.appendChild(fileItem);
     });
+}
+/*
+function showActionDropDown(dropdownDiv){
+    document.querySelectorAll('.dropdown-menu').forEach(menu => {
+        menu.classList.add('hidden');
+    });
+    
+    dropdownDiv.classList.toggle('hidden');
+}
+*/
+async function uploadFile() {
+    const fileInput = document.getElementById('fileInput');
+   
+    if(fileInput.files.length === 0) {
+        alert('Please select a file to upload.');
+        return;
+    }
+    
+    const formData = new FormData();
+    Array.from(fileInput.files).forEach(file => {
+        formData.append('files', file);
+    });
+
+    try{
+        const response = await fetch('/api/files/upload', {
+            method: 'POST',
+            body: formData
+        });
+        if (response.ok) {
+            const uploadedFiles = await response.json(); 
+            
+            // Move files to current directory if not in root
+            console.log(currentDirEntity.at(-1));
+            if(currentDirEntity.length != 0){
+                const activeDirId = currentDirEntity[currentDirEntity.length - 1].id;
+                
+                for(const file of uploadedFiles) {
+                    try {
+                        const moveResponse = await fetch(`/api/dirs/move/${file.id}/${activeDirId}`, {
+                            method: 'POST',
+                            credentials: 'include'
+                        });
+                        
+                        if (!moveResponse.ok) {
+                            console.error(`Failed to move file ${file.name} to directory`);
+                        }
+                    } catch (moveError) {
+                        console.error(`Error moving file ${file.name}:`, moveError);
+                    }
+                }
+            }
+            
+            alert('Files uploaded successfully!');
+            listFiles(); 
+            clearSelectedFiles(); 
+        }else{
+            alert('Error uploading files:'  + response.statusText);
+        }
+    } catch (error) {
+        console.error('Error uploading files:', error);
+        alert('Error uploading files: ' + error.message);
+    }
+
+}
+
+async function downloadFile(file) {
+    try{
+        var password = "";
+        if(file.encrypted){
+            try {
+                password = await showPasswordPrompt("Enter the password for downloading encrypted file:");
+            } catch (error) {
+                return; // User cancelled
+            }
+        }
+
+        const response = await fetch(`/api/files/download/${file.id}` , { 
+            method: 'POST', 
+            body: JSON.stringify({ password }), 
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include'
+        });
+        if (response.ok) {
+            const blob = await response.blob();
+            const contentDisposition = response.headers.get('Content-Disposition');
+            let filename = `file_${file.id}`;
+            
+            if (contentDisposition) {
+                const filenameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/);
+                if (filenameMatch && filenameMatch[1]) {
+                    filename = filenameMatch[1].replace(/['"]/g, '');
+                }
+            }
+            
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename; 
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(url);  // Memory cleanup
+        }else{
+            alert('Error downloading file: ' + response.statusText);
+        }
+    } catch (error) {
+        console.error('Error downloading file:', error);
+        alert('Error downloading file: ' + error.message);
+    }
+}
+
+async function fileEnDecryption(fileId) {
+    try{
+        let password;
+        try {
+            password = await showPasswordPrompt("Enter the password for encryption/decryption:");
+        } catch (error) {
+            return; // User cancelled
+        }
+        
+        const response = await fetch(`/api/files/encryption/${fileId}`, { 
+            method: 'POST', 
+            body: JSON.stringify({ password }), 
+            headers: { 'Content-Type': 'application/json' }, 
+            credentials: 'include'
+        });
+        if (response.ok) {
+            alert('File en/decrypted successfully!');
+        } else {
+            alert('Error en/decrypting file: ' + response.statusText);
+        }
+    }catch(error) {
+        console.error('Error en/decrypting file:', error);
+        alert('Error en/decrypting file: ' + error.message);
+    }
+}
+
+async function fileDeCompression(fileId){
+    try{
+        const response = await fetch(`api/files/compression/${fileId}`, {
+            method : 'GET',
+            credentials: 'include'
+        });
+        if(response.ok){
+            alert('File de/compression successful!');
+        }else{
+            alert('Error de/compressing file: '+response.statusText);
+        }
+    }catch(error){
+        console.error('Error de/compressing file:', error);
+        alert('Error de/compressing file: ' + error.message);
+    }
+}
+
+async function deleteFile(fileId) {
+    try{
+        const confirmed = await showConfirmDialog("Are you sure you want to delete this file? This action cannot be undone.");
+        if (!confirmed) return;
+        
+        const conf = await fetch(`/api/files/delete/${fileId}`, { 
+            method: 'DELETE', 
+            credentials: 'include'
+        });
+        if (conf.ok) {
+            alert('File deleted successfully!');
+        } else {
+            alert('Error deleting file: ' + conf.statusText);
+        }
+    } catch (error) {
+        console.error('Error deleting file:', error);
+        alert('Error deleting file: ' + error.message);
+    }
+    listFiles();
 }
 
 //======FILE PREVIEW FUNCTIONS======
@@ -327,15 +476,10 @@ function clearSelectedFiles() {
     previewContainer.classList.add('hidden');
 }
 
-
 //======EVENT LISTENERS======
 document.getElementById('uploadForm').addEventListener('submit', function(event) {
     event.preventDefault();
     uploadFile();
-    listFiles(); 
-    displayFiles();
-    displayDirs();
-    clearSelectedFiles(); 
 });
 
 document.getElementById('fileInput').addEventListener('change', function(event) {
@@ -356,10 +500,6 @@ document.getElementById('createDirBtn').addEventListener('click', async function
     try {
         const { dirName, password } = await showCreateDirPrompt();
         await createDirectory(dirName, password);
-        await listFiles();
-        displayFiles();
-        displayDirs();
-        clearSelectedFiles(); 
     } catch (error) {
         console.log('Directory creation cancelled');
     }
@@ -369,6 +509,65 @@ document.getElementById("path").addEventListener('click', function() {
     pathReduceLevel();
 })
 
+//======DIR FUNCTIONS======
+
+async function createDirectory(dirName, password) {
+    try {
+        const formData = new FormData();
+        formData.append('dirName', dirName);
+        //if (password) {
+          //  formData.append('password', password);
+        //}
+        
+        const response = await fetch('/api/dirs/create', {
+            method: 'POST',
+            body: formData,
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            const result = await response.json();
+            alert(`Directory "${dirName}" created successfully!`);
+            listFiles(); 
+        } else {
+            const errorText = await response.text();
+            console.error('Server response:', errorText);
+            alert('Error creating directory: ' + errorText);
+        }
+    } catch (error) {
+        console.error('Error creating directory:', error);
+        alert('Error creating directory: ' + error.message);
+    }
+}
+
+async function deleteDir(id){
+    try{
+        const response = await fetch(`/api/dirs/delete/${id}`, {
+            method: 'DELETE',
+            credentials: 'include'
+        });
+
+        if(response.ok){
+            alert('Directory deleted sucessfully!');
+            listFiles();
+        }else{
+            console.error('Error deleting directory!');
+        }
+    }catch (error){
+        console.error('Error deleting dir: ', error);
+    }
+}
+
+function getCurrentDir(){
+    let pathParts = currentDir.split('/');
+    let dirName = pathParts.at(-1);
+        
+    if(dirName === 'cloud'){
+        return null;
+    }
+
+    return dirName;
+}
 
 function pathReduceLevel() {
     currentDirEntity.pop();
@@ -381,9 +580,8 @@ function pathReduceLevel() {
     currentDir = '/' + pathParts.join('/');
     
     updatePathDisplay();
+    
     loadCurrentDirectory();
-    displayFiles();
-    displayDirs();
 }
 
 function updatePathDisplay() {
@@ -402,6 +600,29 @@ function updatePathDisplay() {
     }
 }
 
+async function loadCurrentDirectory() {
+    try {
+        const dir = getCurrentDir();
+        if(dir == null) {
+            listFiles();
+            return;
+        }
+        const response = await fetch(`/api/dirs/getFilesByName/${dirName}`, {
+            credentials: 'include'
+        });
+        
+        if (response.ok) {
+            const data = await response.json();
+            files = data.files || [];
+            filteredFiles = files;
+            displayFiles();
+        }
+    } catch (error) {
+        console.error('Error loading directory:', error);
+    }
+}
+
+
 
 //======INITIALIZATION======
 document.addEventListener('DOMContentLoaded', async () => {
@@ -415,8 +636,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         
         updatePathDisplay();
-        await listFiles();
-        displayFiles();
-        displayDirs();
+        listFiles();
     }
 });
