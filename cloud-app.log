@@ -1340,3 +1340,30 @@ This generated password is for development use only. Your security configuration
 2025-11-16T15:08:33.707+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
 2025-11-16T15:08:33.708+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
 2025-11-16T15:08:35.804+01:00  WARN 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.UserService           : Authentication failed: User entered wrong pasword!
+2025-11-16T15:08:51.460+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.UserService           : User registered successfully: Finn
+2025-11-16T15:08:51.465+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.AuthController      : New user registered successfully
+2025-11-16T15:09:00.585+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-16T15:09:00.595+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.controller.AuthController      : A user logged in successfully
+2025-11-16T15:09:08.361+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-16T15:09:08.368+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Saved new file succesfully
+2025-11-16T15:09:16.607+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.controller.DirController       : Got userID
+2025-11-16T15:09:16.612+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.DirService            : DirEntity created: name=unSafeDir, owner=Finn
+2025-11-16T15:09:16.620+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.DirService            : DirEntity saved successfully with ID: 1
+2025-11-16T15:09:16.626+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.controller.DirController       : Created
+2025-11-16T15:09:28.187+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.controller.DirController       : Got userID
+2025-11-16T15:09:28.248+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.DirService            : DirEntity created: name=safeDir, owner=Finn
+2025-11-16T15:09:28.249+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.DirService            : DirEntity saved successfully with ID: 2
+2025-11-16T15:09:28.250+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.controller.DirController       : Created
+2025-11-16T15:09:37.209+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-16T15:09:37.212+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.CloudService          : Saved new file succesfully
+2025-11-16T15:09:37.224+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : Added file helper.png to Dir unSafeDir
+2025-11-16T15:09:37.238+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Moved file 2 to dir 1
+2025-11-16T15:09:44.305+01:00 ERROR 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : Wrong password for trying to acces dir : 2
+2025-11-16T15:15:39.276+01:00 ERROR 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.DirService            : Wrong password for trying to acces dir : 2
+2025-11-16T15:15:48.844+01:00 ERROR 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : Wrong password for trying to acces dir : 2
+2025-11-16T15:17:01.193+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.DirService            : User unlocked dir : 2
+2025-11-16T15:17:10.924+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : No Duplicates in Storage.
+2025-11-16T15:17:10.927+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Saved new file succesfully
+2025-11-16T15:17:10.940+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.DirService            : Added file encryption.png to Dir safeDir
+2025-11-16T15:17:10.942+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.controller.DirController       : Moved file 3 to dir 2
+2025-11-16T15:17:26.383+01:00  INFO 3480 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.DirService            : User unlocked dir : 2

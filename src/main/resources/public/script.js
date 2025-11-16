@@ -120,6 +120,7 @@ function displayDirs(){
         
         fileList.appendChild(dirItem);
     });
+
 }
 
 function displayFiles() {
@@ -218,18 +219,16 @@ function displayFiles() {
         moveToHomeItem.className = 'dropdown-item';
         moveToHomeItem.textContent = '🏠 Move to Home';
 
-        encryptItem.addEventListener('click', () => {
-            fileEnDecryption(file.id);
+        encryptItem.addEventListener('click', async () => {
+            await fileEnDecryption(file.id);
             dropdownDiv.classList.add('hidden');
-            listFiles();
             displayFiles();
             displayDirs();
         });
 
-        compressItem.addEventListener('click', () => {
-            fileDeCompression(file.id);
+        compressItem.addEventListener('click', async () => {
+            await fileDeCompression(file.id);
             dropdownDiv.classList.add('hidden');
-            listFiles();
             displayFiles();
             displayDirs();
         });
@@ -240,7 +239,7 @@ function displayFiles() {
                 await moveFileToDir(file.id, selectedDirId);
                 alert(`File "${file.name}" moved successfully!`);
                 dropdownDiv.classList.add('hidden');
-                await listFiles();
+                await loadCurrentDirectory();
                 displayFiles();
                 displayDirs();
             } catch (error) {
@@ -259,7 +258,7 @@ function displayFiles() {
                 await moveFileToDir(file.id, 0);
                 alert(`File "${file.name}" moved to home successfully!`);
                 dropdownDiv.classList.add('hidden');
-                await listFiles();
+                await loadCurrentDirectory();
                 displayFiles();
                 displayDirs();
             } catch (error) {
@@ -281,7 +280,7 @@ function displayFiles() {
         deleteBtn.textContent = '🗑️ Delete';
         deleteBtn.addEventListener('click', function(){
             deleteFile(file.id)
-            listFiles();
+            //listFiles();
             displayFiles();
             displayDirs();
         });
@@ -409,6 +408,7 @@ function filterFiles(name){
 async function pathReduceLevel() {
     state.currentDirEntity.pop();
     if (state.currentDir === '/cloud') {
+        state.currentDirpw = 'unprotected';
         return;
     }
 
@@ -443,7 +443,7 @@ document.getElementById('uploadForm').addEventListener('submit', async function(
     event.preventDefault();
     const success = await uploadFile();
     if(success) {
-        await listFiles();
+        //await listFiles();
         displayFiles();
         displayDirs();
         clearSelectedFiles();

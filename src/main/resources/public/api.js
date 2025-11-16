@@ -10,7 +10,8 @@ export const state = {
     dirs: [],
     filteredDirs: [],
     currentDir: "/cloud",
-    currentDirEntity: []
+    currentDirEntity: [],
+    currentDirpw: "unprotected"
 };
 //======================================File-funcs======================================
 
@@ -69,7 +70,7 @@ export async function uploadFile() {
         if (response.ok) {
             const uploadedFiles = await response.json(); 
             
-            // Move files to current directory if not in root
+            //Move files to current directory if not in root
             console.log(state.currentDirEntity.at(-1));
             if(state.currentDirEntity.length != 0){
                 const activeDirId = state.currentDirEntity[state.currentDirEntity.length - 1].id;
@@ -77,10 +78,12 @@ export async function uploadFile() {
                 for(const file of uploadedFiles) {
                     await moveFileToDir(file.id, activeDirId);
                 }
+                await loadCurrentDirectory();
+            }else{
+                await listFiles();
             }
-            
             alert('Files uploaded successfully!');
-            await listFiles();
+            
             return true;
         }else{
             alert('Error uploading files:'  + response.statusText);
@@ -156,6 +159,7 @@ export async function fileEnDecryption(fileId) {
         });
         if (response.ok) {
             alert('File en/decrypted successfully!');
+            await loadCurrentDirectory();
         } else {
             alert('Error en/decrypting file: ' + response.statusText);
         }
@@ -168,11 +172,12 @@ export async function fileEnDecryption(fileId) {
 export async function fileDeCompression(fileId){
     try{
         const response = await fetch(`api/files/compression/${fileId}`, {
-            method : 'GET',
+            method : 'POST',
             credentials: 'include'
         });
         if(response.ok){
             alert('File de/compression successful!');
+            await loadCurrentDirectory();
         }else{
             alert('Error de/compressing file: '+response.statusText);
         }
@@ -200,7 +205,7 @@ export async function deleteFile(fileId) {
         console.error('Error deleting file:', error);
         alert('Error deleting file: ' + error.message);
     }
-    listFiles();
+    loadCurrentDirectory();
 }
 
 //======================================Dir-funcs======================================
@@ -223,9 +228,11 @@ export async function onDirClick(dir){
         if(response.ok){
             const dirFiles = await response.json();
             state.currentDir += "/"+dir.name;
+            state.currentDirpw = password;
             state.files = dirFiles;
             state.filteredFiles = dirFiles;
             document.getElementById("path").innerHTML=state.currentDir;
+            document.getElementById("createDirBtn").style.display = "none";
         }else{
             console.error('Error fetching dir files:', response.statusText);
             alert('Error loading directory files');
@@ -272,7 +279,7 @@ export async function createDirectory(dirName, password) {
         if (response.ok) {
             const result = await response.json();
             alert(`Directory "${dirName}" created successfully!`);
-            await listFiles();
+            await loadCurrentDirectory();
             return true;
         } else {
             const errorText = await response.text();
@@ -296,7 +303,7 @@ export async function deleteDir(id){
 
         if(response.ok){
             alert('Directory deleted sucessfully!');
-            listFiles();
+            loadCurrentDirectory();
         }else{
             console.error('Error deleting directory!');
         }
@@ -321,17 +328,24 @@ export async function loadCurrentDirectory() {
         const dir = getCurrentDir();
         if(dir == null) {
             await listFiles();
+            document.getElementById("createDirBtn").style.display = "block";
             return;
         }
         const response = await fetch(`/api/dirs/getFilesByName/${dir}`, {
+            method: 'POST',
+            body: state.currentDirpw,
+            headers: { 'Content-Type': 'text/plain' },
             credentials: 'include'
         });
         
         if (response.ok) {
             const data = await response.json();
-            state.files = data.files || [];
-            state.filteredFiles = state.files;
+            state.files = data;
+            state.filteredFiles = data;
+            state.dirs = [];
+            state.filteredDirs = [];
         }
+        
     } catch (error) {
         console.error('Error loading directory:', error);
     }
