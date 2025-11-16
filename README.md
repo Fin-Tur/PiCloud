@@ -116,20 +116,25 @@ MIT License – 2025 © Fin-Tur
 ## Screenshots 
 
 **Login**
-<img width="1563" height="1090" alt="Login" src="https://github.com/user-attachments/assets/b67a8b60-dbd7-47a8-8606-6919523d2b06" />
+
+<img width="407" height="564" alt="Screenshot 2025-11-16 152217" src="https://github.com/user-attachments/assets/ee629249-fcd6-4716-84fd-0984498fdc51" />
 
 **Uploading Files**
 <img width="1685" height="1086" alt="uploading" src="https://github.com/user-attachments/assets/976bb43b-1eb6-44c2-aa02-00b446a9afe3" />
 
 **Actions**
-<img width="1777" height="937" alt="actions" src="https://github.com/user-attachments/assets/2df8a91a-ed54-4dbf-b048-865f871beb50" />
+
+<img width="459" height="437" alt="Screenshot 2025-11-16 152103" src="https://github.com/user-attachments/assets/9a2ce1ec-e10f-4c22-9234-142886337a2c" />
 
 **Encryption**
 
 <img width="458" height="356" alt="encryption" src="https://github.com/user-attachments/assets/3792ded1-4674-4010-b1c9-8cbe4cccfa7f" />
 
 **Directory**
-<img width="1632" height="743" alt="dirs" src="https://github.com/user-attachments/assets/4f3ff787-ef0e-4fb3-b52c-8cf24e349e9c" />
+
+<img width="429" height="438" alt="Screenshot 2025-11-16 152144" src="https://github.com/user-attachments/assets/8a8524da-6be6-406e-a185-0a54c51af898" />
+
+
 
 
 
