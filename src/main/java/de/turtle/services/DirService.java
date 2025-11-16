@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import de.turtle.models.DirEntity;
@@ -21,6 +22,7 @@ import jakarta.transaction.Transactional;
 public class DirService {
 
     private static final Logger log = LoggerFactory.getLogger(DirService.class);
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
     
     @Autowired
     private CloudService cloudService;
@@ -61,15 +63,21 @@ public class DirService {
     }
 
     @Transactional
-    public DirEntity createDir(String name, Long ownerId) throws Exception{
+    public DirEntity createDir(String name, Long ownerId, String password) throws Exception{
         if(dirRepository.existsByNameIgnoreCase(name)){
             log.error("Dir with name {} already exists!", name);
             return null;
         }
 
         User owner = getUserById(ownerId);
-        log.info("Owner found: {}", owner);
-        DirEntity dir = new DirEntity(owner, name);
+        DirEntity dir;
+        if(!password.equals("unprotected")){
+            String hashedPW = passwordEncoder.encode(password);
+            dir = new DirEntity(owner, name, hashedPW);
+        }else{
+            dir = new DirEntity(owner, name);
+        }
+        
         log.info("DirEntity created: name={}, owner={}", dir.getName(), dir.getOwnerUsername());
         
         try {
@@ -100,8 +108,15 @@ public class DirService {
         return dirRepository.save(dir);
     }
 
-    public FileEntity[] getFilesFromDir(Long id) throws Exception{
+    public FileEntity[] getFilesFromDir(Long id, String password) throws Exception{
         DirEntity dir = getDirById(id);
+        if(dir.isProtected()){
+            if(!passwordEncoder.matches(password, dir.getPassword())){
+                log.error("Wrong password for trying to acces dir : {}", dir.getId());
+                return null;
+            }
+            log.info("User unlocked dir : {}", dir.getId());
+        }
         return dir.getFiles().toArray(FileEntity[]::new);
     }
 

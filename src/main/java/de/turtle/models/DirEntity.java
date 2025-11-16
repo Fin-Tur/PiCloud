@@ -33,12 +33,21 @@ public class DirEntity {
     private List<FileEntity> files = new ArrayList<>();
 
     private String name;
+    private boolean isProtected = false;
+    private String hashedPassword;
 
     public DirEntity(){}
 
     public DirEntity(User owner, String name){
         this.owner = owner;
-        this.name = name;
+        this.name = name;  
+    }
+
+    public DirEntity(User owner, String name, String hashedPassword){
+        this.owner = owner;
+        this.name = name;  
+        this.isProtected = true;
+        this.hashedPassword = hashedPassword;
     }
 
     public Long getId() {
@@ -55,6 +64,22 @@ public class DirEntity {
 
     public void setOwner(User owner) {
         this.owner = owner;
+    }
+
+    public boolean isProtected(){
+        return this.isProtected;
+    }
+
+    public void setProtected(boolean isProtected){
+        this.isProtected = isProtected;
+    }
+
+    public String getPassword(){
+        return this.hashedPassword;
+    }
+
+    public void setHashedPassword(String hashedPassword){
+        this.hashedPassword = hashedPassword;
     }
 
     public List<FileEntity> getFiles() {

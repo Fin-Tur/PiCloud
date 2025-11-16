@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -73,13 +74,12 @@ public class DirController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<?> createDir(@RequestParam("dirName")
-     String name, HttpServletRequest req){
+    public ResponseEntity<?> createDir(@RequestParam("dirName") String name, @RequestParam(value = "password") String password, HttpServletRequest req){
         try {
 
             Long userid = AuthController.getCurrentUserId(req);
             logger.info("Got userID");
-            DirEntity dir = dirService.createDir(name, userid);
+            DirEntity dir = dirService.createDir(name, userid, password);
             logger.info("Created");
             return ResponseEntity.ok(dir);
 
@@ -96,8 +96,8 @@ public class DirController {
         
     }
 
-    @GetMapping("/getFiles/{id}")
-    public ResponseEntity<FileEntity[]> getFilesFromDir(@PathVariable Long id, HttpServletRequest req){
+    @PostMapping("/getFiles/{id}")
+    public ResponseEntity<FileEntity[]> getFilesFromDir(@PathVariable Long id, @RequestBody String password, HttpServletRequest req){
         try {
             Long userID = AuthController.getCurrentUserId(req);
             if(!dirService.canUserModifyDir(id, userID)){
@@ -105,7 +105,7 @@ public class DirController {
                 ResponseEntity.status(HttpStatus.FORBIDDEN);
             }
 
-            FileEntity[] files = dirService.getFilesFromDir(id);
+            FileEntity[] files = dirService.getFilesFromDir(id, password);
             return ResponseEntity.ok(files);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
@@ -113,8 +113,8 @@ public class DirController {
  
     }
 
-    @GetMapping("/getFilesByName/{name}")
-    public ResponseEntity<FileEntity[]> getFilesFromDirByName(@PathVariable String name, HttpServletRequest req){
+    @PostMapping("/getFilesByName/{name}")
+    public ResponseEntity<FileEntity[]> getFilesFromDirByName(@PathVariable String name, @RequestBody String password, HttpServletRequest req){
         try {
             Long userID = AuthController.getCurrentUserId(req);
             DirEntity dir = dirService.getDirByName(name);
@@ -126,7 +126,7 @@ public class DirController {
                 ResponseEntity.status(HttpStatus.FORBIDDEN);
             }
 
-            FileEntity[] files = dirService.getFilesFromDir(dir.getId());
+            FileEntity[] files = dirService.getFilesFromDir(dir.getId(), password);
             return ResponseEntity.ok(files);
         } catch (Exception e) {
             return ResponseEntity.internalServerError().build();
@@ -139,11 +139,13 @@ public class DirController {
 
             if(idD == 0){
                 FileEntity file = cloudService.getFileById(idF);
-                DirEntity dir = dirService.getDirById(file.getDir().getId());
-                if(dir == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
-                dir.removeFile(file);
-                cloudService.saveFile(file);
-                dirService.saveDir(dir);
+                if(file.getDir() != null){
+                    DirEntity dir = dirService.getDirById(file.getDir().getId());
+                    if(dir == null) return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+                    dir.removeFile(file);
+                    cloudService.saveFile(file);
+                    dirService.saveDir(dir);
+                }
                 return ResponseEntity.ok("File moved to home succesfully!");
             }
 
@@ -156,7 +158,7 @@ public class DirController {
             DirEntity dir = dirService.moveFileToDir(idF, idD);
             if(dir != null){
                 logger.info("Moved file {} to dir {}", idF, idD);
-                return ResponseEntity.ok(dir);
+                return ResponseEntity.ok("File moved successfully!");
             }
             logger.error("Error occured while moving file {} to dir {}", idF, idD);
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error occured while moving file.");

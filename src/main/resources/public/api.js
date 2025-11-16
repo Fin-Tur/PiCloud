@@ -207,8 +207,17 @@ export async function deleteFile(fileId) {
 
 export async function onDirClick(dir){
     try{
+        let password = "unprotected";
+        if(dir.protected){
+            console.log("Prot");
+            password = await showPasswordPrompt("Enter password to unlock protected Dir");
+        }
+
         state.currentDirEntity.push(dir);
         const response = await fetch(`/api/dirs/getFiles/${dir.id}`, {
+            method: 'POST',
+            body : password,
+            headers: { 'Content-Type': 'text/plain' },
             credentials: 'include'
         });
         if(response.ok){
@@ -248,9 +257,11 @@ export async function createDirectory(dirName, password) {
     try {
         const formData = new FormData();
         formData.append('dirName', dirName);
-        //if (password) {
-          //  formData.append('password', password);
-        //}
+        if (password) {
+            formData.append('password', password);
+        }else{
+            formData.append('password', 'unprotected');
+        }
         
         const response = await fetch('/api/dirs/create', {
             method: 'POST',
