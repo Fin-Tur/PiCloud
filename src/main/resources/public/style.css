@@ -3,12 +3,12 @@
    =================================== */
 :root {
   /* Colors */
-  --primary-color: #909db9;
+  --primary-color: #0ea5e9;  
   --primary-light: #5392f8;
   --primary-dark: #1d4ed8;
   --secondary-color: #64748b;
-  --accent-color: #3e977c;
-  --accent-color-light: #78ceb1;
+  --accent-color: #0891b2;
+  --accent-color-light: #0e7490;
 
   /* Neutral Colors */
   --white: #ffffff;
@@ -101,10 +101,12 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--gray-900);
-  background-color: var(--gray-200);
+  background-color: #2e374a;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
 
 /* Remove default button and input styles */
 button,
@@ -404,7 +406,7 @@ h2::after {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-4) var(--space-6);
-  background: linear-gradient(60deg, var(--primary-color), var(--gray-400));
+  background: linear-gradient(60deg, var(--accent-color), var(--accent-color-light));
   color: var(--white);
   border: none;
   border-radius: var(--radius-lg);
@@ -810,8 +812,8 @@ h2::after {
 }
 
 .btn-download:hover {
-  background: #059669;
-  border-color: #059669;
+  background: #83c9b3;
+  border-color: #328067;
   transform: translateY(-1px);
   box-shadow: var(--shadow-sm);
 }
