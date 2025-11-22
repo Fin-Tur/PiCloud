@@ -12,6 +12,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "files")
@@ -30,11 +34,23 @@ public class FileEntity {
 	@JoinColumn(name = "dir_id", nullable = true)
 	private DirEntity dir;
 
+	@NotBlank(message = "File name cannot be empty")
+	@Size(max = 255, message = "File name cannot exceed 255 characters")
 	private String name;
+	
+	@NotBlank(message = "File path cannot be empty")
 	private String path;
+	
+	@NotNull(message = "File size cannot be null")
+	@Positive(message = "File size must be positive")
 	private Long size;
+	
+	@NotBlank(message = "File type cannot be empty")
 	private String type;
+	
+	@NotNull(message = "Upload date cannot be null")
 	private LocalDateTime uploadedAt;
+	
 	private boolean encrypted = false;
 	private boolean compressed = false;
 

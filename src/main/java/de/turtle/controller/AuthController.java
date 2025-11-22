@@ -19,6 +19,7 @@ import de.turtle.models.User;
 import de.turtle.services.UserService;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 
 @RestController
@@ -32,30 +33,15 @@ public class AuthController {
     private UserService userService;
     
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody AuthDTOs.RegisterRequest request) {
-        try {
-            if (request.getUsername() == null || request.getPassword() == null) {
-                return ResponseEntity.badRequest().body(new  AuthDTOs.AuthResponse(false, "Username and password are required"));
-            }
-            
+    public ResponseEntity<?> register(@Valid @RequestBody AuthDTOs.RegisterRequest request) {
             userService.registerUser(request.getUsername(), request.getPassword());
             logger.info("New user registered successfully");
             
-            return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "User registered successfully"));
-            
-        } catch (IllegalArgumentException e) {
-            logger.warn("Registration failed: {}", e.getMessage());
-            return ResponseEntity.badRequest().body(new  AuthDTOs.AuthResponse(false, e.getMessage()));
-        } catch (Exception e) {
-            logger.error("Registration error", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new  AuthDTOs.AuthResponse(false, "Registration failed"));
-        }
+            return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "User registered successfully"));      
     }
     
     @PostMapping("/login")
-    public ResponseEntity<?> login(@RequestBody AuthDTOs.LoginRequest request, HttpServletRequest httpRequest) {
-        try {
+    public ResponseEntity<?> login(@Valid @RequestBody AuthDTOs.LoginRequest request, HttpServletRequest httpRequest) {
             if (request.getUsername() == null || request.getPassword() == null) {
                 return ResponseEntity.badRequest().body(new AuthDTOs.AuthResponse(false, "Username and password are required"));
             }
@@ -76,18 +62,11 @@ public class AuthController {
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                         .body(new AuthDTOs.AuthResponse(false, "Invalid username or password"));
-            }
-            
-        } catch (Exception e) {
-            logger.error("Login error", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new AuthDTOs.AuthResponse(false, "Login failed"));
-        }
+            }  
     }
     
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletRequest httpRequest) {
-        try {
             HttpSession session = httpRequest.getSession(false);
             String username = null;
             
@@ -98,16 +77,10 @@ public class AuthController {
             
             logger.info("User logged out successfully: {}", username);
             return ResponseEntity.ok(new AuthDTOs.AuthResponse(true, "Logout successful"));
-        } catch (Exception e) {
-            logger.error("Logout error", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new AuthDTOs.AuthResponse(false, "Logout failed"));
-        }
     }
     
     @GetMapping("/check")
     public ResponseEntity<?> checkAuthentication(HttpServletRequest httpRequest) {
-        try {
             HttpSession session = httpRequest.getSession(false);
             
             if (session != null) {
@@ -121,11 +94,6 @@ public class AuthController {
             
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                     .body(new AuthDTOs.AuthResponse(false, "Not authenticated"));
-        } catch (Exception e) {
-            logger.error("Authentication check error", e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(new AuthDTOs.AuthResponse(false, "Authentication check failed"));
-        }
     }
 
     public static boolean isAuthenticated(HttpServletRequest request) {

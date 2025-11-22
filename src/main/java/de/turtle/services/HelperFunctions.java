@@ -5,6 +5,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class HelperFunctions {
+    
 
     public static boolean fileAtPathIsSafeToModify(String storagePathStr, Path filePath) {
         try {

@@ -1,10 +1,15 @@
 package de.turtle.models;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class AuthDTOs {
     
     //Request DTOs
     public static class LoginRequest {
+        @NotBlank (message = "Username can not be empty")
         private String username;
+
+        @NotBlank (message = "Password can not be empty")
         private String password;
         
         public String getUsername() { return username; }
@@ -14,7 +19,11 @@ public class AuthDTOs {
     }
     
     public static class RegisterRequest {
+        
+        @NotBlank (message = "Username can not be empty")
         private String username;
+
+        @NotBlank (message = "Password can not be empty")
         private String password;
         
         public String getUsername() { return username; }
@@ -41,7 +50,10 @@ public class AuthDTOs {
         }
         
         public boolean isSuccess() { return success; }
+        public void setSuccess(boolean success) { this.success = success; }
         public String getMessage() { return message; }
+        public void setMessage(String message) { this.message = message; }
         public String getUsername() { return username; }
+        public void setUsername(String username) { this.username = username; }
     }
 }

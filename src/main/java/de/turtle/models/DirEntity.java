@@ -15,6 +15,8 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "directories")
@@ -32,8 +34,13 @@ public class DirEntity {
     @OneToMany(mappedBy = "dir", cascade = CascadeType.ALL, orphanRemoval = false)
     private List<FileEntity> files = new ArrayList<>();
 
+    @NotBlank(message = "Directory name cannot be empty")
+    @Size(min = 1, max = 100, message = "Directory name must be between 1 and 100 characters")
     private String name;
+    
     private boolean isProtected = false;
+    
+    @Size(max = 255, message = "Hashed password cannot exceed 255 characters")
     private String hashedPassword;
 
     public DirEntity(){}
