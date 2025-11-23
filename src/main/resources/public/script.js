@@ -104,10 +104,10 @@ function displayDirs(){
             const deleteBtn = document.createElement('button');
             deleteBtn.className = 'btn-small btn-delete';
             deleteBtn.textContent = '🗑️ Delete';
-            deleteBtn.addEventListener('click', (e) => {
+            deleteBtn.addEventListener('click', async (e) => {
                 e.stopPropagation();
-                deleteDir(dir.id);
-                listFiles();
+                await deleteDir(dir.id);
+                await listFiles();
                 displayFiles();
                 displayDirs();
             });
@@ -278,9 +278,9 @@ function displayFiles() {
         const deleteBtn = document.createElement('button');
         deleteBtn.className = 'btn-small btn-delete';
         deleteBtn.textContent = '🗑️ Delete';
-        deleteBtn.addEventListener('click', function(){
-            deleteFile(file.id)
-            //listFiles();
+        deleteBtn.addEventListener('click', async function(){
+            await deleteFile(file.id)
+            await listFiles();
             displayFiles();
             displayDirs();
         });
