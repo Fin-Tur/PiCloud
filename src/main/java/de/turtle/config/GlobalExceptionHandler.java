@@ -2,9 +2,11 @@ package de.turtle.config;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.NoSuchElementException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -59,14 +61,31 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ExceptionDTO("Constraint Violation", errors));
     }
 
+    //Illegal args
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<ExceptionDTO> handleIllegalArgException(Exception ex) {
+    public ResponseEntity<ExceptionDTO> handleIllegalArgException(IllegalArgumentException ex) {
         logger.error("Error occured due to Illegal args: " + ex.getMessage());
         return ResponseEntity.badRequest().body(new ExceptionDTO("Illegal Args Error occured"));
        
     }
 
-    //GenereC (unspecific)
+    //NoSuchElementException
+    @ExceptionHandler(NoSuchElementException.class)
+    public ResponseEntity<ExceptionDTO> handleNoSuchElementException(NoSuchElementException ex){
+        logger.error("Error occured due to NoSuchElementException "+ ex.getMessage());
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionDTO("Element not found"));
+    }
+
+    //DataBase error
+    @ExceptionHandler(DataAccessException.class)
+        public ResponseEntity<ExceptionDTO> handleDataAccesException(DataAccessException ex){
+             logger.error("Error occured due to NoSuchElementException "+ ex.getMessage());
+            return ResponseEntity.badRequest().body(new ExceptionDTO("Error occured in database"));
+        }
+    
+
+
+    //Generic (unspecific)
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ExceptionDTO> handleGlobalException(Exception ex) {  
         logger.error("Error occured due to Illegal args: " + ex.getMessage());

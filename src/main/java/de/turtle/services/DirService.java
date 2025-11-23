@@ -1,6 +1,5 @@
 package de.turtle.services;
 
-import java.io.IOException;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -63,7 +62,7 @@ public class DirService {
     }
 
     @Transactional
-    public DirEntity createDir(String name, Long ownerId, String password) throws Exception{
+    public DirEntity createDir(String name, Long ownerId, String password){
         if(dirRepository.existsByNameIgnoreCase(name)){
             log.error("Dir with name {} already exists!", name);
             return null;
@@ -79,19 +78,13 @@ public class DirService {
         }
         
         log.info("DirEntity created: name={}, owner={}", dir.getName(), dir.getOwnerUsername());
-        
-        try {
-            DirEntity saved = dirRepository.save(dir);
-            log.info("DirEntity saved successfully with ID: {}", saved.getId());
-            return saved;
-        } catch (Exception e) {
-            log.error("ERROR saving DirEntity: {}", e.getMessage(), e);
-            throw e;
-        }
+        DirEntity saved = dirRepository.save(dir);
+        log.info("DirEntity saved successfully with ID: {}", saved.getId());
+        return saved;
     }
 
     @Transactional
-    public DirEntity moveFileToDir(Long fileId, Long dirId) throws Exception{
+    public DirEntity moveFileToDir(Long fileId, Long dirId){
         DirEntity dir = getDirById(dirId);
         FileEntity file = getFileById(fileId);
 
@@ -108,7 +101,7 @@ public class DirService {
         return dirRepository.save(dir);
     }
 
-    public FileEntity[] getFilesFromDir(Long id, String password) throws Exception{
+    public FileEntity[] getFilesFromDir(Long id, String password){
         DirEntity dir = getDirById(id);
         if(dir.isProtected()){
             if(!passwordEncoder.matches(password, dir.getPassword())){
@@ -121,14 +114,10 @@ public class DirService {
     }
 
     @Transactional
-    public DirEntity deleteDir(Long id)throws Exception{
+    public DirEntity deleteDir(Long id){
         DirEntity dir = getDirById(id);
         for(FileEntity f : dir.getFiles()){
-            try{
-                cloudService.deleteFile(f.getId());
-            }catch(IOException e){
-                log.error("Error occured trying do delete file {}", f.getId());
-            }
+            cloudService.deleteFile(f.getId());
         }
         dirRepository.delete(dir);
         return dir;

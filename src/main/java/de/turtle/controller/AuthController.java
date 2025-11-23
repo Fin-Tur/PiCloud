@@ -42,14 +42,10 @@ public class AuthController {
     
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody AuthDTOs.LoginRequest request, HttpServletRequest httpRequest) {
-            if (request.getUsername() == null || request.getPassword() == null) {
-                return ResponseEntity.badRequest().body(new AuthDTOs.AuthResponse(false, "Username and password are required"));
-            }
             
             boolean authenticated = userService.authenticateUser(request.getUsername(), request.getPassword());
             
             if (authenticated) {
-                // Minimale Lösung: Einfach Session-Attribute setzen
                 HttpSession session = httpRequest.getSession(true);
                 session.setAttribute("username", request.getUsername());
                 session.setAttribute("authenticated", true);

@@ -75,64 +75,69 @@ public class CloudService {
 
     
     @Transactional
-    public FileEntity storeFile(MultipartFile file, Long ownerId) throws Exception {
-        Path dirPath = Paths.get(storagePath);
-        if (!Files.exists(dirPath)) {
-            Files.createDirectories(dirPath);
-        }
+    public FileEntity storeFile(MultipartFile file, Long ownerId){
+        try {
+            Path dirPath = Paths.get(storagePath);
+            if (!Files.exists(dirPath)) {
+                Files.createDirectories(dirPath);
+            }
 
-        if(file.getSize() > maxFileSize){
-            log.error("File too big to be stored. Check app.file.max-size");
-            return null;
-        }
-
-        for(FileEntity fe : fileEntityRepository.findAll()){
-            if(!fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
-            } else {
-                log.error("File with same name already exists in DB!");
+            if(file.getSize() > maxFileSize){
+                log.error("File too big to be stored. Check app.file.max-size");
                 return null;
             }
+
+            for(FileEntity fe : fileEntityRepository.findAll()){
+                if(!fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
+                } else {
+                    log.error("File with same name already exists in DB!");
+                    return null;
+                }
+            }
+
+            Path filePath = dirPath.resolve(file.getOriginalFilename()).normalize();
+            if(!filePath.startsWith(storagePath)){
+                throw new IOException("Entry is out of the target Directory!");
+            }
+            Files.copy(file.getInputStream(), filePath);
+
+            User owner = getUserById(ownerId);
+
+            FileEntity entity = new FileEntity(
+                owner,
+                null,
+                file.getOriginalFilename(),
+                filePath.toString(),
+                file.getSize(),
+                file.getContentType(),
+                LocalDateTime.now()
+            );
+
+            fileEntityRepository.save(entity);
+
+            //Check duplicate
+            if(scanDupes(entity.getId()) == 1){
+                log.info("File is Duplicate: Uploading terminated");
+                deleteFile(entity.getId());
+                return null;
+            }
+
+            //Check entropy
+            if(fileEntropy(entity.getId()) < compressionEntropyThreshold){
+                log.info("Uploaded file's entropy below compressionEntropyTreshhold. File will be compressed.");
+                deCompressFile(entity.getId());
+            }
+
+            log.info("Saved new file succesfully");
+            return entity;
+                    
+        } catch (Exception e) {
+            throw new RuntimeException("IOExcep occured while saving files to database " + e);
         }
-
-        Path filePath = dirPath.resolve(file.getOriginalFilename()).normalize();
-        if(!filePath.startsWith(storagePath)){
-            throw new IOException("Entry is out of the target Directory!");
-        }
-        Files.copy(file.getInputStream(), filePath);
-
-        User owner = getUserById(ownerId);
-
-        FileEntity entity = new FileEntity(
-            owner,
-            null,
-            file.getOriginalFilename(),
-            filePath.toString(),
-            file.getSize(),
-            file.getContentType(),
-            LocalDateTime.now()
-        );
-
-        fileEntityRepository.save(entity);
-
-        //Check duplicate
-        if(scanDupes(entity.getId()) == 1){
-            log.info("File is Duplicate: Uploading terminated");
-            deleteFile(entity.getId());
-            return null;
-        }
-
-        //Check entropy
-        if(fileEntropy(entity.getId()) < compressionEntropyThreshold){
-            log.info("Uploaded file's entropy below compressionEntropyTreshhold. File will be compressed.");
-            deCompressFile(entity.getId());
-        }
-
-        log.info("Saved new file succesfully");
-        return entity;
     }
 
     @Transactional
-    public List<FileEntity> storeFiles(MultipartFile[] files, Long ownerId) throws Exception {
+    public List<FileEntity> storeFiles(MultipartFile[] files, Long ownerId){
         List<FileEntity> savedFiles = new ArrayList<>();
         for (MultipartFile file : files) {
             FileEntity savedFile = storeFile(file, ownerId);
@@ -144,28 +149,31 @@ public class CloudService {
     }
 
     @Transactional
-    public byte[] downloadFile(Long id, String password) throws Exception {
+    public byte[] downloadFile(Long id, String password){
         FileEntity entity = getFileById(id);
         Path filePath = Paths.get(entity.getPath());
-
         
-        Path tempPath = Files.createTempFile("download_", "_" + entity.getName());
-        Files.copy(filePath, tempPath, StandardCopyOption.REPLACE_EXISTING);
         try {
-            if(entity.isCompressed()){
-                getFisLib().fis_decompress(tempPath.toString());
-            }
-            if(entity.isEncrypted()){
-                getFisLib().fis_decrypt(tempPath.toString(), password, encryptionIterations);
-            }
+            Path tempPath = Files.createTempFile("download_", "_" + entity.getName());
+            Files.copy(filePath, tempPath, StandardCopyOption.REPLACE_EXISTING);
+            
+            try {
+                if(entity.isCompressed()){
+                    getFisLib().fis_decompress(tempPath.toString());
+                }
+                if(entity.isEncrypted()){
+                    getFisLib().fis_decrypt(tempPath.toString(), password, encryptionIterations);
+                }
 
-            log.info("Downloaded file: " + entity.getName() + " from " + filePath.toString());
-            return Files.readAllBytes(tempPath);
+                log.info("Downloaded file: " + entity.getName() + " from " + filePath.toString());
+                return Files.readAllBytes(tempPath);
 
-        } finally {
-            Files.deleteIfExists(tempPath);
+            } finally {
+                Files.deleteIfExists(tempPath);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to download file " + e);
         }
-        
     }
 
     @Transactional
@@ -174,17 +182,22 @@ public class CloudService {
     }
 
     @Transactional
-    public FileEntity deleteFile(Long id) throws IOException {
+    public FileEntity deleteFile(Long id){
         FileEntity entity = getFileById(id);
         Path filePath = Paths.get(entity.getPath());
-        Files.deleteIfExists(filePath);
+        try {
+            Files.deleteIfExists(filePath);
+        } catch (IOException e) {
+            throw new RuntimeException("File does not exist (IOExcep)");
+        }
+
         fileEntityRepository.deleteById(id);
         log.info("Deleted file: " + entity.getName() + " from " + filePath.toString());
         return entity;
     }
 
     @Transactional
-    public boolean enDeCryptFile(Long id, String password) throws Exception{
+    public boolean enDeCryptFile(Long id, String password){
         if(password.isEmpty()){
             log.error("En/Decryption failed. Password is empty!");
             return false;
@@ -226,7 +239,7 @@ public class CloudService {
 
 
     @Transactional
-    public boolean deCompressFile(Long id) throws Exception {
+    public boolean deCompressFile(Long id){
         FileEntity entity = getFileById(id);
         Path filePath = Paths.get(entity.getPath());
 
@@ -293,7 +306,7 @@ public class CloudService {
         return "Cloud information";
     }
 
-    public boolean canUserModifyFile(Long fileId, Long userID) throws IOException{
-        return getFileById(fileId).getOwnerUsername().equals(getUserById(userID).getUsername());
+    public boolean canUserModifyFile(Long fileId, Long userID){
+        return getFileById(fileId).getOwnerUsername().equals(getUserById(userID).getUsername());   
     }
 }
