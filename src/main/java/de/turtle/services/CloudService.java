@@ -249,28 +249,35 @@ public class CloudService {
         }
 
         int result;
-        if(entity.isCompressed()){
-            result = getFisLib().fis_decompress(filePath.toString());
-            if(result == 0){
-                entity.setCompressed(false);
-                fileEntityRepository.save(entity);
-                log.info("Decompressed file {}", entity.getName());
-                return true;
+        try {
+            if(entity.isCompressed()){
+                result = getFisLib().fis_decompress(filePath.toString());
+                if(result == 0){
+                    entity.setCompressed(false);
+                    entity.setSize(Files.size(filePath));
+                    fileEntityRepository.save(entity);
+                    log.info("Decompressed file {}", entity.getName());
+                    return true;
+                }else{
+                    log.error("Decompression of file {} failed. Error code: {}", entity.getName(), result);
+                    return false;
+                }
             }else{
-                log.error("Decompression of file {} failed. Error code: {}", entity.getName(), result);
-                return false;
+                result = getFisLib().fis_compress(filePath.toString(), compressionLevel);
+                if(result == 0){
+                    entity.setCompressed(true);
+                    entity.setSize(Files.size(filePath));
+                    fileEntityRepository.save(entity);
+                    log.info("Compressed file {}", entity.getName());
+                    return true;
+                }else{
+                    log.error("Compression of file {} failed. Error code: {}", entity.getName(), result);
+                    return false;
+                }
             }
-        }else{
-            result = getFisLib().fis_compress(filePath.toString(), compressionLevel);
-            if(result == 0){
-                entity.setCompressed(true);
-                fileEntityRepository.save(entity);
-                log.info("Compressed file {}", entity.getName());
-                return true;
-            }else{
-                log.error("Compression of file {} failed. Error code: {}", entity.getName(), result);
-                return false;
-            }
+        } catch (IOException e) {
+            log.error("Error updating file size for {}: {}", entity.getName(), e.getMessage());
+            throw new RuntimeException("Failed to update file size after compression", e);
         }
     }
 
