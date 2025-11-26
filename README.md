@@ -7,19 +7,19 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 
 ## Features
 
-- 💻 **User System** User completely own files, and can restrict acces via other Users
-- 📤 **File uploads & downloads** via a clean, modern web interface  
-- 🔐 **Server-side encryption & compression** using FileInSight algorithms (C++ -> DLL via JNA)  
-- 🗑️ **File management** – upload, download, delete, view metadata  
-- 🧠 **Smart file handling** with MIME type detection and custom icons  
-- 🎨 **Responsive UI** – pure HTML/CSS/JavaScript (no framework needed)  
-- 💾 **Spring Boot + JPA backend** for persistent file management  
+- **User System** User completely own files, and can restrict acces via other Users
+- **File uploads & downloads** via a clean, modern web interface  
+- **Server-side encryption & compression** using FileInSight algorithms (C++ -> DLL via JNA)  
+- **File management** – upload, download, delete, view metadata  
+- **Smart file handling** with MIME type detection and custom icons  
+- **Responsive UI** – pure HTML/CSS/JavaScript (no framework needed)  
+- **Spring Boot + JPA backend** for persistent file management  
 
 ---
 
 ---
 
-## ⚙️ Tech Stack
+## Tech Stack
 
 | Component | Technology |
 |------------|-------------|
@@ -32,11 +32,12 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 
 ---
 
-## 🔒 Server-Side Encryption & Compression
+## Server-Side Encryption & Compression
 
 - **AES-based file encryption**
 - **FileInSight compression (LZ77/TLSH-inspired)**
 - **On-the-fly processing** Encrypted and Compressed files will be downloaded via temporary link, so serverside files will stay encrypted the whole time
+- **Byte-Stream Security Check** Files will be checked before adding them to disk
 - **Shannon Entropy** Files with lower entropy then a treshhold will be compressed while uploading
 - **Cross-platform compatibility** (Requires FileInSight Lib-Build)
 
@@ -44,6 +45,7 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 - No dependency on Java's crypto libraries  
 - Higher performance via native execution  
 - Secure key management outside the JVM  
+- Configurable Settings: File size, Storage path, forbidden types, key hashing-iterations (encryption), Compression level 
 
 ---
 
