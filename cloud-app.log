@@ -1,21 +1,21 @@
-2025-11-23T11:46:33.889+01:00  INFO 17668 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 17668 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
-2025-11-23T11:46:33.894+01:00  INFO 17668 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-11-23T11:46:34.243+01:00  INFO 17668 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-23T11:46:34.291+01:00  INFO 17668 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 41 ms. Found 3 JPA repository interfaces.
-2025-11-23T11:46:34.820+01:00  INFO 17668 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-11-23T11:46:34.832+01:00  INFO 17668 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-23T11:46:34.832+01:00  INFO 17668 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-11-23T11:46:34.879+01:00  INFO 17668 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-23T11:46:34.879+01:00  INFO 17668 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 943 ms
-2025-11-23T11:46:35.001+01:00  INFO 17668 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-23T11:46:35.046+01:00  INFO 17668 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-11-23T11:46:35.077+01:00  INFO 17668 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-23T11:46:35.347+01:00  INFO 17668 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-23T11:46:35.372+01:00  INFO 17668 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-23T11:46:35.677+01:00  INFO 17668 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-11-23T11:46:35.679+01:00  INFO 17668 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-23T11:46:35.698+01:00  WARN 17668 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-23T11:46:35.713+01:00  INFO 17668 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-26T17:16:09.973+01:00  INFO 8436 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 8436 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-26T17:16:09.985+01:00  INFO 8436 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-26T17:16:10.489+01:00  INFO 8436 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-26T17:16:10.541+01:00  INFO 8436 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 36 ms. Found 3 JPA repository interfaces.
+2025-11-26T17:16:11.181+01:00  INFO 8436 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-26T17:16:11.195+01:00  INFO 8436 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-26T17:16:11.196+01:00  INFO 8436 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-26T17:16:11.252+01:00  INFO 8436 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-26T17:16:11.253+01:00  INFO 8436 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1218 ms
+2025-11-26T17:16:11.405+01:00  INFO 8436 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-26T17:16:11.448+01:00  INFO 8436 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-26T17:16:11.476+01:00  INFO 8436 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-26T17:16:11.758+01:00  INFO 8436 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-26T17:16:11.785+01:00  INFO 8436 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-26T17:16:17.348+01:00  INFO 8436 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-26T17:16:17.349+01:00  INFO 8436 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-26T17:16:17.367+01:00  WARN 8436 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-26T17:16:17.384+01:00  INFO 8436 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -23,103 +23,51 @@
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-11-23T11:46:36.439+01:00  INFO 17668 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-23T11:46:36.481+01:00  INFO 17668 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-23T11:46:36.850+01:00  WARN 17668 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-23T11:46:36.872+01:00  INFO 17668 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-11-23T11:46:37.008+01:00  WARN 17668 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-11-26T17:16:18.086+01:00  INFO 8436 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-26T17:16:18.129+01:00  INFO 8436 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:16:18.428+01:00  WARN 8436 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-26T17:16:18.446+01:00  INFO 8436 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-26T17:16:18.566+01:00  WARN 8436 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 2275f778-4611-43df-a296-b91f659dbb9e
+Using generated security password: 6384b6c1-630c-43e4-80f0-73518922452c
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-11-23T11:46:37.015+01:00  INFO 17668 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-11-23T11:46:37.202+01:00  INFO 17668 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-11-23T11:46:37.272+01:00  INFO 17668 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-11-23T11:46:37.279+01:00  INFO 17668 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 3.735 seconds (process running for 3.986)
-2025-11-23T11:46:37.332+01:00  INFO 17668 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-11-23T11:47:04.620+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-23T11:47:04.621+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-11-23T11:47:04.622+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
-2025-11-23T11:47:12.609+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
-2025-11-23T11:47:12.618+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : A user logged in successfully
-2025-11-23T11:47:24.212+01:00 ERROR 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : File with same name already exists in DB!
-2025-11-23T11:47:24.215+01:00 ERROR 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.config.GlobalExceptionHandler   : Error occured due to Illegal args: null
-2025-11-23T11:47:38.482+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.CloudService          : Deleted file: encryption.png from C:\temp\pi_cloud\files\encryption.png
-2025-11-23T11:47:38.495+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Succesfully deleted Dir 2
-2025-11-23T11:47:41.424+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : Deleted file: helper.png from C:\temp\pi_cloud\files\helper.png
-2025-11-23T11:47:41.425+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.controller.DirController       : Succesfully deleted Dir 1
-2025-11-23T11:47:54.326+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:47:54.357+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:48:07.581+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.controller.DirController       : Got userID
-2025-11-23T11:48:07.586+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.DirService            : DirEntity created: name=testDir, owner=Finn
-2025-11-23T11:48:07.589+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.DirService            : DirEntity saved successfully with ID: 33
-2025-11-23T11:48:07.592+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.controller.DirController       : Created
-2025-11-23T11:48:14.747+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:48:14.748+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-3] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:48:14.760+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : Added file Screenshot 2025-07-25 112722.png to Dir testDir
-2025-11-23T11:48:14.773+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Moved file 34 to dir 33
-2025-11-23T11:48:18.812+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : Compressed file Screenshot 2025-07-25 112722.png
-2025-11-23T11:48:23.830+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : Encryption successful for file: Screenshot 2025-07-25 112722.png
-2025-11-23T11:48:31.179+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Downloaded file: Screenshot 2025-07-25 112722.png from C:\temp\pi_cloud\files\Screenshot 2025-07-25 112722.png
-2025-11-23T11:48:41.707+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Deleted file: Screenshot 2025-07-25 112722.png from C:\temp\pi_cloud\files\Screenshot 2025-07-25 112722.png
-2025-11-23T11:48:45.118+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.CloudService          : Deleted file: Login.png from C:\temp\pi_cloud\files\Login.png
-2025-11-23T11:55:35.855+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:55:35.861+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:55:43.521+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Deleted file: uploading.png from C:\temp\pi_cloud\files\uploading.png
-2025-11-23T11:56:24.595+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:56:24.599+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:56:28.766+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : Deleted file: uploading.png from C:\temp\pi_cloud\files\uploading.png
-2025-11-23T11:57:21.061+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.DirController       : Succesfully deleted Dir 33
-2025-11-23T11:57:28.857+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.CloudService          : Deleted file: actions.png from C:\temp\pi_cloud\files\actions.png
-2025-11-23T11:57:35.903+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.AuthController      : User logged out successfully: Finn
-2025-11-23T11:57:43.551+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.UserService           : User authenticated successfully: testUser
-2025-11-23T11:57:43.555+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.AuthController      : A user logged in successfully
-2025-11-23T11:57:47.548+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.CloudService          : Deleted file: GammaDecaySpectraAnalysis (1).tex from C:\temp\pi_cloud\files\GammaDecaySpectraAnalysis (1).tex
-2025-11-23T11:58:07.250+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Got userID
-2025-11-23T11:58:07.312+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : DirEntity created: name=testUserDir, owner=testUser
-2025-11-23T11:58:07.315+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.DirService            : DirEntity saved successfully with ID: 34
-2025-11-23T11:58:07.316+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.DirController       : Created
-2025-11-23T11:58:13.597+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-6] de.turtle.services.DirService            : User unlocked dir : 34
-2025-11-23T11:58:19.804+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] de.turtle.services.DirService            : User unlocked dir : 34
-2025-11-23T11:58:25.809+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:58:25.810+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:58:25.819+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.DirService            : Added file Screenshot 2025-11-22 111857.png to Dir testUserDir
-2025-11-23T11:58:25.824+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.controller.DirController       : Moved file 37 to dir 34
-2025-11-23T11:58:25.895+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.DirService            : User unlocked dir : 34
-2025-11-23T11:58:30.038+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.controller.AuthController      : User logged out successfully: testUser
-2025-11-23T11:58:31.721+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.services.UserService           : User authenticated successfully: Finn
-2025-11-23T11:58:31.723+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-8] de.turtle.controller.AuthController      : A user logged in successfully
-2025-11-23T11:58:37.291+01:00  WARN 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.DirController       : User 1 is not allowed to pull Files from Dir 34
-2025-11-23T11:58:37.350+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.DirService            : User unlocked dir : 34
-2025-11-23T11:58:51.276+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : No Duplicates in Storage.
-2025-11-23T11:58:51.281+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-5] de.turtle.services.CloudService          : Saved new file succesfully
-2025-11-23T11:58:54.946+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.CloudService          : Compressed file actions.png
-2025-11-23T11:58:59.244+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] de.turtle.services.CloudService          : Decompressed file actions.png
-2025-11-23T11:59:03.261+01:00  INFO 17668 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] de.turtle.services.CloudService          : Compressed file actions.png
-2025-11-23T12:01:30.428+01:00  INFO 17668 --- [pi-cloud] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
-2025-11-23T12:01:30.430+01:00  INFO 17668 --- [pi-cloud] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
-2025-11-23T12:01:30.433+01:00  INFO 17668 --- [pi-cloud] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
-2025-11-23T12:01:30.435+01:00  INFO 17668 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
-2025-11-23T12:01:30.436+01:00  INFO 17668 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
-2025-11-23T12:01:39.276+01:00  INFO 7140 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 7140 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
-2025-11-23T12:01:39.283+01:00  INFO 7140 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
-2025-11-23T12:01:39.647+01:00  INFO 7140 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2025-11-23T12:01:39.696+01:00  INFO 7140 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 3 JPA repository interfaces.
-2025-11-23T12:01:40.219+01:00  INFO 7140 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
-2025-11-23T12:01:40.232+01:00  INFO 7140 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2025-11-23T12:01:40.232+01:00  INFO 7140 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
-2025-11-23T12:01:40.277+01:00  INFO 7140 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2025-11-23T12:01:40.278+01:00  INFO 7140 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 960 ms
-2025-11-23T12:01:40.397+01:00  INFO 7140 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2025-11-23T12:01:40.437+01:00  INFO 7140 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
-2025-11-23T12:01:40.462+01:00  INFO 7140 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2025-11-23T12:01:40.682+01:00  INFO 7140 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2025-11-23T12:01:40.706+01:00  INFO 7140 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2025-11-23T12:01:40.939+01:00  INFO 7140 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
-2025-11-23T12:01:40.940+01:00  INFO 7140 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2025-11-23T12:01:40.959+01:00  WARN 7140 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2025-11-23T12:01:40.974+01:00  INFO 7140 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+2025-11-26T17:16:18.572+01:00  INFO 8436 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-26T17:16:18.723+01:00  INFO 8436 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-26T17:16:18.779+01:00  INFO 8436 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-26T17:16:18.785+01:00  INFO 8436 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 9.167 seconds (process running for 9.424)
+2025-11-26T17:16:18.840+01:00  INFO 8436 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-26T17:16:34.262+01:00  INFO 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-26T17:16:34.262+01:00  INFO 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-26T17:16:34.263+01:00  INFO 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-26T17:16:43.939+01:00  INFO 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-26T17:16:43.951+01:00  INFO 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : A user logged in successfully
+2025-11-26T17:16:57.392+01:00 ERROR 8436 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-7] d.turtle.config.GlobalExceptionHandler   : Error occured due to Illegal args: Handler dispatch failed: java.lang.UnsatisfiedLinkError: Error looking up function 'fis_file_check_flag_bytes': Die angegebene Prozedur wurde nicht gefunden.
+
+2025-11-26T17:17:15.670+01:00  INFO 8436 --- [pi-cloud] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-26T17:17:15.672+01:00  INFO 8436 --- [pi-cloud] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-26T17:17:15.675+01:00  INFO 8436 --- [pi-cloud] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:17:15.677+01:00  INFO 8436 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-26T17:17:15.678+01:00  INFO 8436 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-26T17:19:19.853+01:00  INFO 6656 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 6656 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-26T17:19:19.854+01:00  INFO 6656 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-26T17:19:20.267+01:00  INFO 6656 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-26T17:19:20.320+01:00  INFO 6656 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 45 ms. Found 3 JPA repository interfaces.
+2025-11-26T17:19:20.984+01:00  INFO 6656 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-26T17:19:20.998+01:00  INFO 6656 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-26T17:19:20.998+01:00  INFO 6656 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-26T17:19:21.051+01:00  INFO 6656 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-26T17:19:21.051+01:00  INFO 6656 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1153 ms
+2025-11-26T17:19:21.185+01:00  INFO 6656 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-26T17:19:21.227+01:00  INFO 6656 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-26T17:19:21.259+01:00  INFO 6656 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-26T17:19:21.506+01:00  INFO 6656 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-26T17:19:21.538+01:00  INFO 6656 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-26T17:19:21.790+01:00  INFO 6656 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-26T17:19:21.792+01:00  INFO 6656 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-26T17:19:21.812+01:00  WARN 6656 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-26T17:19:21.834+01:00  INFO 6656 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
 	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
 	Database driver: undefined/unknown
 	Database version: 2.3.232
@@ -127,21 +75,82 @@ This generated password is for development use only. Your security configuration
 	Isolation level: undefined/unknown
 	Minimum pool size: undefined/unknown
 	Maximum pool size: undefined/unknown
-2025-11-23T12:01:41.674+01:00  INFO 7140 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2025-11-23T12:01:41.714+01:00  INFO 7140 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2025-11-23T12:01:42.026+01:00  WARN 7140 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2025-11-23T12:01:42.048+01:00  INFO 7140 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
-2025-11-23T12:01:42.172+01:00  WARN 7140 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+2025-11-26T17:19:22.621+01:00  INFO 6656 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-26T17:19:22.675+01:00  INFO 6656 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:19:23.028+01:00  WARN 6656 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-26T17:19:23.052+01:00  INFO 6656 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-26T17:19:23.182+01:00  WARN 6656 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
 
-Using generated security password: 1ee369b5-dbcc-4771-b68d-af5a76907d3a
+Using generated security password: 71fc1f70-d23f-478d-9fba-eaff3596122b
 
 This generated password is for development use only. Your security configuration must be updated before running your application in production.
 
-2025-11-23T12:01:42.178+01:00  INFO 7140 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
-2025-11-23T12:01:42.344+01:00  INFO 7140 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
-2025-11-23T12:01:42.402+01:00  INFO 7140 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
-2025-11-23T12:01:42.408+01:00  INFO 7140 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 3.474 seconds (process running for 3.725)
-2025-11-23T12:01:42.440+01:00  INFO 7140 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
-2025-11-23T12:01:45.052+01:00  INFO 7140 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2025-11-23T12:01:45.052+01:00  INFO 7140 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2025-11-23T12:01:45.054+01:00  INFO 7140 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2025-11-26T17:19:23.188+01:00  INFO 6656 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-26T17:19:23.365+01:00  INFO 6656 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-26T17:19:23.427+01:00  INFO 6656 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-26T17:19:23.434+01:00  INFO 6656 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 3.972 seconds (process running for 4.252)
+2025-11-26T17:19:23.467+01:00  INFO 6656 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-26T17:19:30.271+01:00  INFO 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-26T17:19:30.271+01:00  INFO 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-26T17:19:30.274+01:00  INFO 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2025-11-26T17:19:32.277+01:00  INFO 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-26T17:19:32.288+01:00  INFO 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-4] de.turtle.controller.AuthController      : A user logged in successfully
+2025-11-26T17:19:38.405+01:00 ERROR 6656 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] d.turtle.config.GlobalExceptionHandler   : Error occured due to Illegal args: Handler dispatch failed: java.lang.UnsatisfiedLinkError: Error looking up function 'fis_file_check_flag_bytes': Die angegebene Prozedur wurde nicht gefunden.
+
+2025-11-26T17:20:03.718+01:00  INFO 6656 --- [pi-cloud] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-26T17:20:03.722+01:00  INFO 6656 --- [pi-cloud] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-26T17:20:03.725+01:00  INFO 6656 --- [pi-cloud] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:20:03.727+01:00  INFO 6656 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-26T17:20:03.728+01:00  INFO 6656 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2025-11-26T17:23:57.985+01:00  INFO 8588 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Starting PiCloudApplication using Java 24.0.2 with PID 8588 (C:\Users\Admin\Projects\PiCloud\target\classes started by Admin in C:\Users\Admin\Projects\PiCloud)
+2025-11-26T17:23:57.987+01:00  INFO 8588 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : No active profile set, falling back to 1 default profile: "default"
+2025-11-26T17:23:58.338+01:00  INFO 8588 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-11-26T17:23:58.386+01:00  INFO 8588 --- [pi-cloud] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 40 ms. Found 3 JPA repository interfaces.
+2025-11-26T17:23:58.898+01:00  INFO 8588 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-11-26T17:23:58.909+01:00  INFO 8588 --- [pi-cloud] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-11-26T17:23:58.910+01:00  INFO 8588 --- [pi-cloud] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.44]
+2025-11-26T17:23:58.953+01:00  INFO 8588 --- [pi-cloud] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-11-26T17:23:58.954+01:00  INFO 8588 --- [pi-cloud] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 924 ms
+2025-11-26T17:23:59.071+01:00  INFO 8588 --- [pi-cloud] [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-11-26T17:23:59.110+01:00  INFO 8588 --- [pi-cloud] [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.6.26.Final
+2025-11-26T17:23:59.135+01:00  INFO 8588 --- [pi-cloud] [main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2025-11-26T17:23:59.349+01:00  INFO 8588 --- [pi-cloud] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-11-26T17:23:59.376+01:00  INFO 8588 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2025-11-26T17:23:59.613+01:00  INFO 8588 --- [pi-cloud] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn1: url=jdbc:h2:file:./data/picloud user=SA
+2025-11-26T17:23:59.614+01:00  INFO 8588 --- [pi-cloud] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2025-11-26T17:23:59.632+01:00  WARN 8588 --- [pi-cloud] [main] org.hibernate.orm.deprecation            : HHH90000025: H2Dialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-11-26T17:23:59.652+01:00  INFO 8588 --- [pi-cloud] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-11-26T17:24:00.340+01:00  INFO 8588 --- [pi-cloud] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-11-26T17:24:00.380+01:00  INFO 8588 --- [pi-cloud] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:24:00.684+01:00  WARN 8588 --- [pi-cloud] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-11-26T17:24:00.704+01:00  INFO 8588 --- [pi-cloud] [main] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page: class path resource [public/index.html]
+2025-11-26T17:24:00.817+01:00  WARN 8588 --- [pi-cloud] [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 98be07e0-b2ca-4010-a7c4-4e551dbbaaf5
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2025-11-26T17:24:00.828+01:00  INFO 8588 --- [pi-cloud] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2025-11-26T17:24:00.983+01:00  INFO 8588 --- [pi-cloud] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/picloud'
+2025-11-26T17:24:01.047+01:00  INFO 8588 --- [pi-cloud] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-11-26T17:24:01.054+01:00  INFO 8588 --- [pi-cloud] [main] de.turtle.PiCloudApplication             : Started PiCloudApplication in 3.405 seconds (process running for 3.657)
+2025-11-26T17:24:01.090+01:00  INFO 8588 --- [pi-cloud] [main] de.turtle.extern.FisHealth               : FIS native library loaded successfully.
+2025-11-26T17:24:10.676+01:00  INFO 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-11-26T17:24:10.676+01:00  INFO 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2025-11-26T17:24:10.677+01:00  INFO 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2025-11-26T17:24:12.764+01:00  INFO 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.services.UserService           : User authenticated successfully: Finn
+2025-11-26T17:24:12.774+01:00  INFO 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-2] de.turtle.controller.AuthController      : A user logged in successfully
+2025-11-26T17:24:18.603+01:00 ERROR 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-9] d.turtle.config.GlobalExceptionHandler   : Error occured due to Illegal args: File upload cancelled due to flag in byte Stream!
+2025-11-26T17:25:28.281+01:00 ERROR 8588 --- [pi-cloud] [http-nio-192.168.178.36-8080-exec-10] d.turtle.config.GlobalExceptionHandler   : Error occured due to Illegal args: File upload cancelled due to flag in byte Stream!
+2025-11-26T17:25:35.676+01:00  INFO 8588 --- [pi-cloud] [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-11-26T17:25:35.677+01:00  INFO 8588 --- [pi-cloud] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
+2025-11-26T17:25:35.680+01:00  INFO 8588 --- [pi-cloud] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-11-26T17:25:35.681+01:00  INFO 8588 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2025-11-26T17:25:35.683+01:00  INFO 8588 --- [pi-cloud] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

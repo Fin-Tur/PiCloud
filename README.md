@@ -1,13 +1,13 @@
-# 🧠 Pi Cloud
+# Pi Cloud
 
 A lightweight, modern **cloud storage system** with server-side **encryption** and **compression**, optimized for devices like the **Raspberry Pi**.  
 The file processing is powered by native **C++ algorithms from the FileInSight project**, integrated as a DLL for maximum efficiency and data security.
 
 ---
 
-## 🚀 Features
+## Features
 
-- 💻 ** User System** User completely own files, and can restrict acces via other Users
+- 💻 **User System** User completely own files, and can restrict acces via other Users
 - 📤 **File uploads & downloads** via a clean, modern web interface  
 - 🔐 **Server-side encryption & compression** using FileInSight algorithms (C++ -> DLL via JNA)  
 - 🗑️ **File management** – upload, download, delete, view metadata  
@@ -49,7 +49,7 @@ The file processing is powered by native **C++ algorithms from the FileInSight p
 
 ---
 
-## 🧰 Installation & Setup
+## Installation & Setup
 
 ### 🔹 Requirements
 
@@ -74,7 +74,7 @@ http://localhost:8080
 
 ---
 
-## 🧩 Frontend Features
+## Frontend Features
 
 - Dynamic file listing using 
 - File preview before upload  
@@ -84,7 +84,7 @@ http://localhost:8080
 
 ---
 
-## 🧪 Development Mode (Frontend Separation)
+## Development Mode (Frontend Separation)
 
 For faster frontend development without restarting Spring Boot:
 
@@ -101,7 +101,7 @@ npm run dev
 
 ---
 
-## 📦 Deployment (Raspberry Pi)
+## Deployment (Raspberry Pi)
 
 1. Copy `FileInSight.so` to `/usr/local/lib/`  
 2. Run `pi-cloud.jar`  
@@ -109,7 +109,7 @@ npm run dev
 
 ---
 
-## 📜 License
+## License
 
 MIT License – 2025 © Fin-Tur
 

@@ -8,6 +8,7 @@ import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import de.turtle.extern.FisLib;
+import de.turtle.extern.FisLib.FIS_ExtFileInfo;
 import de.turtle.models.FileEntity;
 import de.turtle.models.FileEntityRepository;
 import de.turtle.models.User;
@@ -95,10 +97,18 @@ public class CloudService {
                 }
             }
 
+            //Check path
             Path filePath = dirPath.resolve(file.getOriginalFilename()).normalize();
             if(!filePath.startsWith(storagePath)){
                 throw new IOException("Entry is out of the target Directory!");
             }
+
+            //Check Flag
+            if(isFileFlaggedBytes(file.getBytes(), file.getContentType())){
+                throw new RuntimeException("File upload cancelled due to flag in byte Stream!");
+            }
+
+            //Write file to disk
             Files.copy(file.getInputStream(), filePath);
 
             User owner = getUserById(ownerId);
@@ -122,8 +132,17 @@ public class CloudService {
                 return null;
             }
 
+            //Check info
+            Optional<FIS_ExtFileInfo> fileInfoOpt = getFileInfo(entity.getId());
+            if(fileInfoOpt.isEmpty()){
+                deleteFile(entity.getId());
+                throw new RuntimeException("Error occured during File analyzation!");
+            }
+             
+            FIS_ExtFileInfo fileInfo = fileInfoOpt.get();
+
             //Check entropy
-            if(fileEntropy(entity.getId()) < compressionEntropyThreshold){
+            if(fileInfo.entropy < compressionEntropyThreshold){
                 log.info("Uploaded file's entropy below compressionEntropyTreshhold. File will be compressed.");
                 deCompressFile(entity.getId());
             }
@@ -131,7 +150,7 @@ public class CloudService {
             log.info("Saved new file succesfully");
             return entity;
                     
-        } catch (Exception e) {
+        } catch (IOException e) {
             throw new RuntimeException("IOExcep occured while saving files to database " + e);
         }
     }
@@ -308,9 +327,26 @@ public class CloudService {
         return entropy;
     }
 
-    @Transactional
-    public String getCloudInfo() {
-        return "Cloud information";
+    public Optional<FIS_ExtFileInfo> getFileInfo(Long id) {
+            FileEntity file = getFileById(id);
+            String path = file.getPath();
+            FIS_ExtFileInfo info = new FIS_ExtFileInfo();
+            int result = getFisLib().fis_analyze_extended(path, info);
+            switch(result){
+                case 0 -> {
+                    log.info("Sucessfully analyzed file @ " + path);
+                }
+                default -> {
+                    log.error("Error occured trying to analyze File @ " + path);
+                    return Optional.empty();
+                }
+            }
+            return Optional.of(info);
+    }
+
+    public boolean isFileFlaggedBytes(byte[] data, String expectedType){
+        int result = getFisLib().fis_file_check_flag_bytes(data, data.length, expectedType); 
+        return result != 0;
     }
 
     public boolean canUserModifyFile(Long fileId, Long userID){
