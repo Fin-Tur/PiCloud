@@ -47,6 +47,9 @@ public class CloudService {
     @Value("${app.file.max-size:100}")
     private int maxFileSize;
 
+    @Value("${app.file.forbidden-types}")
+    private List<String> forbiddenTypes;
+
     @Autowired
     public FileEntityRepository fileEntityRepository;
 
@@ -103,9 +106,25 @@ public class CloudService {
                 throw new IOException("Entry is out of the target Directory!");
             }
 
-            //Check Flag
-            if(isFileFlaggedBytes(file.getBytes(), file.getContentType())){
+            //Check Flag & Type
+
+            // !-Safe due to FileInSight MagicByte Flagging-!
+            String fileName = file.getOriginalFilename();
+            if(fileName == null) throw new RuntimeException("Upload cancelled: Filename is req.");
+            String fType = fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+
+            if(fType == null){
+                throw new RuntimeException("Unknown file type: upload cancelled!");
+            }
+
+            if(isFileFlaggedBytes(file.getBytes(), fType)){
                 throw new RuntimeException("File upload cancelled due to flag in byte Stream!");
+            }
+
+            for(String type : forbiddenTypes){
+                if (fType.equals(type)){
+                    throw new RuntimeException("Upload cancelled: Forbidden format");
+                }
             }
 
             //Write file to disk

@@ -36,5 +36,5 @@ build/
 .db
 
 ### Logs ###
-.gz
-.log
+*.gz
+*.log
