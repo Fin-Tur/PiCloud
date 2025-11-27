@@ -68,6 +68,9 @@ public class FileEntity {
 
 	
 	public Long getId() { return id; }
+	public void setId(long id) {
+        this.id = id;
+    }
 	public String getName() { return name; }
 	public void setName(String name) { this.name = name; }
 	public String getPath() { return path; }
@@ -101,4 +104,6 @@ public class FileEntity {
 	public int hashCode() {
 		return getClass().hashCode();
 	}
+
+    
 }
