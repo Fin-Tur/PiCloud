@@ -88,11 +88,10 @@ public class CloudService {
             }
 
             if(file.getSize() > maxFileSize){
-                log.error("File too big to be stored. Check app.file.max-size");
-                return null;
+                throw new RuntimeException("File too big to be stored. Check app.file.max-size");
             }
 
-            for(FileEntity fe : fileEntityRepository.findAll()){
+            for(FileEntity fe : fileEntityRepository.findAll()){ //Testing -> mock
                 if(!fe.getName().equalsIgnoreCase(file.getOriginalFilename())){
                 } else {
                     log.error("File with same name already exists in DB!");
@@ -121,6 +120,7 @@ public class CloudService {
                 throw new RuntimeException("File upload cancelled due to flag in byte Stream!");
             }
 
+
             for(String type : forbiddenTypes){
                 if (fType.equals(type)){
                     throw new RuntimeException("Upload cancelled: Forbidden format");
@@ -142,7 +142,7 @@ public class CloudService {
                 LocalDateTime.now()
             );
 
-            fileEntityRepository.save(entity);
+            fileEntityRepository.save(entity); //Testing -> mock
 
             //Check duplicate
             if(scanDupes(entity.getId()) == 1){

@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import static org.mockito.ArgumentMatchers.any;
@@ -59,5 +61,47 @@ public class FileUploadTests extends CloudServiceTest{
         assertEquals("pic.png", result.getName());
         verify(repo, times(2)).save(any(FileEntity.class)); //storeFile, deCompress
     }
+
+    @Test
+    @DisplayName("Should reject upload of flagged file")
+    void shouldRejectFileFlagged(){
+        //Arrange
+        byte[] data = createMockPNGBytes();
+        MockMultipartFile file = new MockMultipartFile(
+            "file.exe",           
+            "notAPic.exe",    
+            null,     
+            data);    
+
+        when(repo.findAll()).thenReturn(List.of());
+
+        //Act
+        RuntimeException exception = assertThrows(RuntimeException.class, 
+        () -> cloudService.storeFile(file, 1L));
     
+        //Assert
+        assertTrue(exception.getMessage().contains("File upload cancelled due to flag in byte Stream!"));
+    }
+
+    @Test
+    @DisplayName("Should reject upload of wrong file destination")
+    void shouldRejectFileDest(){
+        byte[] data = createMockPNGBytes(); 
+        MockMultipartFile file = new MockMultipartFile("test.txt", "../../../passwords", "text/plain", data);
+
+        when(repo.findAll()).thenReturn(List.of());
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> cloudService.storeFile(file, 1L));
+
+        assertTrue(exception.getMessage().contains("Entry is out of the target Directory!"));
+    }
+
+    /*@Test
+    @DisplayName("Should reject upload of big file")
+    void shouldRejectFileSize(){
+
+        when(repo.findAll()).thenReturn(List.of());
+        //TODO
+    }
+    */
 }

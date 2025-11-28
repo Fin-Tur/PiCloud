@@ -69,10 +69,15 @@ class CloudServiceTest {
             0x00, 0x00, 0x00, 0x0D, 'I', 'H', 'D', 'R'};
     }
 
+    protected byte[] createMockBytesLarge(){
+        byte[] data = new byte[256];
+        return data;
+    }
+
     protected FileEntity createTestFileEntity(boolean encrypted, boolean compressed) {
         FileEntity entity = new FileEntity();
         entity.setId(1L);
-        entity.setName("test.txt");
+        entity.setName("FileName.bs");
         entity.setSize(1024L);
         entity.setEncrypted(encrypted);
         entity.setCompressed(compressed);
