@@ -96,12 +96,31 @@ public class FileUploadTests extends CloudServiceTest{
         assertTrue(exception.getMessage().contains("Entry is out of the target Directory!"));
     }
 
-    /*@Test
+    @Test
     @DisplayName("Should reject upload of big file")
     void shouldRejectFileSize(){
+        byte[] data = createMockBytesLarge();
+        MockMultipartFile file = new MockMultipartFile("test", "test.png", "application/png", data);
 
         when(repo.findAll()).thenReturn(List.of());
-        //TODO
+        
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> cloudService.storeFile(file, 1L));
+
+        assertTrue(exception.getMessage().contains("File too big to be stored. Check app.file.max-size"));
     }
-    */
+
+    @Test
+    @DisplayName("Should reject upload forbidden type")
+    void shouldRejectFileForbiddenSize(){
+        byte[] data = createMockEXEBytes();
+        MockMultipartFile file = new MockMultipartFile("test", "malware.exe", "application/octet-stream", data);
+
+        when(repo.findAll()).thenReturn(List.of());
+        when(fisLib.fis_file_check_flag_bytes(any(), anyInt(), anyString())).thenReturn(0);
+
+        RuntimeException exception = assertThrows(RuntimeException.class, () -> cloudService.storeFile(file, 1L));
+
+        assertTrue(exception.getMessage().contains("Upload cancelled: Forbidden format"));
+    }
+    
 }

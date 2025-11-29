@@ -51,7 +51,7 @@ class CloudServiceTest {
         ReflectionTestUtils.setField(cloudService, "compressionEntropyThreshold", 5);
         ReflectionTestUtils.setField(cloudService, "compressionLevel", 10);
         ReflectionTestUtils.setField(cloudService, "encryptionIterations", 10000);
-        ReflectionTestUtils.setField(cloudService, "maxFileSize", 10000);
+        ReflectionTestUtils.setField(cloudService, "maxFileSize", 100);
 
         testUser = new User();
         testUser.setId(1L);
@@ -67,6 +67,12 @@ class CloudServiceTest {
         return new byte[]{
             (byte)0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A,
             0x00, 0x00, 0x00, 0x0D, 'I', 'H', 'D', 'R'};
+    }
+
+    protected byte[] createMockEXEBytes(){
+        return new byte[] {
+            (byte)0x4D, 0x5A, 'A', 'A', 'A', 'A', 'A'
+        };
     }
 
     protected byte[] createMockBytesLarge(){
