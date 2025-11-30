@@ -36,7 +36,8 @@ import {
     createDirectory,
     deleteDir,
     moveFileToDir,
-    loadCurrentDirectory
+    loadCurrentDirectory,
+    getAvailibleSpace
 } from './api.js';
 
 //======================================Display Funcs==================================
@@ -492,7 +493,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (logoutBtn) {
             logoutBtn.addEventListener('click', logout);
         }
-        
+        await getAvailibleSpace();
+        console.log(state.availibleSpace);
+        console.log(formatFileSize(state.availibleSpace));
         updatePathDisplay();
         await listFiles();
         displayFiles();

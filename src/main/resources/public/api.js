@@ -11,7 +11,8 @@ export const state = {
     filteredDirs: [],
     currentDir: "/cloud",
     currentDirEntity: [],
-    currentDirpw: "unprotected"
+    currentDirpw: "unprotected",
+    availibleSpace: 0
 };
 //======================================File-funcs======================================
 
@@ -206,6 +207,21 @@ export async function deleteFile(fileId) {
         alert('Error deleting file: ' + error.message);
     }
     loadCurrentDirectory();
+}
+
+export async function getAvailibleSpace(){
+    try{
+        const response = await fetch('api/files/getUsableSpace' , {
+            method: 'GET',
+            credentials: 'include'
+        });
+        if(response.ok){
+            const bytesText = await response.text();
+            state.availibleSpace = bytesText;
+        }
+    }catch(error){
+        console.error('Could not fetch availible space', error);
+    }
 }
 
 //======================================Dir-funcs======================================

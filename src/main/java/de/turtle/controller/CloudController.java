@@ -113,4 +113,11 @@ public class CloudController {
         }
         return ResponseEntity.ok(freeFiles.toArray(FileEntity[]::new));
     }
+
+    @GetMapping("/getUsableSpace")
+    public ResponseEntity<Long> usableSpace(){
+        long spaceInBytes = cloudService.getAvailableSpace();
+        logger.info("Fetched avaibile space");
+        return ResponseEntity.ok(spaceInBytes);
+    }
 }

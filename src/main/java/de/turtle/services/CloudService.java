@@ -1,6 +1,7 @@
 package de.turtle.services;
 
 import java.io.IOException;
+import java.nio.file.FileStore;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -344,6 +345,16 @@ public class CloudService {
             return -1;
         }
         return entropy;
+    }
+
+    public long getAvailableSpace(){
+        Path stPath = Paths.get(this.storagePath);
+        try {
+            FileStore fileStore = Files.getFileStore(stPath);
+            return fileStore.getUsableSpace(); //in Bytes
+        } catch (IOException e) {
+            throw new RuntimeException("Couldn't read storage Path correctly.");
+        }
     }
 
     public Optional<FIS_ExtFileInfo> getFileInfo(Long id) {

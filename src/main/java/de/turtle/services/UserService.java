@@ -53,7 +53,7 @@ public class UserService {
         
         Optional<User> userOpt = userRepository.findByUsernameAndEnabled(username, true);
         if (userOpt.isEmpty()) {
-            log.warn("Authentication failed: User entered wrong pasword!");
+            log.warn("Authentication failed: User entered wrong Username!");
             return false;
         }
         
