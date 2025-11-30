@@ -111,7 +111,7 @@ public class FileUploadTests extends CloudServiceTest{
 
     @Test
     @DisplayName("Should reject upload forbidden type")
-    void shouldRejectFileForbiddenSize(){
+    void shouldRejectFileForbiddenType(){
         byte[] data = createMockEXEBytes();
         MockMultipartFile file = new MockMultipartFile("test", "malware.exe", "application/octet-stream", data);
 
@@ -122,5 +122,4 @@ public class FileUploadTests extends CloudServiceTest{
 
         assertTrue(exception.getMessage().contains("Upload cancelled: Forbidden format"));
     }
-    
 }
