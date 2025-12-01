@@ -357,6 +357,14 @@ public class CloudService {
         }
     }
 
+    public long getOccupiedSpace(){
+        long space = 0L;
+        for(FileEntity f : fileEntityRepository.findAll()){
+            space += f.getSize();
+        }
+        return space;
+    }
+
     public Optional<FIS_ExtFileInfo> getFileInfo(Long id) {
             FileEntity file = getFileById(id);
             String path = file.getPath();

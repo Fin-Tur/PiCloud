@@ -37,10 +37,22 @@ import {
     deleteDir,
     moveFileToDir,
     loadCurrentDirectory,
-    getAvailibleSpace
+    getAvailibleSpace,
+    getOccupiedSpace
 } from './api.js';
 
 //======================================Display Funcs==================================
+
+function displayAvailibleSpace(){
+    const userUI = document.getElementById('userInfo');
+    
+    const space = document.createElement('div');
+    space.className = "space-info";
+    space.innerHTML = '📊 ' + formatFileSize(state.availibleSpace) + ' - availible <br>💾 ' + formatFileSize(state.occupiedSpace) + ' - occupied';
+    
+    const logoutBtn = document.getElementById('logout-btn');
+    userUI.insertBefore(space, logoutBtn);
+}
 
 function displayDirs(){
     const fileList = document.getElementById('fileList');
@@ -306,7 +318,6 @@ function displayFiles() {
 
 //=====================FILE PREVIEW FUNCTIONS=========================
 
-//TODO : DOM Manipulation
 function showFilePreview(files) {
     const previewContainer = document.getElementById('filePreview');
     const previewList = document.getElementById('previewList');
@@ -494,8 +505,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             logoutBtn.addEventListener('click', logout);
         }
         await getAvailibleSpace();
-        console.log(state.availibleSpace);
-        console.log(formatFileSize(state.availibleSpace));
+        await getOccupiedSpace();
+        displayAvailibleSpace();
         updatePathDisplay();
         await listFiles();
         displayFiles();

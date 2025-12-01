@@ -120,4 +120,11 @@ public class CloudController {
         logger.info("Fetched avaibile space");
         return ResponseEntity.ok(spaceInBytes);
     }
+
+    @GetMapping("/getOccupiedSpace")
+    public ResponseEntity<Long> occupiedSpace(){
+        long spaceInBytes = cloudService.getOccupiedSpace();
+        logger.info("Fetched occupied space");
+        return ResponseEntity.ok(spaceInBytes);
+    }
 }

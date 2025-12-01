@@ -12,7 +12,8 @@ export const state = {
     currentDir: "/cloud",
     currentDirEntity: [],
     currentDirpw: "unprotected",
-    availibleSpace: 0
+    availibleSpace: 0,
+    occupiedSpace: 0
 };
 //======================================File-funcs======================================
 
@@ -221,6 +222,22 @@ export async function getAvailibleSpace(){
         }
     }catch(error){
         console.error('Could not fetch availible space', error);
+    }
+}
+
+export async function getOccupiedSpace(){
+    try{
+        const response = await fetch('api/files/getOccupiedSpace' , {
+            method: 'GET',
+            credentials: 'include'
+        });
+
+        if(response.ok){
+            const bytesText = await response.text();
+            state.occupiedSpace = bytesText;
+        }
+    }catch(error){
+        console.error('Could not fetch occupied Space');
     }
 }
 

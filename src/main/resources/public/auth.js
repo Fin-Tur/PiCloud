@@ -56,6 +56,7 @@ export function updateUIForLoggedInUser() {
     const header = document.querySelector('h1');
     if (header && !document.querySelector('.user-info')) {
         const userInfo = document.createElement('div');
+        userInfo.id = "userInfo";
         userInfo.className = 'user-info';
         userInfo.innerHTML = `
             <span class="username">👤 ${currentUser}</span>
